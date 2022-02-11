@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786227B68C66001A0D36 /* AppDelegate.swift */; };
+		ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786427B68C66001A0D36 /* SceneDelegate.swift */; };
+		ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786627B68C66001A0D36 /* ViewController.swift */; };
+		ECCB786A27B68C66001A0D36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCB786827B68C66001A0D36 /* Main.storyboard */; };
+		ECCB786C27B68C69001A0D36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCB786B27B68C69001A0D36 /* Assets.xcassets */; };
+		ECCB786F27B68C69001A0D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCB786D27B68C69001A0D36 /* LaunchScreen.storyboard */; };
+		ECCB787A27B68C69001A0D36 /* PairCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB787927B68C69001A0D36 /* PairCheckerTests.swift */; };
+		ECCB788427B68C69001A0D36 /* PairCheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB788327B68C69001A0D36 /* PairCheckerUITests.swift */; };
+		ECCB788627B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB788527B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift */; };
+		ECCB789327B68CFA001A0D36 /* NameChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB789227B68CFA001A0D36 /* NameChecker.swift */; };
+		ECCB789427B68CFA001A0D36 /* NameChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB789227B68CFA001A0D36 /* NameChecker.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECCB787627B68C69001A0D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECCB785727B68C66001A0D36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCB785E27B68C66001A0D36;
+			remoteInfo = PairChecker;
+		};
+		ECCB788027B68C69001A0D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECCB785727B68C66001A0D36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECCB785E27B68C66001A0D36;
+			remoteInfo = PairChecker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ECCB785F27B68C66001A0D36 /* PairChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCB786227B68C66001A0D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECCB786427B68C66001A0D36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ECCB786627B68C66001A0D36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECCB786927B68C66001A0D36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECCB786B27B68C69001A0D36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECCB786E27B68C69001A0D36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ECCB787027B68C69001A0D36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECCB787527B68C69001A0D36 /* PairCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PairCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCB787927B68C69001A0D36 /* PairCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCheckerTests.swift; sourceTree = "<group>"; };
+		ECCB787F27B68C69001A0D36 /* PairCheckerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PairCheckerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCB788327B68C69001A0D36 /* PairCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCheckerUITests.swift; sourceTree = "<group>"; };
+		ECCB788527B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCheckerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECCB789227B68CFA001A0D36 /* NameChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameChecker.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECCB785C27B68C66001A0D36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCB787227B68C69001A0D36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCB787C27B68C69001A0D36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECCB785627B68C66001A0D36 = {
+			isa = PBXGroup;
+			children = (
+				ECCB786127B68C66001A0D36 /* PairChecker */,
+				ECCB787827B68C69001A0D36 /* PairCheckerTests */,
+				ECCB788227B68C69001A0D36 /* PairCheckerUITests */,
+				ECCB786027B68C66001A0D36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECCB786027B68C66001A0D36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECCB785F27B68C66001A0D36 /* PairChecker.app */,
+				ECCB787527B68C69001A0D36 /* PairCheckerTests.xctest */,
+				ECCB787F27B68C69001A0D36 /* PairCheckerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECCB786127B68C66001A0D36 /* PairChecker */ = {
+			isa = PBXGroup;
+			children = (
+				ECCB786227B68C66001A0D36 /* AppDelegate.swift */,
+				ECCB786427B68C66001A0D36 /* SceneDelegate.swift */,
+				ECCB786627B68C66001A0D36 /* ViewController.swift */,
+				ECCB786827B68C66001A0D36 /* Main.storyboard */,
+				ECCB786B27B68C69001A0D36 /* Assets.xcassets */,
+				ECCB786D27B68C69001A0D36 /* LaunchScreen.storyboard */,
+				ECCB787027B68C69001A0D36 /* Info.plist */,
+				ECCB789227B68CFA001A0D36 /* NameChecker.swift */,
+			);
+			path = PairChecker;
+			sourceTree = "<group>";
+		};
+		ECCB787827B68C69001A0D36 /* PairCheckerTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECCB787927B68C69001A0D36 /* PairCheckerTests.swift */,
+			);
+			path = PairCheckerTests;
+			sourceTree = "<group>";
+		};
+		ECCB788227B68C69001A0D36 /* PairCheckerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ECCB788327B68C69001A0D36 /* PairCheckerUITests.swift */,
+				ECCB788527B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift */,
+			);
+			path = PairCheckerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECCB785E27B68C66001A0D36 /* PairChecker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCB788927B68C69001A0D36 /* Build configuration list for PBXNativeTarget "PairChecker" */;
+			buildPhases = (
+				ECCB785B27B68C66001A0D36 /* Sources */,
+				ECCB785C27B68C66001A0D36 /* Frameworks */,
+				ECCB785D27B68C66001A0D36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PairChecker;
+			productName = PairChecker;
+			productReference = ECCB785F27B68C66001A0D36 /* PairChecker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECCB787427B68C69001A0D36 /* PairCheckerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCB788C27B68C69001A0D36 /* Build configuration list for PBXNativeTarget "PairCheckerTests" */;
+			buildPhases = (
+				ECCB787127B68C69001A0D36 /* Sources */,
+				ECCB787227B68C69001A0D36 /* Frameworks */,
+				ECCB787327B68C69001A0D36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECCB787727B68C69001A0D36 /* PBXTargetDependency */,
+			);
+			name = PairCheckerTests;
+			productName = PairCheckerTests;
+			productReference = ECCB787527B68C69001A0D36 /* PairCheckerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ECCB787E27B68C69001A0D36 /* PairCheckerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECCB788F27B68C69001A0D36 /* Build configuration list for PBXNativeTarget "PairCheckerUITests" */;
+			buildPhases = (
+				ECCB787B27B68C69001A0D36 /* Sources */,
+				ECCB787C27B68C69001A0D36 /* Frameworks */,
+				ECCB787D27B68C69001A0D36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECCB788127B68C69001A0D36 /* PBXTargetDependency */,
+			);
+			name = PairCheckerUITests;
+			productName = PairCheckerUITests;
+			productReference = ECCB787F27B68C69001A0D36 /* PairCheckerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECCB785727B68C66001A0D36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					ECCB785E27B68C66001A0D36 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					ECCB787427B68C69001A0D36 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = ECCB785E27B68C66001A0D36;
+					};
+					ECCB787E27B68C69001A0D36 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = ECCB785E27B68C66001A0D36;
+					};
+				};
+			};
+			buildConfigurationList = ECCB785A27B68C66001A0D36 /* Build configuration list for PBXProject "PairChecker" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECCB785627B68C66001A0D36;
+			productRefGroup = ECCB786027B68C66001A0D36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECCB785E27B68C66001A0D36 /* PairChecker */,
+				ECCB787427B68C69001A0D36 /* PairCheckerTests */,
+				ECCB787E27B68C69001A0D36 /* PairCheckerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECCB785D27B68C66001A0D36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECCB786F27B68C69001A0D36 /* LaunchScreen.storyboard in Resources */,
+				ECCB786C27B68C69001A0D36 /* Assets.xcassets in Resources */,
+				ECCB786A27B68C66001A0D36 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCB787327B68C69001A0D36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCB787D27B68C69001A0D36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECCB785B27B68C66001A0D36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */,
+				ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */,
+				ECCB789327B68CFA001A0D36 /* NameChecker.swift in Sources */,
+				ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCB787127B68C69001A0D36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECCB789427B68CFA001A0D36 /* NameChecker.swift in Sources */,
+				ECCB787A27B68C69001A0D36 /* PairCheckerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECCB787B27B68C69001A0D36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECCB788627B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift in Sources */,
+				ECCB788427B68C69001A0D36 /* PairCheckerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECCB787727B68C69001A0D36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECCB785E27B68C66001A0D36 /* PairChecker */;
+			targetProxy = ECCB787627B68C69001A0D36 /* PBXContainerItemProxy */;
+		};
+		ECCB788127B68C69001A0D36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECCB785E27B68C66001A0D36 /* PairChecker */;
+			targetProxy = ECCB788027B68C69001A0D36 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECCB786827B68C66001A0D36 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECCB786927B68C66001A0D36 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECCB786D27B68C69001A0D36 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECCB786E27B68C69001A0D36 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECCB788727B68C69001A0D36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECCB788827B68C69001A0D36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECCB788A27B68C69001A0D36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZTQ76LJPZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PairChecker/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = YunaeKim.PairChecker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECCB788B27B68C69001A0D36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZTQ76LJPZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PairChecker/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = YunaeKim.PairChecker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ECCB788D27B68C69001A0D36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZTQ76LJPZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = YunaeKim.PairCheckerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PairChecker.app/PairChecker";
+			};
+			name = Debug;
+		};
+		ECCB788E27B68C69001A0D36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZTQ76LJPZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = YunaeKim.PairCheckerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PairChecker.app/PairChecker";
+			};
+			name = Release;
+		};
+		ECCB789027B68C69001A0D36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZTQ76LJPZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = YunaeKim.PairCheckerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PairChecker;
+			};
+			name = Debug;
+		};
+		ECCB789127B68C69001A0D36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6ZTQ76LJPZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = YunaeKim.PairCheckerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PairChecker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECCB785A27B68C66001A0D36 /* Build configuration list for PBXProject "PairChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCB788727B68C69001A0D36 /* Debug */,
+				ECCB788827B68C69001A0D36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCB788927B68C69001A0D36 /* Build configuration list for PBXNativeTarget "PairChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCB788A27B68C69001A0D36 /* Debug */,
+				ECCB788B27B68C69001A0D36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCB788C27B68C69001A0D36 /* Build configuration list for PBXNativeTarget "PairCheckerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCB788D27B68C69001A0D36 /* Debug */,
+				ECCB788E27B68C69001A0D36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECCB788F27B68C69001A0D36 /* Build configuration list for PBXNativeTarget "PairCheckerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECCB789027B68C69001A0D36 /* Debug */,
+				ECCB789127B68C69001A0D36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECCB785727B68C66001A0D36 /* Project object */;
+}
