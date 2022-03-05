@@ -9,28 +9,29 @@ import XCTest
 @testable import PairChecker
 
 class PairCheckerTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testReturnFalseWhenInvalidHangeulIsInput() {
+        let string = "가나1a"
+        XCTAssertFalse(NameChecker.shared.checkValidHangeul(input: string))
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testReturnTrueWhenValidHangeulIsInput() {
+        let string = "홍길동"
+        XCTAssertTrue(NameChecker.shared.checkValidHangeul(input: string))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testHangeulSlicedCollectly() {
+        let string = "홍길동"
+        let expectedBehavior = [["ㅎ","ㅗ","ㅇ"],["ㄱ","ㅣ","ㄹ"],["ㄷ","ㅗ","ㅇ"]]
+        
+        XCTAssertEqual(expectedBehavior, NameChecker.shared.sliceHangeul(hangeul: string))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        
+    func testNameJum() {
+        let person1 = "홍길동"
+        let person2 = "김영빈"
+        
+        XCTAssertEqual(11, NameChecker.shared.calculate(person1: person1, person2: person2))
     }
 
 }

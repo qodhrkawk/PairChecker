@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC5E267727D34B9A00C29631 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E267627D34B9A00C29631 /* String+.swift */; };
+		EC5E267827D34B9A00C29631 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E267627D34B9A00C29631 /* String+.swift */; };
 		ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786227B68C66001A0D36 /* AppDelegate.swift */; };
 		ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786427B68C66001A0D36 /* SceneDelegate.swift */; };
 		ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786627B68C66001A0D36 /* ViewController.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC5E267627D34B9A00C29631 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		ECCB785F27B68C66001A0D36 /* PairChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCB786227B68C66001A0D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECCB786427B68C66001A0D36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 				ECCB786D27B68C69001A0D36 /* LaunchScreen.storyboard */,
 				ECCB787027B68C69001A0D36 /* Info.plist */,
 				ECCB789227B68CFA001A0D36 /* NameChecker.swift */,
+				EC5E267627D34B9A00C29631 /* String+.swift */,
 			);
 			path = PairChecker;
 			sourceTree = "<group>";
@@ -264,6 +268,7 @@
 			files = (
 				ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */,
 				ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */,
+				EC5E267727D34B9A00C29631 /* String+.swift in Sources */,
 				ECCB789327B68CFA001A0D36 /* NameChecker.swift in Sources */,
 				ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */,
 			);
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECCB789427B68CFA001A0D36 /* NameChecker.swift in Sources */,
+				EC5E267827D34B9A00C29631 /* String+.swift in Sources */,
 				ECCB787A27B68C69001A0D36 /* PairCheckerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
