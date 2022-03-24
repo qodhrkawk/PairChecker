@@ -1,5 +1,5 @@
 //
-//  PairCheckerTests.swift
+//  NameCheckerTests.swift
 //  PairCheckerTests
 //
 //  Created by Yunjae Kim on 2022/02/11.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import PairChecker
 
-class PairCheckerTests: XCTestCase {
+class NameCheckerTests: XCTestCase {
     
     func testReturnFalseWhenInvalidHangeulIsInput() {
         let string = "가나1a"

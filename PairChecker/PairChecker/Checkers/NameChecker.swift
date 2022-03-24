@@ -35,8 +35,8 @@ public class NameChecker {
         return true
     }
     
-    func calculate(person1: String, person2: String) -> Int {
-        let sliced = [sliceHangeul(hangeul: person1), sliceHangeul(hangeul: person2)]
+    func calculate(value1: String, value2: String) -> Int {
+        let sliced = [sliceHangeul(hangeul: value1), sliceHangeul(hangeul: value2)]
         return calculateNamePair(name1: sliced[0], name2: sliced[1])
     }
     
@@ -62,7 +62,6 @@ public class NameChecker {
             }
         }
     }
-
 
     func calculateNamePair(name1: [[String]], name2: [[String]]) -> Int {
     
