@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MBTI: Int, CaseIterable {
+enum MBTI: Int, CaseIterable, Codable {
     case ISTJ = 0, ISFJ, INFJ, INTJ, ISTP, ISFP, INFP, INTP, ESTP, ESFP, ENFP, ENTP, ESTJ, ESFJ, ENFJ, ENTJ
 }
 

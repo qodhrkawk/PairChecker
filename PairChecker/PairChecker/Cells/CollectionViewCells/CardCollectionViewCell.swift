@@ -22,18 +22,11 @@ class CardCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         prepareUIs()
+        addContainViewGesture()
+        
     }
-    
-    func setViewModel(viewModel: CardCollectionViewCellViewModel) {
-        self.viewModel = viewModel
-        personSubscription = viewModel.$person
-            .sink(receiveValue: { [weak self] person in
-                guard let self = self else { return }
-                self.adaptAnimal(animal: person.animal)
-            })
-    }
-    
-    func prepareUIs() {
+
+    private func prepareUIs() {
         self.makeRounded(cornerRadius: 35)
         
         circleView.makeRounded(cornerRadius: 80)
@@ -52,9 +45,31 @@ class CardCollectionViewCell: UICollectionViewCell {
         resultButton.makeRounded(cornerRadius: 14)
     }
     
-    func adaptAnimal(animal: Animal) {
+    private func adaptAnimal(animal: Animal) {
         animalImageView.image = UIImage(named: animal.imageName)
         resultButton.backgroundColor = animal.themeColor.uicolor
+    }
+    
+    private func addContainViewGesture() {
+        containView.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(containViewTapped))
+        containView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    
+    @objc func containViewTapped() {
+        UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        NotificationCenter.default.post(name: .didTapCurrentIndex, object: nil)
+    }
+
+    
+    func setViewModel(viewModel: CardCollectionViewCellViewModel) {
+        self.viewModel = viewModel
+        personSubscription = viewModel.$person
+            .sink(receiveValue: { [weak self] person in
+                guard let self = self else { return }
+                self.adaptAnimal(animal: person.animal)
+            })
     }
 
 }

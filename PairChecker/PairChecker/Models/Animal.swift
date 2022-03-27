@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Animal: String, CaseIterable {
+enum Animal: String, CaseIterable, Codable {
     case fox, unicorn, panda, cat, pig, bear, chick, dog, fish, tiger, rat, frog
     
     var themeColor: ThemeColor {

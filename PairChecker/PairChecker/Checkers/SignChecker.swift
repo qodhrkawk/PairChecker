@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Sign: Int, CaseIterable {
+public enum Sign: Int, CaseIterable, Codable {
     case aries = 0, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces
     
     var koreanName: String {

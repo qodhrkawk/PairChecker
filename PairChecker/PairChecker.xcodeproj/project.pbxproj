@@ -28,12 +28,30 @@
 		EC8AAA5027D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */; };
 		EC8AAA5127D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */; };
 		EC98DE9D4BE606DE47E888A2 /* Pods_PairChecker_PairCheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDE20805B923D7B68078EC8 /* Pods_PairChecker_PairCheckerUITests.framework */; };
+		ECA57C1627ED6CFC00002758 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */; };
+		ECA57C1927EED18400002758 /* CardCollectionViewBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */; };
+		ECA57C1A27EED18400002758 /* CardCollectionViewBackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */; };
+		ECA57C1C27EED91000002758 /* CardCollectionViewBackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */; };
 		ECA6562927EC9B7600B14966 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562827EC9B7600B14966 /* UIColor+.swift */; };
 		ECA6562C27ECBE0700B14966 /* MainText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562B27ECBE0700B14966 /* MainText.swift */; };
 		ECA6562E27ECC39700B14966 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562D27ECC39700B14966 /* Animal.swift */; };
 		ECA6563027ECC4FF00B14966 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562F27ECC4FF00B14966 /* ThemeColor.swift */; };
 		ECA6563227ECC68500B14966 /* CardCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6563127ECC68500B14966 /* CardCollectionViewCellViewModel.swift */; };
 		ECA6563427ECC6D300B14966 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6563327ECC6D300B14966 /* Person.swift */; };
+		ECBFC8B227F0B4B200B9E917 /* PeopleStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B127F0B4B200B9E917 /* PeopleStoreManager.swift */; };
+		ECBFC8B427F0B5C100B9E917 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B327F0B5C100B9E917 /* UserDefaultKeys.swift */; };
+		ECBFC8B627F0B65200B9E917 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B527F0B65200B9E917 /* UserDefaultsWrapper.swift */; };
+		ECBFC8BA27F0C03300B9E917 /* PeopleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBFC8B927F0C03300B9E917 /* PeopleList.storyboard */; };
+		ECBFC8BC27F0C04900B9E917 /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8BB27F0C04900B9E917 /* PeopleListViewController.swift */; };
+		ECBFC8BE27F0C2E100B9E917 /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8BD27F0C2E100B9E917 /* UIControl+.swift */; };
+		ECBFC8C027F0C47700B9E917 /* StoryBoardNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8BF27F0C47700B9E917 /* StoryBoardNames.swift */; };
+		ECBFC8C227F0C4EA00B9E917 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8C127F0C4EA00B9E917 /* UIViewController+.swift */; };
+		ECBFC8C427F0C8E600B9E917 /* PeopleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8C327F0C8E600B9E917 /* PeopleListViewModel.swift */; };
+		ECBFC8C827F0CAD000B9E917 /* MainListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8C627F0CAD000B9E917 /* MainListTableViewCell.swift */; };
+		ECBFC8C927F0CAD000B9E917 /* MainListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBFC8C727F0CAD000B9E917 /* MainListTableViewCell.xib */; };
+		ECBFC8CB27F0CFE900B9E917 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8CA27F0CFE900B9E917 /* UITableView+.swift */; };
+		ECBFC8CE27F0D0E500B9E917 /* MainListTableViewAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8CC27F0D0E500B9E917 /* MainListTableViewAddCell.swift */; };
+		ECBFC8CF27F0D0E500B9E917 /* MainListTableViewAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBFC8CD27F0D0E500B9E917 /* MainListTableViewAddCell.xib */; };
 		ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786227B68C66001A0D36 /* AppDelegate.swift */; };
 		ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786427B68C66001A0D36 /* SceneDelegate.swift */; };
 		ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786627B68C66001A0D36 /* ViewController.swift */; };
@@ -84,12 +102,30 @@
 		EC5E269427D3583700C29631 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EC8AAA4927D6398A0022CDA7 /* MBTIChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTIChecker.swift; sourceTree = "<group>"; };
 		EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodTypeChecker.swift; sourceTree = "<group>"; };
+		ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
+		ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewBackCell.swift; sourceTree = "<group>"; };
+		ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewBackCell.xib; sourceTree = "<group>"; };
+		ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewBackCellViewModel.swift; sourceTree = "<group>"; };
 		ECA6562827EC9B7600B14966 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		ECA6562B27ECBE0700B14966 /* MainText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainText.swift; sourceTree = "<group>"; };
 		ECA6562D27ECC39700B14966 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		ECA6562F27ECC4FF00B14966 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		ECA6563127ECC68500B14966 /* CardCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		ECA6563327ECC6D300B14966 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		ECBFC8B127F0B4B200B9E917 /* PeopleStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleStoreManager.swift; sourceTree = "<group>"; };
+		ECBFC8B327F0B5C100B9E917 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		ECBFC8B527F0B65200B9E917 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
+		ECBFC8B927F0C03300B9E917 /* PeopleList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PeopleList.storyboard; sourceTree = "<group>"; };
+		ECBFC8BB27F0C04900B9E917 /* PeopleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
+		ECBFC8BD27F0C2E100B9E917 /* UIControl+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
+		ECBFC8BF27F0C47700B9E917 /* StoryBoardNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardNames.swift; sourceTree = "<group>"; };
+		ECBFC8C127F0C4EA00B9E917 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		ECBFC8C327F0C8E600B9E917 /* PeopleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewModel.swift; sourceTree = "<group>"; };
+		ECBFC8C627F0CAD000B9E917 /* MainListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListTableViewCell.swift; sourceTree = "<group>"; };
+		ECBFC8C727F0CAD000B9E917 /* MainListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainListTableViewCell.xib; sourceTree = "<group>"; };
+		ECBFC8CA27F0CFE900B9E917 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		ECBFC8CC27F0D0E500B9E917 /* MainListTableViewAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListTableViewAddCell.swift; sourceTree = "<group>"; };
+		ECBFC8CD27F0D0E500B9E917 /* MainListTableViewAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainListTableViewAddCell.xib; sourceTree = "<group>"; };
 		ECCB785F27B68C66001A0D36 /* PairChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCB786227B68C66001A0D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECCB786427B68C66001A0D36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,8 +198,14 @@
 			children = (
 				EC5E267627D34B9A00C29631 /* String+.swift */,
 				EC5E269127D3581500C29631 /* UICollectionView+.swift */,
+				ECBFC8CA27F0CFE900B9E917 /* UITableView+.swift */,
 				EC5E269427D3583700C29631 /* UIView+.swift */,
 				ECA6562827EC9B7600B14966 /* UIColor+.swift */,
+				ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */,
+				ECBFC8B327F0B5C100B9E917 /* UserDefaultKeys.swift */,
+				ECBFC8B527F0B65200B9E917 /* UserDefaultsWrapper.swift */,
+				ECBFC8BD27F0C2E100B9E917 /* UIControl+.swift */,
+				ECBFC8C127F0C4EA00B9E917 /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				EC5E268427D3554D00C29631 /* MainViewController.swift */,
+				ECBFC8BB27F0C04900B9E917 /* PeopleListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -192,6 +235,8 @@
 			children = (
 				EC5E268727D355C900C29631 /* MainViewModel.swift */,
 				ECA6563127ECC68500B14966 /* CardCollectionViewCellViewModel.swift */,
+				ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */,
+				ECBFC8C327F0C8E600B9E917 /* PeopleListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,6 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				ECCB786827B68C66001A0D36 /* Main.storyboard */,
+				ECBFC8B927F0C03300B9E917 /* PeopleList.storyboard */,
+				ECBFC8BF27F0C47700B9E917 /* StoryBoardNames.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -207,6 +254,7 @@
 		EC5E268A27D3575800C29631 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ECBFC8C527F0CAB100B9E917 /* TableViewCells */,
 				EC5E268B27D3575D00C29631 /* CollectionViewCells */,
 			);
 			path = Cells;
@@ -216,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				EC5E268C27D3578700C29631 /* CardCollectionViewCell.swift */,
+				ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -223,7 +272,8 @@
 		EC5E269027D3578E00C29631 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				EC5E268D27D3578700C29631 /* CardCollectionViewCell.xib */,
+				ECBFC8D127F0D0F500B9E917 /* TableViewCell */,
+				ECBFC8D027F0D0EC00B9E917 /* CollectionVIewCell */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -237,6 +287,41 @@
 				ECA6563327ECC6D300B14966 /* Person.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ECBFC8B027F0B49900B9E917 /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				ECBFC8B127F0B4B200B9E917 /* PeopleStoreManager.swift */,
+			);
+			path = CustomClass;
+			sourceTree = "<group>";
+		};
+		ECBFC8C527F0CAB100B9E917 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				ECBFC8C627F0CAD000B9E917 /* MainListTableViewCell.swift */,
+				ECBFC8CC27F0D0E500B9E917 /* MainListTableViewAddCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		ECBFC8D027F0D0EC00B9E917 /* CollectionVIewCell */ = {
+			isa = PBXGroup;
+			children = (
+				ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */,
+				EC5E268D27D3578700C29631 /* CardCollectionViewCell.xib */,
+			);
+			path = CollectionVIewCell;
+			sourceTree = "<group>";
+		};
+		ECBFC8D127F0D0F500B9E917 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				ECBFC8C727F0CAD000B9E917 /* MainListTableViewCell.xib */,
+				ECBFC8CD27F0D0E500B9E917 /* MainListTableViewAddCell.xib */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		ECCB785627B68C66001A0D36 = {
@@ -264,6 +349,7 @@
 		ECCB786127B68C66001A0D36 /* PairChecker */ = {
 			isa = PBXGroup;
 			children = (
+				ECBFC8B027F0B49900B9E917 /* CustomClass */,
 				ECA6562A27ECBDF400B14966 /* Models */,
 				EC5E269027D3578E00C29631 /* Xibs */,
 				EC5E268A27D3575800C29631 /* Cells */,
@@ -406,8 +492,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA57C1A27EED18400002758 /* CardCollectionViewBackCell.xib in Resources */,
+				ECBFC8C927F0CAD000B9E917 /* MainListTableViewCell.xib in Resources */,
+				ECBFC8CF27F0D0E500B9E917 /* MainListTableViewAddCell.xib in Resources */,
 				EC5E268F27D3578700C29631 /* CardCollectionViewCell.xib in Resources */,
 				ECCB786F27B68C69001A0D36 /* LaunchScreen.storyboard in Resources */,
+				ECBFC8BA27F0C03300B9E917 /* PeopleList.storyboard in Resources */,
 				ECCB786C27B68C69001A0D36 /* Assets.xcassets in Resources */,
 				ECCB786A27B68C66001A0D36 /* Main.storyboard in Resources */,
 			);
@@ -509,17 +599,31 @@
 				EC5E267727D34B9A00C29631 /* String+.swift in Sources */,
 				EC5E269227D3581500C29631 /* UICollectionView+.swift in Sources */,
 				ECCB789327B68CFA001A0D36 /* NameChecker.swift in Sources */,
+				ECBFC8BE27F0C2E100B9E917 /* UIControl+.swift in Sources */,
+				ECBFC8C427F0C8E600B9E917 /* PeopleListViewModel.swift in Sources */,
+				ECBFC8B227F0B4B200B9E917 /* PeopleStoreManager.swift in Sources */,
 				ECA6562C27ECBE0700B14966 /* MainText.swift in Sources */,
+				ECBFC8C827F0CAD000B9E917 /* MainListTableViewCell.swift in Sources */,
+				ECBFC8B427F0B5C100B9E917 /* UserDefaultKeys.swift in Sources */,
 				EC8AAA5027D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */,
 				ECA6563027ECC4FF00B14966 /* ThemeColor.swift in Sources */,
+				ECBFC8CE27F0D0E500B9E917 /* MainListTableViewAddCell.swift in Sources */,
 				EC5E267C27D34F3A00C29631 /* SignChecker.swift in Sources */,
 				ECA6562E27ECC39700B14966 /* Animal.swift in Sources */,
+				ECBFC8BC27F0C04900B9E917 /* PeopleListViewController.swift in Sources */,
 				ECA6563227ECC68500B14966 /* CardCollectionViewCellViewModel.swift in Sources */,
 				ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */,
 				EC5E269527D3583700C29631 /* UIView+.swift in Sources */,
+				ECBFC8B627F0B65200B9E917 /* UserDefaultsWrapper.swift in Sources */,
+				ECA57C1C27EED91000002758 /* CardCollectionViewBackCellViewModel.swift in Sources */,
 				ECA6563427ECC6D300B14966 /* Person.swift in Sources */,
+				ECA57C1627ED6CFC00002758 /* NotificationCenter+.swift in Sources */,
 				EC5E268E27D3578700C29631 /* CardCollectionViewCell.swift in Sources */,
+				ECBFC8CB27F0CFE900B9E917 /* UITableView+.swift in Sources */,
+				ECA57C1927EED18400002758 /* CardCollectionViewBackCell.swift in Sources */,
+				ECBFC8C227F0C4EA00B9E917 /* UIViewController+.swift in Sources */,
 				EC5E268827D355C900C29631 /* MainViewModel.swift in Sources */,
+				ECBFC8C027F0C47700B9E917 /* StoryBoardNames.swift in Sources */,
 				EC8AAA4A27D6398A0022CDA7 /* MBTIChecker.swift in Sources */,
 				ECA6562927EC9B7600B14966 /* UIColor+.swift in Sources */,
 			);
@@ -637,7 +741,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -692,7 +796,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -1,21 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "Ellipse 38 (2).png",
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "imgMainCircleYellow.png"
     },
     {
       "idiom" : "universal",
+      "filename" : "imgMainCircleYellow@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "imgMainCircleYellow@3x.png"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }

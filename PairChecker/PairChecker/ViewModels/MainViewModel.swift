@@ -16,17 +16,29 @@ class MainViewModel {
     
     @Published var people: [Person] = []
     
+    @Published var currentIndex: Int = 0
+    var frontModifedIndex: Int = -1
+    
     private var mainIndexSubscription: AnyCancellable?
     
     init() {
         makeRandomMainText()
-        var pp: [Person] = []
-        Animal.allCases.forEach {
-            pp.append(Person(animal: $0))
-        }
-        people = pp
-        mainColor = pp[0].animal.themeColor
+        reloadPeople()
         
+        mainIndexSubscription = $currentIndex
+            .sink(receiveValue: { [weak self] index in
+                guard let self = self,
+                      index >= 0,
+                      index < self.people.count
+                else { return }
+                self.publishColorWithPerson(person: self.people[index])
+            })
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFrontInfo), name: .didTapCurrentIndex, object: nil)
+    }
+    
+    func reloadPeople() {
+        self.people = PeopleStoreManager.shared.getStoredPeople()
     }
     
     func publishColorWithPerson(person: Person) {
@@ -42,6 +54,20 @@ class MainViewModel {
         }
     }
     
+    func updateCurrentIndex(index: Int) {
+        self.currentIndex = index
+    }
     
+    @objc func updateFrontInfo() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: { [weak self] in
+            guard let self = self else{ return }
+            self.frontModifedIndex = self.currentIndex
+            self.people[self.currentIndex].front = !self.people[self.currentIndex].front
+        })
+    }
+    
+    func updatedFrontInfo() {
+        self.frontModifedIndex = -1
+    }
     
 }

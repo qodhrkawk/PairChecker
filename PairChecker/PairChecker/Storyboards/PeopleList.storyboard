@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PeopleListViewController-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="PeopleListViewController" title="PeopleListViewController" id="Y6W-OH-hqX" customClass="PeopleListViewController" customModule="PairChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqJ-i7-aZd">
+                                <rect key="frame" x="314" y="0.0" width="100" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4gI-qQ-PmF"/>
+                                    <constraint firstAttribute="height" constant="80" id="eMA-nw-tcW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMainCard" translatesAutoresizingMaskIntoConstraints="NO" id="gY6-i2-05N">
+                                <rect key="frame" x="314" y="53" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="p9h-yQ-FKK"/>
+                                    <constraint firstAttribute="height" constant="16" id="rdO-4w-YEE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="카드 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xM-QV-7Y6">
+                                <rect key="frame" x="352" y="30" width="53" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dwl-xi-gWF">
+                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dwl-xi-gWF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HuZ-Gp-5sa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hqJ-i7-aZd" secondAttribute="trailing" id="InY-1A-gvJ"/>
+                            <constraint firstAttribute="bottom" secondItem="dwl-xi-gWF" secondAttribute="bottom" id="aWs-A0-uSu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dwl-xi-gWF" secondAttribute="trailing" id="byG-tb-Z79"/>
+                            <constraint firstItem="1xM-QV-7Y6" firstAttribute="leading" secondItem="gY6-i2-05N" secondAttribute="trailing" constant="2" id="mTt-EG-CAB"/>
+                            <constraint firstItem="gY6-i2-05N" firstAttribute="leading" secondItem="hqJ-i7-aZd" secondAttribute="leading" id="rAU-De-XCJ"/>
+                            <constraint firstItem="1xM-QV-7Y6" firstAttribute="centerY" secondItem="gY6-i2-05N" secondAttribute="centerY" id="ucj-UY-uYe"/>
+                            <constraint firstItem="dwl-xi-gWF" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="94" id="vcD-7h-RbO"/>
+                            <constraint firstItem="hqJ-i7-aZd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wkE-AA-bD3"/>
+                            <constraint firstItem="gY6-i2-05N" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="53" id="yfB-FU-dET"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardButton" destination="hqJ-i7-aZd" id="EfM-FH-ehu"/>
+                        <outlet property="peopleTableView" destination="dwl-xi-gWF" id="7fR-1g-iZs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="94.419642857142847"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icMainCard" width="16" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

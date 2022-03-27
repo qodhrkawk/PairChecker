@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-enum Section: Hashable {
+enum MainCardSection: Hashable {
     case main
 }
 
@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainTextLabel: UILabel!
     @IBOutlet weak var highLightImageView: UIImageView!
     @IBOutlet weak var circleImageView: UIImageView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var listButton: UIButton!
     
     @IBOutlet var yDiffConstraints: [NSLayoutConstraint]!
     
@@ -30,38 +32,59 @@ class MainViewController: UIViewController {
     private var themeColorSubscription: AnyCancellable?
     
     private var dataSource: DataSource?
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, Person>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Person>
+    typealias DataSource = UICollectionViewDiffableDataSource<MainCardSection, Person>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<MainCardSection, Person>
+    
+    var cancellables = Set<AnyCancellable>()
     
     private var people: [Person] = []
-    @Published var currentIndex: CGFloat = 0.0
+    var currentIndex: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareUIs()
+        setupCollectionView()
         setupDataSource()
         bindViewModel()
+        bindButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.reloadPeople()
     }
     
     private func prepareUIs() {
         view.backgroundColor = .mainBackground
-        setupCollectionView()
         
         mainTextLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         mainTextLabel.textColor = .white
+        
+        addButton.setImage(UIImage(named: "btnMainNew"), for: .normal)
+    }
+    
+    private func bindButton() {
+        listButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { _ in
+                guard let peopleListViewController = PeopleListViewController.instantiateFromStoryboard(StoryboardName.peopleList) else { return }
+                peopleListViewController.beforeView = self.view
+                UIView.transition(from: self.view, to: peopleListViewController.view, duration: 1.0, options: .transitionFlipFromLeft, completion: nil)
+            })
+            .store(in: &cancellables)
     }
     
     private func setupCollectionView() {
         cardCollectionView.registerCell(cell: CardCollectionViewCell.self)
+        cardCollectionView.registerCell(cell: CardCollectionViewBackCell.self)
         cardCollectionView.backgroundColor = .mainBackground
         
         cardCollectionView.decelerationRate = .fast
         cardCollectionView.isPagingEnabled = false
-
+        
         let cellWidth: CGFloat = UIScreen.main.bounds.width - 111
         let cellHeight: CGFloat = cardCollectionView.frame.height
-                
+        
         let layout = cardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         layout.minimumLineSpacing = 24.0
@@ -70,7 +93,6 @@ class MainViewController: UIViewController {
         cardCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         
         cardCollectionView.delegate = self
-//        cardCollectionView.dataSource = self
     }
     
     private func bindViewModel() {
@@ -88,6 +110,7 @@ class MainViewController: UIViewController {
                     self.circleImageView.alpha = 0
                 }
             })
+
         peopleSubscription = viewModel.$people
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] people in
@@ -106,8 +129,26 @@ class MainViewController: UIViewController {
     
     private func setupDataSource() {
         self.dataSource = UICollectionViewDiffableDataSource(collectionView: cardCollectionView, cellProvider: { [weak self] (collectionView, indexPath, person) -> UICollectionViewCell? in
+            guard let self = self else { return UICollectionViewCell() }
+            guard person.front else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewBackCell", for: indexPath) as! CardCollectionViewBackCell
+                cell.setViewModel(viewModel: CardCollectionViewBackCellViewModel(person: person))
+                if self.viewModel.frontModifedIndex != -1 && self.viewModel.frontModifedIndex == indexPath.row {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: {
+                        UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+                    })
+                    self.viewModel.frontModifedIndex = -1
+                }
+                return cell
+            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
             cell.setViewModel(viewModel: CardCollectionViewCellViewModel(person: person))
+            if self.viewModel.frontModifedIndex != -1 && self.viewModel.frontModifedIndex == indexPath.row {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: {
+                    UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+                })
+                self.viewModel.frontModifedIndex = -1
+            }
             return cell
         })
     }
@@ -133,7 +174,7 @@ extension MainViewController: UIScrollViewDelegate {
         if scrollView == cardCollectionView {
             let layout = self.cardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
             let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-
+            
             var offset = targetContentOffset.pointee
             let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
             var roundedIndex = round(index)
@@ -150,7 +191,7 @@ extension MainViewController: UIScrollViewDelegate {
                 currentIndex += 1
                 roundedIndex = currentIndex
             }
-            viewModel.publishColorWithPerson(person: people[Int(currentIndex)])
+            viewModel.updateCurrentIndex(index: Int(currentIndex))
             
             offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
             targetContentOffset.pointee = offset

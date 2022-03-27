@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Person: Hashable{
+struct Person: Hashable, Codable {
     let animal: Animal
+    let name: String
+    let birthDate: String?
+    let sign: Sign?
+    let bloodType: BloodType?
+    let mbti: MBTI?
     
+    var front: Bool = true
 }

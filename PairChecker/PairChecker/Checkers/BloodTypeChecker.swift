@@ -7,8 +7,17 @@
 
 import Foundation
 
-enum BloodType: Int {
+enum BloodType: Int, Codable {
     case A = 0, B, AB, O
+    
+    var koreanName: String {
+        switch self {
+        case .A: return "A형"
+        case .B: return "B형"
+        case .AB: return "AB형"
+        case .O: return "O형"
+        }
+    }
 }
 
 enum Gender: Int {
