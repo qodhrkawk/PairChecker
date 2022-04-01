@@ -18,12 +18,15 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     private var viewModel: CardCollectionViewCellViewModel?
     private var personSubscription: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
+    
+    var mainViewDelegate: MainViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         prepareUIs()
         addContainViewGesture()
-        
+        bindResultButton()
     }
 
     private func prepareUIs() {
@@ -56,6 +59,17 @@ class CardCollectionViewCell: UICollectionViewCell {
         containView.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    private func bindResultButton() {
+        resultButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self = self,
+                      let person = self.viewModel?.person
+                else { return }
+                self.mainViewDelegate?.check(person: person)
+            })
+            .store(in: &cancellables)
+    }
     
     @objc func containViewTapped() {
         UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class CardCollectionViewBackCell: UICollectionViewCell {
     
@@ -13,6 +14,11 @@ class CardCollectionViewBackCell: UICollectionViewCell {
     @IBOutlet var infoLabels: [UILabel]!
     @IBOutlet weak var containView: UIView!
     @IBOutlet weak var resultButton: UIButton!
+    
+    var mainViewDelegate: MainViewDelegate?
+    
+    private var cancellables = Set<AnyCancellable>()
+
     
     private var viewModel: CardCollectionViewBackCellViewModel? {
         didSet {
@@ -48,6 +54,7 @@ class CardCollectionViewBackCell: UICollectionViewCell {
             titleLabel.textColor = .textblack
             titleLabel.alpha = 0.4
         }
+        self.makeRounded(cornerRadius: 35)
         containView.makeRounded(cornerRadius: 35)
         
         resultButton.setTitleColor(.black, for: .normal)
@@ -62,6 +69,17 @@ class CardCollectionViewBackCell: UICollectionViewCell {
         containView.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    private func bindResultButton() {
+        resultButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self = self,
+                      let person = self.viewModel?.person
+                else { return }
+                self.mainViewDelegate?.check(person: person)
+            })
+            .store(in: &cancellables)
+    }
     
     @objc func containViewTapped() {
         UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)

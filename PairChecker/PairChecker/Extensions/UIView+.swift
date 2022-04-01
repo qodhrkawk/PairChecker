@@ -22,4 +22,17 @@ extension UIView {
         }
         self.layer.masksToBounds = true
     }
+    
+    func setBorder(borderColor : UIColor?, borderWidth : CGFloat?) {
+        if let borderColor_ = borderColor {
+            self.layer.borderColor = borderColor_.cgColor
+        } else {
+            self.layer.borderColor = UIColor(red: 205/255, green: 209/255, blue: 208/255, alpha: 1.0).cgColor
+        }
+        if let borderWidth_ = borderWidth {
+            self.layer.borderWidth = borderWidth_
+        } else {
+            self.layer.borderWidth = 1.0
+        }
+    }
 }

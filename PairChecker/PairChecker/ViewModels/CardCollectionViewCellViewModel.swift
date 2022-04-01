@@ -15,6 +15,8 @@ class CardCollectionViewCellViewModel {
         self.person = person
     }
     
-    
+    func check() {
+        
+    }
     
 }

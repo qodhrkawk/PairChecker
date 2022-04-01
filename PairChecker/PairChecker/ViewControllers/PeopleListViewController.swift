@@ -27,26 +27,27 @@ class PeopleListViewController: UIViewController {
     
     var viewModel = PeopleListViewModel()
     var cancellables = Set<AnyCancellable>()
-    var beforeView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUIs()
         bindViewModel()
-        cardButton
-            .publisher(for: .touchUpInside)
-            .sink(receiveValue: { _ in
-//                self.dismiss(animated: true, completion: nil)
-                UIView.transition(from: self.view, to: self.beforeView!, duration: 1.0, options: .transitionFlipFromLeft, completion: nil)
-            })
-            .store(in: &cancellables)
-        
+        bindButton()
     }
     
     private func prepareUIs() {
         self.view.backgroundColor = .mainBackground
         prepareListTableView()
         
+    }
+    
+    private func bindButton() {
+        cardButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { _ in
+                self.navigationController?.popViewController(animated: true)
+            })
+            .store(in: &cancellables)
     }
     
     private func prepareListTableView() {

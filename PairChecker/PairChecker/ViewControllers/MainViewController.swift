@@ -68,8 +68,8 @@ class MainViewController: UIViewController {
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { _ in
                 guard let peopleListViewController = PeopleListViewController.instantiateFromStoryboard(StoryboardName.peopleList) else { return }
-                peopleListViewController.beforeView = self.view
-                UIView.transition(from: self.view, to: peopleListViewController.view, duration: 1.0, options: .transitionFlipFromLeft, completion: nil)
+                self.navigationController?.pushViewController(peopleListViewController, animated: true)
+                
             })
             .store(in: &cancellables)
     }
@@ -137,8 +137,10 @@ class MainViewController: UIViewController {
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: {
                         UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
                     })
+//                    Thread.sleep(forTimeInterval: 0.4)
                     self.viewModel.frontModifedIndex = -1
                 }
+                cell.mainViewDelegate = self
                 return cell
             }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
@@ -147,8 +149,10 @@ class MainViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: {
                     UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
                 })
+//                Thread.sleep(forTimeInterval: 0.4)
                 self.viewModel.frontModifedIndex = -1
             }
+            cell.mainViewDelegate = self
             return cell
         })
     }
@@ -197,5 +201,14 @@ extension MainViewController: UIScrollViewDelegate {
             targetContentOffset.pointee = offset
         }
         
+    }
+}
+
+extension MainViewController: MainViewDelegate {
+    func check(person: Person) {
+        guard let personSelectViewController = PersonSelectViewController.instantiateFromStoryboard(StoryboardName.personSelect) else { return }
+        personSelectViewController.viewModel.mainPerson = person
+        personSelectViewController.modalPresentationStyle = .fullScreen
+        self.present(personSelectViewController, animated: true, completion: nil)
     }
 }

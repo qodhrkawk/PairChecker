@@ -28,6 +28,13 @@
 		EC8AAA5027D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */; };
 		EC8AAA5127D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */; };
 		EC98DE9D4BE606DE47E888A2 /* Pods_PairChecker_PairCheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDE20805B923D7B68078EC8 /* Pods_PairChecker_PairCheckerUITests.framework */; };
+		ECA522D427F1DE290004B8D2 /* PersonSelect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA522D327F1DE290004B8D2 /* PersonSelect.storyboard */; };
+		ECA522D627F1DE3F0004B8D2 /* PersonSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522D527F1DE3F0004B8D2 /* PersonSelectViewController.swift */; };
+		ECA522D927F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522D727F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift */; };
+		ECA522DA27F1E0180004B8D2 /* PeopleSelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA522D827F1E0180004B8D2 /* PeopleSelectCollectionViewCell.xib */; };
+		ECA522DC27F1E19C0004B8D2 /* PeopleSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522DB27F1E19C0004B8D2 /* PeopleSelectViewModel.swift */; };
+		ECA522E027F1E4810004B8D2 /* MainViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */; };
+		ECA522E327F1F3000004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522E227F1F2FF0004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift */; };
 		ECA57C1627ED6CFC00002758 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */; };
 		ECA57C1927EED18400002758 /* CardCollectionViewBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */; };
 		ECA57C1A27EED18400002758 /* CardCollectionViewBackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */; };
@@ -102,6 +109,13 @@
 		EC5E269427D3583700C29631 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EC8AAA4927D6398A0022CDA7 /* MBTIChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTIChecker.swift; sourceTree = "<group>"; };
 		EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodTypeChecker.swift; sourceTree = "<group>"; };
+		ECA522D327F1DE290004B8D2 /* PersonSelect.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonSelect.storyboard; sourceTree = "<group>"; };
+		ECA522D527F1DE3F0004B8D2 /* PersonSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSelectViewController.swift; sourceTree = "<group>"; };
+		ECA522D727F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECA522D827F1E0180004B8D2 /* PeopleSelectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleSelectCollectionViewCell.xib; sourceTree = "<group>"; };
+		ECA522DB27F1E19C0004B8D2 /* PeopleSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectViewModel.swift; sourceTree = "<group>"; };
+		ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDelegate.swift; sourceTree = "<group>"; };
+		ECA522E227F1F2FF0004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectionCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
 		ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewBackCell.swift; sourceTree = "<group>"; };
 		ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewBackCell.xib; sourceTree = "<group>"; };
@@ -226,6 +240,7 @@
 			children = (
 				EC5E268427D3554D00C29631 /* MainViewController.swift */,
 				ECBFC8BB27F0C04900B9E917 /* PeopleListViewController.swift */,
+				ECA522D527F1DE3F0004B8D2 /* PersonSelectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -237,6 +252,7 @@
 				ECA6563127ECC68500B14966 /* CardCollectionViewCellViewModel.swift */,
 				ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */,
 				ECBFC8C327F0C8E600B9E917 /* PeopleListViewModel.swift */,
+				ECA522DB27F1E19C0004B8D2 /* PeopleSelectViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -246,6 +262,7 @@
 			children = (
 				ECCB786827B68C66001A0D36 /* Main.storyboard */,
 				ECBFC8B927F0C03300B9E917 /* PeopleList.storyboard */,
+				ECA522D327F1DE290004B8D2 /* PersonSelect.storyboard */,
 				ECBFC8BF27F0C47700B9E917 /* StoryBoardNames.swift */,
 			);
 			path = Storyboards;
@@ -263,6 +280,8 @@
 		EC5E268B27D3575D00C29631 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				ECA522E127F1F2D80004B8D2 /* CollectionViewFlowLayouts */,
+				ECA522D727F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift */,
 				EC5E268C27D3578700C29631 /* CardCollectionViewCell.swift */,
 				ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */,
 			);
@@ -276,6 +295,30 @@
 				ECBFC8D027F0D0EC00B9E917 /* CollectionVIewCell */,
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		ECA522DD27F1E4550004B8D2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ECA522DE27F1E45C0004B8D2 /* Delegates */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		ECA522DE27F1E45C0004B8D2 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		ECA522E127F1F2D80004B8D2 /* CollectionViewFlowLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				ECA522E227F1F2FF0004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift */,
+			);
+			path = CollectionViewFlowLayouts;
 			sourceTree = "<group>";
 		};
 		ECA6562A27ECBDF400B14966 /* Models */ = {
@@ -311,6 +354,7 @@
 			children = (
 				ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */,
 				EC5E268D27D3578700C29631 /* CardCollectionViewCell.xib */,
+				ECA522D827F1E0180004B8D2 /* PeopleSelectCollectionViewCell.xib */,
 			);
 			path = CollectionVIewCell;
 			sourceTree = "<group>";
@@ -349,6 +393,7 @@
 		ECCB786127B68C66001A0D36 /* PairChecker */ = {
 			isa = PBXGroup;
 			children = (
+				ECA522DD27F1E4550004B8D2 /* Protocols */,
 				ECBFC8B027F0B49900B9E917 /* CustomClass */,
 				ECA6562A27ECBDF400B14966 /* Models */,
 				EC5E269027D3578E00C29631 /* Xibs */,
@@ -493,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA57C1A27EED18400002758 /* CardCollectionViewBackCell.xib in Resources */,
+				ECA522D427F1DE290004B8D2 /* PersonSelect.storyboard in Resources */,
 				ECBFC8C927F0CAD000B9E917 /* MainListTableViewCell.xib in Resources */,
 				ECBFC8CF27F0D0E500B9E917 /* MainListTableViewAddCell.xib in Resources */,
 				EC5E268F27D3578700C29631 /* CardCollectionViewCell.xib in Resources */,
@@ -500,6 +546,7 @@
 				ECBFC8BA27F0C03300B9E917 /* PeopleList.storyboard in Resources */,
 				ECCB786C27B68C69001A0D36 /* Assets.xcassets in Resources */,
 				ECCB786A27B68C66001A0D36 /* Main.storyboard in Resources */,
+				ECA522DA27F1E0180004B8D2 /* PeopleSelectCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA522E327F1F3000004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift in Sources */,
 				EC5E268527D3554D00C29631 /* MainViewController.swift in Sources */,
 				ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */,
 				ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */,
@@ -608,11 +656,13 @@
 				EC8AAA5027D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */,
 				ECA6563027ECC4FF00B14966 /* ThemeColor.swift in Sources */,
 				ECBFC8CE27F0D0E500B9E917 /* MainListTableViewAddCell.swift in Sources */,
+				ECA522DC27F1E19C0004B8D2 /* PeopleSelectViewModel.swift in Sources */,
 				EC5E267C27D34F3A00C29631 /* SignChecker.swift in Sources */,
 				ECA6562E27ECC39700B14966 /* Animal.swift in Sources */,
 				ECBFC8BC27F0C04900B9E917 /* PeopleListViewController.swift in Sources */,
 				ECA6563227ECC68500B14966 /* CardCollectionViewCellViewModel.swift in Sources */,
 				ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */,
+				ECA522D627F1DE3F0004B8D2 /* PersonSelectViewController.swift in Sources */,
 				EC5E269527D3583700C29631 /* UIView+.swift in Sources */,
 				ECBFC8B627F0B65200B9E917 /* UserDefaultsWrapper.swift in Sources */,
 				ECA57C1C27EED91000002758 /* CardCollectionViewBackCellViewModel.swift in Sources */,
@@ -623,7 +673,9 @@
 				ECA57C1927EED18400002758 /* CardCollectionViewBackCell.swift in Sources */,
 				ECBFC8C227F0C4EA00B9E917 /* UIViewController+.swift in Sources */,
 				EC5E268827D355C900C29631 /* MainViewModel.swift in Sources */,
+				ECA522D927F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift in Sources */,
 				ECBFC8C027F0C47700B9E917 /* StoryBoardNames.swift in Sources */,
+				ECA522E027F1E4810004B8D2 /* MainViewDelegate.swift in Sources */,
 				EC8AAA4A27D6398A0022CDA7 /* MBTIChecker.swift in Sources */,
 				ECA6562927EC9B7600B14966 /* UIColor+.swift in Sources */,
 			);
