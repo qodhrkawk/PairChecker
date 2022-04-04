@@ -15,6 +15,4 @@ class CardCollectionViewBackCellViewModel {
         self.person = person
     }
     
-    
-    
 }

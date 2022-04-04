@@ -1,21 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "Vector 7.png",
       "idiom" : "universal",
+      "filename" : "imgMainLineBlue.png",
       "scale" : "1x"
     },
     {
+      "filename" : "imgMainLineBlue@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "imgMainLineBlue@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }

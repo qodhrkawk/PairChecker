@@ -40,7 +40,7 @@ class PeopleSelectCollectionViewCell: UICollectionViewCell {
             self.containView.setBorder(borderColor: .white, borderWidth: 2.0)
         })
 
-        let generator = UIImpactFeedbackGenerator(style: .light)
+        let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
     }
     

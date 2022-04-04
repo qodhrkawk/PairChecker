@@ -20,10 +20,9 @@ class PeopleListViewController: UIViewController {
     
     typealias DataSource = UITableViewDiffableDataSource<MainListSection, Person>
     typealias Snapshot = NSDiffableDataSourceSnapshot<MainListSection, Person>
+    
     private var dataSource: DataSource?
-    
     private var peopleSubscription: AnyCancellable?
-    
     
     var viewModel = PeopleListViewModel()
     var cancellables = Set<AnyCancellable>()
@@ -108,7 +107,6 @@ extension PeopleListViewController: UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [deletion])
     }
-    
 }
 
 

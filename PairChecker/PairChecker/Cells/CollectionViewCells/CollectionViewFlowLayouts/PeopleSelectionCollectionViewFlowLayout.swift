@@ -8,8 +8,6 @@
 import UIKit
 
 class PeopleSelectionCollectionViewFlowLayout: UICollectionViewFlowLayout {
-    private var isInit: Bool = false
-    var delegate: PeopleSelectionCollectionViewLayoutDelegate?
     
     let activeDistance: CGFloat = 200
     let zoomFactor: CGFloat = 0.5
@@ -71,7 +69,7 @@ class PeopleSelectionCollectionViewFlowLayout: UICollectionViewFlowLayout {
                 offsetAdjustment = itemHorizontalCenter - horizontalCenter
             }
         }
-        delegate?.offsetAdjusted()
+
         return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
     }
     
@@ -86,8 +84,4 @@ class PeopleSelectionCollectionViewFlowLayout: UICollectionViewFlowLayout {
         return context
     }
     
-}
-
-protocol PeopleSelectionCollectionViewLayoutDelegate {
-    func offsetAdjusted()
 }

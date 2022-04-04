@@ -6,6 +6,8 @@ target 'PairChecker' do
   use_frameworks!
 
   # Pods for PairChecker
+  pod 'SnapKit', '~> 5.0.0'
+
 
   target 'PairCheckerTests' do
     inherit! :search_paths
@@ -15,5 +17,6 @@ target 'PairChecker' do
   target 'PairCheckerUITests' do
     # Pods for testing
   end
+
 
 end

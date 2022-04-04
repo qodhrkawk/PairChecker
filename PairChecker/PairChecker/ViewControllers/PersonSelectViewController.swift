@@ -35,6 +35,8 @@ class PersonSelectViewController: UIViewController {
     var viewModel = PeopleSelectViewModel()
     
     private var centerCell: PeopleSelectCollectionViewCell?
+    private var centerIndex: Int = -1
+    private var previousIndex: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,7 @@ class PersonSelectViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        highlightCenterCell()
+        highlightCenterCell(canfromSameIndex: false)
     }
     
     private func prepareUIs() {
@@ -66,7 +68,7 @@ class PersonSelectViewController: UIViewController {
         selectButton.makeRounded(cornerRadius: 14)
         selectButton.setTitle("선택완료", for: .normal)
         selectButton.setTitleColor(.black, for: .normal)
-        
+        selectButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         selectionImage.image = UIImage(named: "imgSelectedProfile")?.withRenderingMode(.alwaysTemplate)
     }
     
@@ -97,8 +99,6 @@ class PersonSelectViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             })
             .store(in: &cancellables)
-        
-        
     }
     
     private func prepareCollectionView() {
@@ -109,7 +109,6 @@ class PersonSelectViewController: UIViewController {
         peopleCollectionView.delegate = self
         
         let flowLayout = PeopleSelectionCollectionViewFlowLayout()
-        flowLayout.delegate = self
         peopleCollectionView.collectionViewLayout = flowLayout
         peopleCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         
@@ -138,14 +137,19 @@ class PersonSelectViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    private func highlightCenterCell() {
+    private func highlightCenterCell(canfromSameIndex: Bool) {
         let centerPoint = CGPoint(x: self.peopleCollectionView.frame.size.width / 2 + self.peopleCollectionView.contentOffset.x,
                                   y: self.peopleCollectionView.frame.size.height / 2 + self.peopleCollectionView.contentOffset.y)
 
         guard let indexPath = self.peopleCollectionView.indexPathForItem(at: centerPoint) else { return }
-        if self.centerCell != nil {
+        if self.centerCell != nil && centerIndex != indexPath.item {
             self.centerCell?.transformToStandard()
         }
+        if !canfromSameIndex {
+            guard indexPath.item != self.centerIndex else { return }
+        }
+        
+        self.centerIndex = indexPath.item
         self.centerCell = self.peopleCollectionView.cellForItem(at: indexPath) as? PeopleSelectCollectionViewCell
         self.centerCell?.transformToLarge()
     }
@@ -153,83 +157,18 @@ class PersonSelectViewController: UIViewController {
 
 extension PersonSelectViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        if scrollView == peopleCollectionView {
-//            let layout = peopleCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//            let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-//
-//            var offset = targetContentOffset.pointee
-//            let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
-//            var roundedIndex = round(index)
-//
-//            if scrollView.contentOffset.x > targetContentOffset.pointee.x {
-//                roundedIndex = floor(index)
-//            } else if scrollView.contentOffset.x < targetContentOffset.pointee.x {
-//                roundedIndex = ceil(index)
-//            }
-//            if currentIndex > roundedIndex {
-//                currentIndex -= 1
-//                roundedIndex = currentIndex
-//            } else if currentIndex < roundedIndex {
-//                currentIndex += 1
-//                roundedIndex = currentIndex
-//            }
-////            viewModel.updateCurrentIndex(index: Int(currentIndex))
-//
-//            offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
-//            targetContentOffset.pointee = offset
-//        }
-    }
-    
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        let centerPoint = CGPoint(x: peopleCollectionView.frame.size.width / 2 + scrollView.contentOffset.x,
-//                                  y: peopleCollectionView.frame.size.height / 2 + scrollView.contentOffset.y)
-//
-//        if let indexPath = peopleCollectionView.indexPathForItem(at: centerPoint), self.centerCell == nil {
-//            self.centerCell = peopleCollectionView.cellForItem(at: indexPath) as? PeopleSelectCollectionViewCell
-//            self.centerCell?.transformToLarge()
-////            self.peopleCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//        }
-//
-//        guard let centerCell = self.centerCell else { return }
-//
-//        let offsetX = centerPoint.x - centerCell.center.x
-//
-//        if offsetX < -36 || offsetX > 36 {
-//            centerCell.transformToStandard()
-//            self.centerCell = nil
-//        }
-//
-//    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if self.centerCell != nil {
             self.centerCell?.transformToStandard()
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        highlightCenterCell(canfromSameIndex: false)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        highlightCenterCell()
+        highlightCenterCell(canfromSameIndex: true)
     }
 }
 
-
-extension PersonSelectViewController: PeopleSelectionCollectionViewLayoutDelegate {
-    func offsetAdjusted() {
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(100), execute: { [weak self] in
-//            guard let self = self else { return }
-//            let centerPoint = CGPoint(x: self.peopleCollectionView.frame.size.width / 2 + self.peopleCollectionView.contentOffset.x,
-//                                      y: self.peopleCollectionView.frame.size.height / 2 + self.peopleCollectionView.contentOffset.y)
-//            print("clll")
-//            guard let indexPath = self.peopleCollectionView.indexPathForItem(at: centerPoint) else { return }
-//            if self.centerCell != nil {
-//                self.centerCell?.transformToStandard()
-//            }
-//            self.centerCell = self.peopleCollectionView.cellForItem(at: indexPath) as? PeopleSelectCollectionViewCell
-//            self.centerCell?.transformToLarge()
-//        })
-       
-    }
-}

@@ -40,6 +40,8 @@ class MainViewController: UIViewController {
     private var people: [Person] = []
     var currentIndex: CGFloat = 0.0
     
+    private var centerCell: CardCollectionViewCell?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +54,12 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.reloadPeople()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: { [weak self] in
+            self?.highlightCenterCell()
+        })
     }
     
     private func prepareUIs() {
@@ -76,7 +84,6 @@ class MainViewController: UIViewController {
     
     private func setupCollectionView() {
         cardCollectionView.registerCell(cell: CardCollectionViewCell.self)
-        cardCollectionView.registerCell(cell: CardCollectionViewBackCell.self)
         cardCollectionView.backgroundColor = .mainBackground
         
         cardCollectionView.decelerationRate = .fast
@@ -130,28 +137,8 @@ class MainViewController: UIViewController {
     private func setupDataSource() {
         self.dataSource = UICollectionViewDiffableDataSource(collectionView: cardCollectionView, cellProvider: { [weak self] (collectionView, indexPath, person) -> UICollectionViewCell? in
             guard let self = self else { return UICollectionViewCell() }
-            guard person.front else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewBackCell", for: indexPath) as! CardCollectionViewBackCell
-                cell.setViewModel(viewModel: CardCollectionViewBackCellViewModel(person: person))
-                if self.viewModel.frontModifedIndex != -1 && self.viewModel.frontModifedIndex == indexPath.row {
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: {
-                        UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-                    })
-//                    Thread.sleep(forTimeInterval: 0.4)
-                    self.viewModel.frontModifedIndex = -1
-                }
-                cell.mainViewDelegate = self
-                return cell
-            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
             cell.setViewModel(viewModel: CardCollectionViewCellViewModel(person: person))
-            if self.viewModel.frontModifedIndex != -1 && self.viewModel.frontModifedIndex == indexPath.row {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: {
-                    UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-                })
-//                Thread.sleep(forTimeInterval: 0.4)
-                self.viewModel.frontModifedIndex = -1
-            }
             cell.mainViewDelegate = self
             return cell
         })
@@ -166,14 +153,26 @@ class MainViewController: UIViewController {
         }
         dataSource.apply(snapshot, animatingDifferences: true)
     }
-}
-
-
-extension MainViewController: UICollectionViewDelegate {
     
+    private func highlightCenterCell() {
+        let centerPoint = CGPoint(x: self.cardCollectionView.frame.size.width / 2 + self.cardCollectionView.contentOffset.x,
+                                  y: self.cardCollectionView.frame.size.height / 2 + self.cardCollectionView.contentOffset.y)
+
+        guard let indexPath = self.cardCollectionView.indexPathForItem(at: centerPoint) else { return }
+        let newCenterCell = self.cardCollectionView.cellForItem(at: indexPath) as? CardCollectionViewCell
+                
+        self.centerCell = newCenterCell
+        
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            guard let self = self else { return }
+            self.cardCollectionView.cellForItem(at: IndexPath(item: indexPath.item + 1, section: 0))?.alpha = 0.4
+            self.cardCollectionView.cellForItem(at: IndexPath(item: indexPath.item - 1, section: 0))?.alpha = 0.1
+            self.centerCell?.alpha = 1.0
+        })
+    }
 }
 
-extension MainViewController: UIScrollViewDelegate {
+extension MainViewController: UICollectionViewDelegate, UIScrollViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if scrollView == cardCollectionView {
             let layout = self.cardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -200,7 +199,14 @@ extension MainViewController: UIScrollViewDelegate {
             offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
             targetContentOffset.pointee = offset
         }
-        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        highlightCenterCell()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        highlightCenterCell()
     }
 }
 

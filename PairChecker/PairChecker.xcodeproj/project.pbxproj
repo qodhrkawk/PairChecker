@@ -23,6 +23,7 @@
 		EC5E269327D3581500C29631 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E269127D3581500C29631 /* UICollectionView+.swift */; };
 		EC5E269527D3583700C29631 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E269427D3583700C29631 /* UIView+.swift */; };
 		EC5E269627D3583700C29631 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E269427D3583700C29631 /* UIView+.swift */; };
+		EC899A8727F6BAAD00F343EA /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC899A8627F6BAAD00F343EA /* BackCardView.swift */; };
 		EC8AAA4A27D6398A0022CDA7 /* MBTIChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8AAA4927D6398A0022CDA7 /* MBTIChecker.swift */; };
 		EC8AAA4B27D6398A0022CDA7 /* MBTIChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8AAA4927D6398A0022CDA7 /* MBTIChecker.swift */; };
 		EC8AAA5027D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */; };
@@ -36,8 +37,6 @@
 		ECA522E027F1E4810004B8D2 /* MainViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */; };
 		ECA522E327F1F3000004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522E227F1F2FF0004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift */; };
 		ECA57C1627ED6CFC00002758 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */; };
-		ECA57C1927EED18400002758 /* CardCollectionViewBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */; };
-		ECA57C1A27EED18400002758 /* CardCollectionViewBackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */; };
 		ECA57C1C27EED91000002758 /* CardCollectionViewBackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */; };
 		ECA6562927EC9B7600B14966 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562827EC9B7600B14966 /* UIColor+.swift */; };
 		ECA6562C27ECBE0700B14966 /* MainText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562B27ECBE0700B14966 /* MainText.swift */; };
@@ -107,6 +106,7 @@
 		EC5E268D27D3578700C29631 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		EC5E269127D3581500C29631 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		EC5E269427D3583700C29631 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		EC899A8627F6BAAD00F343EA /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
 		EC8AAA4927D6398A0022CDA7 /* MBTIChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTIChecker.swift; sourceTree = "<group>"; };
 		EC8AAA4F27D640BE0022CDA7 /* BloodTypeChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodTypeChecker.swift; sourceTree = "<group>"; };
 		ECA522D327F1DE290004B8D2 /* PersonSelect.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonSelect.storyboard; sourceTree = "<group>"; };
@@ -117,8 +117,6 @@
 		ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDelegate.swift; sourceTree = "<group>"; };
 		ECA522E227F1F2FF0004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectionCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
-		ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewBackCell.swift; sourceTree = "<group>"; };
-		ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewBackCell.xib; sourceTree = "<group>"; };
 		ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewBackCellViewModel.swift; sourceTree = "<group>"; };
 		ECA6562827EC9B7600B14966 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		ECA6562B27ECBE0700B14966 /* MainText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainText.swift; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 				ECA522E127F1F2D80004B8D2 /* CollectionViewFlowLayouts */,
 				ECA522D727F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift */,
 				EC5E268C27D3578700C29631 /* CardCollectionViewCell.swift */,
-				ECA57C1727EED18400002758 /* CardCollectionViewBackCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -295,6 +292,14 @@
 				ECBFC8D027F0D0EC00B9E917 /* CollectionVIewCell */,
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		EC899A8527F6BA9F00F343EA /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EC899A8627F6BAAD00F343EA /* BackCardView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		ECA522DD27F1E4550004B8D2 /* Protocols */ = {
@@ -352,7 +357,6 @@
 		ECBFC8D027F0D0EC00B9E917 /* CollectionVIewCell */ = {
 			isa = PBXGroup;
 			children = (
-				ECA57C1827EED18400002758 /* CardCollectionViewBackCell.xib */,
 				EC5E268D27D3578700C29631 /* CardCollectionViewCell.xib */,
 				ECA522D827F1E0180004B8D2 /* PeopleSelectCollectionViewCell.xib */,
 			);
@@ -393,6 +397,7 @@
 		ECCB786127B68C66001A0D36 /* PairChecker */ = {
 			isa = PBXGroup;
 			children = (
+				EC899A8527F6BA9F00F343EA /* CustomViews */,
 				ECA522DD27F1E4550004B8D2 /* Protocols */,
 				ECBFC8B027F0B49900B9E917 /* CustomClass */,
 				ECA6562A27ECBDF400B14966 /* Models */,
@@ -441,6 +446,7 @@
 				ECCB785B27B68C66001A0D36 /* Sources */,
 				ECCB785C27B68C66001A0D36 /* Frameworks */,
 				ECCB785D27B68C66001A0D36 /* Resources */,
+				7DAAAD481B9D1CD92ED7723F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -478,6 +484,7 @@
 				ECCB787B27B68C69001A0D36 /* Sources */,
 				ECCB787C27B68C69001A0D36 /* Frameworks */,
 				ECCB787D27B68C69001A0D36 /* Resources */,
+				B1DEB49A2B2F57C9F411529C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -537,7 +544,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECA57C1A27EED18400002758 /* CardCollectionViewBackCell.xib in Resources */,
 				ECA522D427F1DE290004B8D2 /* PersonSelect.storyboard in Resources */,
 				ECBFC8C927F0CAD000B9E917 /* MainListTableViewCell.xib in Resources */,
 				ECBFC8CF27F0D0E500B9E917 /* MainListTableViewAddCell.xib in Resources */,
@@ -611,6 +617,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7DAAAD481B9D1CD92ED7723F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PairChecker/Pods-PairChecker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PairChecker/Pods-PairChecker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PairChecker/Pods-PairChecker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1DEB49A2B2F57C9F411529C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PairChecker-PairCheckerUITests/Pods-PairChecker-PairCheckerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PairChecker-PairCheckerUITests/Pods-PairChecker-PairCheckerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PairChecker-PairCheckerUITests/Pods-PairChecker-PairCheckerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C4DF69FD621506B1E95C54E5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -670,13 +710,13 @@
 				ECA57C1627ED6CFC00002758 /* NotificationCenter+.swift in Sources */,
 				EC5E268E27D3578700C29631 /* CardCollectionViewCell.swift in Sources */,
 				ECBFC8CB27F0CFE900B9E917 /* UITableView+.swift in Sources */,
-				ECA57C1927EED18400002758 /* CardCollectionViewBackCell.swift in Sources */,
 				ECBFC8C227F0C4EA00B9E917 /* UIViewController+.swift in Sources */,
 				EC5E268827D355C900C29631 /* MainViewModel.swift in Sources */,
 				ECA522D927F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift in Sources */,
 				ECBFC8C027F0C47700B9E917 /* StoryBoardNames.swift in Sources */,
 				ECA522E027F1E4810004B8D2 /* MainViewDelegate.swift in Sources */,
 				EC8AAA4A27D6398A0022CDA7 /* MBTIChecker.swift in Sources */,
+				EC899A8727F6BAAD00F343EA /* BackCardView.swift in Sources */,
 				ECA6562927EC9B7600B14966 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
