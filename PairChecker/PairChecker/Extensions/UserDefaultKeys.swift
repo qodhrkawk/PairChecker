@@ -9,4 +9,5 @@ import Foundation
 
 struct UserDefaultsKey {
     static let people = "people"
+    static let shouldShowOnboarding = "shouldShowOnboarding"
 }

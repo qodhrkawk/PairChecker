@@ -32,7 +32,7 @@ class PersonSelectViewController: UIViewController {
     private var mainAnimalSubscription: AnyCancellable?
     private var cancellables = Set<AnyCancellable>()
     
-    var viewModel = PeopleSelectViewModel()
+    var viewModel: PairCheckViewModel?
     
     private var centerCell: PeopleSelectCollectionViewCell?
     private var centerIndex: Int = -1
@@ -73,6 +73,12 @@ class PersonSelectViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        if let navigationController = self.navigationController as? PairCheckNavigationController {
+            self.viewModel = navigationController.viewModel
+        }
+
+        guard let viewModel = self.viewModel else { return }
+
         peopleSubscription = viewModel.$people
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] people in
@@ -96,7 +102,16 @@ class PersonSelectViewController: UIViewController {
         xButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                self?.dismiss(animated: true, completion: nil)
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            .store(in: &cancellables)
+        
+        selectButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let pairComponentSelectViewController = PairComponentSelectViewController.instantiateFromStoryboard(StoryboardName.pairCheck) else { return }
+                pairComponentSelectViewController.viewModel = self?.viewModel
+                self?.navigationController?.pushViewController(pairComponentSelectViewController, animated: true)
             })
             .store(in: &cancellables)
     }

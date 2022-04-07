@@ -10,5 +10,6 @@ import Foundation
 struct StoryboardName {
     static let main = "Main"
     static let peopleList = "PeopleList"
-    static let personSelect = "PersonSelect"
+    static let pairCheck = "PairCheck"
+    static let onboarding = "Onboarding"
 }

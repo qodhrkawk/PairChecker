@@ -38,7 +38,7 @@ class MainViewModel {
     }
     
     func reloadPeople() {
-        self.people = PeopleStoreManager.shared.getStoredPeople()
+        self.people = UserManager.shared.getStoredPeople()
     }
     
     func publishColorWithPerson(person: Person) {

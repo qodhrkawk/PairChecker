@@ -53,7 +53,22 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.reloadPeople()
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.cardCollectionView.alpha = 1
+            self?.highlightCenterCell()
+            self?.mainTextLabel.alpha = 1
+            self?.addButton.alpha = 1
+            self?.listButton.alpha = 1
+            if self?.viewModel.mainText == .heart {
+                self?.circleImageView.alpha = 1
+            }
+            else {
+                self?.highLightImageView.alpha = 1
+            }
+        },completion: { [weak self] _ in
+            self?.viewModel.reloadPeople()
+            self?.highlightCenterCell()
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,7 +91,16 @@ class MainViewController: UIViewController {
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { _ in
                 guard let peopleListViewController = PeopleListViewController.instantiateFromStoryboard(StoryboardName.peopleList) else { return }
-                self.navigationController?.pushViewController(peopleListViewController, animated: true)
+                UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                    self?.cardCollectionView.alpha = 0
+                    self?.mainTextLabel.alpha = 0
+                    self?.highLightImageView.alpha = 0
+                    self?.circleImageView.alpha = 0
+                    self?.addButton.alpha = 0
+                    self?.listButton.alpha = 0
+                },completion: { [weak self] _ in
+                    self?.navigationController?.pushViewController(peopleListViewController, animated: false)
+                })
                 
             })
             .store(in: &cancellables)
@@ -162,13 +186,10 @@ class MainViewController: UIViewController {
         let newCenterCell = self.cardCollectionView.cellForItem(at: indexPath) as? CardCollectionViewCell
                 
         self.centerCell = newCenterCell
-        
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            guard let self = self else { return }
-            self.cardCollectionView.cellForItem(at: IndexPath(item: indexPath.item + 1, section: 0))?.alpha = 0.4
-            self.cardCollectionView.cellForItem(at: IndexPath(item: indexPath.item - 1, section: 0))?.alpha = 0.1
-            self.centerCell?.alpha = 1.0
-        })
+
+        self.cardCollectionView.cellForItem(at: IndexPath(item: indexPath.item + 1, section: 0))?.alpha = 0.4
+        self.cardCollectionView.cellForItem(at: IndexPath(item: indexPath.item - 1, section: 0))?.alpha = 0.1
+        self.centerCell?.alpha = 1.0
     }
 }
 
@@ -212,9 +233,10 @@ extension MainViewController: UICollectionViewDelegate, UIScrollViewDelegate {
 
 extension MainViewController: MainViewDelegate {
     func check(person: Person) {
-        guard let personSelectViewController = PersonSelectViewController.instantiateFromStoryboard(StoryboardName.personSelect) else { return }
-        personSelectViewController.viewModel.mainPerson = person
-        personSelectViewController.modalPresentationStyle = .fullScreen
-        self.present(personSelectViewController, animated: true, completion: nil)
+        guard let pairCheckNavigationController = PairCheckNavigationController.instantiateFromStoryboard(StoryboardName.pairCheck) else { return }
+        
+        pairCheckNavigationController.modalPresentationStyle = .fullScreen
+        pairCheckNavigationController.viewModel.addPerson(person: person)
+        self.present(pairCheckNavigationController, animated: true, completion: nil)
     }
 }

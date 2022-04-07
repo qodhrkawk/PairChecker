@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class PeopleSelectViewModel {
-    @Published var people = PeopleStoreManager.shared.getStoredPeople()
+    @Published var people = UserManager.shared.getStoredPeople()
     @Published var mainAnimal: Animal?
     
     var mainPerson: Person? {

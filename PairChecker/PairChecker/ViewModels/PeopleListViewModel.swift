@@ -13,12 +13,12 @@ class PeopleListViewModel {
     
     
     init() {
-        people = PeopleStoreManager.shared.getStoredPeople()
+        people = UserManager.shared.getStoredPeople()
     }
     
     func deletePerson(index: Int) {
         people.remove(at: index)
-        PeopleStoreManager.shared.updatePeople(people: people)
+        UserManager.shared.updatePeople(people: people)
     }
     
 }

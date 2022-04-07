@@ -34,6 +34,13 @@ class PeopleListViewController: UIViewController {
         bindButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.peopleTableView.alpha = 1
+            self?.cardButton.alpha = 1
+        })
+    }
+    
     private func prepareUIs() {
         self.view.backgroundColor = .mainBackground
         prepareListTableView()
@@ -44,7 +51,12 @@ class PeopleListViewController: UIViewController {
         cardButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { _ in
-                self.navigationController?.popViewController(animated: true)
+                UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                    self?.peopleTableView.alpha = 0
+                    self?.cardButton.alpha = 0
+                }, completion: { [weak self] finished in
+                    self?.navigationController?.popViewController(animated: false)
+                })
             })
             .store(in: &cancellables)
     }
@@ -66,7 +78,7 @@ class PeopleListViewController: UIViewController {
     }
     
     private func setupDataSource() {
-        self.dataSource = UITableViewDiffableDataSource(tableView: peopleTableView, cellProvider: { [weak self] (tableView, indexPath, person) -> UITableViewCell? in
+        self.dataSource = UITableViewDiffableDataSource(tableView: peopleTableView, cellProvider: { (tableView, indexPath, person) -> UITableViewCell? in
             switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MainListTableViewAddCell", for: indexPath) as! MainListTableViewAddCell

@@ -12,6 +12,7 @@ extension UIColor {
     static let mainBackground = UIColor(red: 48.0 / 255.0, green: 48.0 / 255.0, blue: 51.0 / 255.0, alpha: 1)
     static let circleGray = UIColor(red: 248 / 255.0, green: 248 / 255.0, blue: 248 / 255.0, alpha: 1)
     static let white10 = UIColor.init(white: 1.0, alpha: 0.1)
+    static let cellgray = UIColor(red: 69 / 255.0, green: 69 / 255.0, blue: 71 / 255.0, alpha: 1)
     
     static let animalGreen = UIColor(red: 95 / 255.0, green: 239 / 255.0, blue: 127 / 255.0, alpha: 1)
     static let animalOrange = UIColor(red: 255 / 255.0, green: 122 / 255.0, blue: 0 / 255.0, alpha: 1)
@@ -30,5 +31,12 @@ extension UIColor {
 
     @nonobjc class var black20: UIColor {
       return UIColor(white: 0.0, alpha: 0.2)
+    }
+    @nonobjc class var paleGrey: UIColor {
+      return UIColor(red: 239.0 / 255.0, green: 239.0 / 255.0, blue: 244.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var darkGrey: UIColor {
+      return UIColor(red: 41.0 / 255.0, green: 41.0 / 255.0, blue: 43.0 / 255.0, alpha: 1.0)
     }
 }
