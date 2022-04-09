@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "scale" : "1x",
-      "filename" : "group63.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "imgTiger.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "group63@2x.png",
+      "filename" : "imgTiger@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "group63@3x.png",
+      "scale" : "3x",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "imgTiger@3x.png"
     }
   ],
   "info" : {

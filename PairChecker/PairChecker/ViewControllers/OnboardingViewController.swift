@@ -93,6 +93,15 @@ class OnboardingViewController: UIViewController {
                 }, completion: nil)
             })
             .store(in: &cancellables)
+        
+        startButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                UserManager.shared.shouldShowOnboarding = false
+                self.dismiss(animated: true, completion: nil)
+            })
+            .store(in: &cancellables)
     }
     
     private func bindViewModel() {

@@ -89,7 +89,7 @@ class MainViewController: UIViewController {
     private func bindButton() {
         listButton
             .publisher(for: .touchUpInside)
-            .sink(receiveValue: { _ in
+            .sink(receiveValue: { [weak self] _ in
                 guard let peopleListViewController = PeopleListViewController.instantiateFromStoryboard(StoryboardName.peopleList) else { return }
                 UIView.animate(withDuration: 0.3, animations: { [weak self] in
                     self?.cardCollectionView.alpha = 0
@@ -102,6 +102,17 @@ class MainViewController: UIViewController {
                     self?.navigationController?.pushViewController(peopleListViewController, animated: false)
                 })
                 
+            })
+            .store(in: &cancellables)
+        
+        addButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let addPersonViewController = AddPersonViewController.instantiateFromStoryboard(StoryboardName.addPerson)
+                else { return }
+                addPersonViewController.modalPresentationStyle = .fullScreen
+                
+                self?.navigationController?.present(addPersonViewController, animated: true, completion: nil)
             })
             .store(in: &cancellables)
     }

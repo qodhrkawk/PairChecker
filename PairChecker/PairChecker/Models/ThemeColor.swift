@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum ThemeColor: String, CaseIterable {
-    case green, pink, purple, yellow, skyblue, orange
+    case green, pink, yellow, skyblue, orange
     
     var highlightImageString: String {
         self.rawValue + "Highlight"
@@ -23,7 +23,6 @@ enum ThemeColor: String, CaseIterable {
         switch self {
         case .green: return .animalGreen
         case .pink: return .animalPink
-        case .purple: return .animalPurple
         case .yellow: return .animalYellow
         case .skyblue: return .animalSkyblue
         case .orange: return .animalOrange

@@ -9,21 +9,20 @@ import Foundation
 import UIKit
 
 enum Animal: String, CaseIterable, Codable {
-    case fox, unicorn, racoon, cat, pig, bear, chick, dog, fish, tiger, rabbit, frog
+    case fox, cat, pig, bear, dog, duck, tiger, rabbit, frog
     
     var themeColor: ThemeColor {
         switch self {
         case .fox, .tiger: return .orange
-        case .unicorn, .pig: return .pink
-        case .racoon, .frog: return .green
-        case .cat, .chick: return .yellow
-        case .bear, .rabbit: return .purple
-        case .dog, .fish: return .skyblue
+        case .rabbit, .pig: return .pink
+        case .dog, .frog: return .green
+        case .duck: return .yellow
+        case .bear, .cat: return .skyblue
         }
     }
     
     var imageName: String {
-        self.rawValue
+        "img" + self.rawValue
     }
 }
 

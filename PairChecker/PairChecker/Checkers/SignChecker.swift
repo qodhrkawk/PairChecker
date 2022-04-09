@@ -35,7 +35,7 @@ struct ComputableSign {
 
 public class SignChecker {
     
-    public let shared = SignChecker()
+    static let shared = SignChecker()
     var scoreArray: [[Int]] = Array(repeating: Array(repeating: 0, count: 12), count: 12)
     
     init() {

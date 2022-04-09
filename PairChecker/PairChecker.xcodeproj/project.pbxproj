@@ -40,6 +40,7 @@
 		EC8F350327FB0E8800B11CCF /* PairComponentSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F350227FB0E8800B11CCF /* PairComponentSelectViewController.swift */; };
 		EC8F350627FB274800B11CCF /* PairComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F350427FB274800B11CCF /* PairComponentTableViewCell.swift */; };
 		EC8F350727FB274800B11CCF /* PairComponentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC8F350527FB274800B11CCF /* PairComponentTableViewCell.xib */; };
+		EC8FB2B92801BC0C0073DD5F /* AddPersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8FB2B82801BC0C0073DD5F /* AddPersonViewModel.swift */; };
 		EC98DE9D4BE606DE47E888A2 /* Pods_PairChecker_PairCheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDE20805B923D7B68078EC8 /* Pods_PairChecker_PairCheckerUITests.framework */; };
 		ECA522D427F1DE290004B8D2 /* PairCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA522D327F1DE290004B8D2 /* PairCheck.storyboard */; };
 		ECA522D627F1DE3F0004B8D2 /* PersonSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522D527F1DE3F0004B8D2 /* PersonSelectViewController.swift */; };
@@ -133,6 +134,7 @@
 		EC8F350227FB0E8800B11CCF /* PairComponentSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairComponentSelectViewController.swift; sourceTree = "<group>"; };
 		EC8F350427FB274800B11CCF /* PairComponentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairComponentTableViewCell.swift; sourceTree = "<group>"; };
 		EC8F350527FB274800B11CCF /* PairComponentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairComponentTableViewCell.xib; sourceTree = "<group>"; };
+		EC8FB2B82801BC0C0073DD5F /* AddPersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewModel.swift; sourceTree = "<group>"; };
 		ECA522D327F1DE290004B8D2 /* PairCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PairCheck.storyboard; sourceTree = "<group>"; };
 		ECA522D527F1DE3F0004B8D2 /* PersonSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSelectViewController.swift; sourceTree = "<group>"; };
 		ECA522D727F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				ECA522DB27F1E19C0004B8D2 /* PeopleSelectViewModel.swift */,
 				EC8F34FE27FB0A0800B11CCF /* PairCheckViewModel.swift */,
 				EC8C7AB127FF14A90084492B /* OnboardingViewModel.swift */,
+				EC8FB2B82801BC0C0073DD5F /* AddPersonViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				ECBFC8C827F0CAD000B9E917 /* MainListTableViewCell.swift in Sources */,
 				EC8C7AB227FF14A90084492B /* OnboardingViewModel.swift in Sources */,
 				ECBFC8B427F0B5C100B9E917 /* UserDefaultKeys.swift in Sources */,
+				EC8FB2B92801BC0C0073DD5F /* AddPersonViewModel.swift in Sources */,
 				EC8AAA5027D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */,
 				ECA6563027ECC4FF00B14966 /* ThemeColor.swift in Sources */,
 				ECBFC8CE27F0D0E500B9E917 /* MainListTableViewAddCell.swift in Sources */,

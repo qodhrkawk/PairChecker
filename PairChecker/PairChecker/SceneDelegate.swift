@@ -19,48 +19,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let winScene = (scene as? UIWindowScene)
         else { return }
-        decideRootViewController(window: UIWindow(windowScene: winScene))
-//        window?.makeKeyAndVisible()
-//        decideRootViewController()
+        let window = UIWindow(windowScene: winScene)
+        self.window = window
+        decideRootViewController()
     }
 
-    func decideRootViewController(window: UIWindow) {
+    func decideRootViewController() {
         
         guard let mainVC = MainViewController.instantiateFromStoryboard(StoryboardName.main) else { return }
         let navigationController = UINavigationController(rootViewController: mainVC)
         navigationController.setNavigationBarHidden(true, animated: false)
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-//        if UserManager.shared.shouldShowOnboarding == nil {
-//            UserManager.shared.shouldShowOnboarding = true
-//        }
-//
-//        if let shouldShowOnboarding = UserManager.shared.shouldShowOnboarding,
-//           shouldShowOnboarding == true {
-//            guard let onboardingVC = OnboardingViewController.instantiateFromStoryboard(StoryboardName.onboarding)
-//            else { return }
-//            onboardingVC.modalPresentationStyle = .fullScreen
-//            navigationController.present(onboardingVC, animated: false, completion: nil)
-//        }
-        
-//        if PolarisUserManager.shared.hasToken == true {
-//            guard let mainVC = MainVC.instantiateFromStoryboard(StoryboardName.main) else { return }
-//            let navigationController = UINavigationController(rootViewController: mainVC)
-//            navigationController.setNavigationBarHidden(true, animated: false)
-//            self.window?.rootViewController = navigationController
-//            self.window?.makeKeyAndVisible()
-//        } else {
-//            guard let loginVC = LoginVC.instantiateFromStoryboard(StoryboardName.intro) else { return }
-//            self.window?.rootViewController = loginVC
-//            self.window?.makeKeyAndVisible()
-//
-//            if PolarisUserManager.shared.isInitialMember == nil {
-//                guard let onboardingVC = OnboardingVC.instantiateFromStoryboard(StoryboardName.intro) else { return }
-//                onboardingVC.modalPresentationStyle = .fullScreen
-//                onboardingVC.modalTransitionStyle   = .crossDissolve
-//                loginVC.present(onboardingVC, animated: false, completion: nil)
-//            }
-//        }
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        if UserManager.shared.shouldShowOnboarding == nil {
+            UserManager.shared.shouldShowOnboarding = true
+        }
+
+        if let shouldShowOnboarding = UserManager.shared.shouldShowOnboarding,
+           shouldShowOnboarding == true {
+            guard let onboardingVC = OnboardingViewController.instantiateFromStoryboard(StoryboardName.onboarding)
+            else { return }
+            onboardingVC.modalPresentationStyle = .fullScreen
+            navigationController.present(onboardingVC, animated: false, completion: nil)
+        }
     }
 
 }
