@@ -49,6 +49,7 @@
 		ECA522DC27F1E19C0004B8D2 /* PeopleSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522DB27F1E19C0004B8D2 /* PeopleSelectViewModel.swift */; };
 		ECA522E027F1E4810004B8D2 /* MainViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */; };
 		ECA522E327F1F3000004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA522E227F1F2FF0004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift */; };
+		ECA556A52802AB520090E7FC /* BirthDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA556A42802AB520090E7FC /* BirthDate.swift */; };
 		ECA57C1627ED6CFC00002758 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */; };
 		ECA57C1C27EED91000002758 /* CardCollectionViewBackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */; };
 		ECA6562927EC9B7600B14966 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562827EC9B7600B14966 /* UIColor+.swift */; };
@@ -142,6 +143,7 @@
 		ECA522DB27F1E19C0004B8D2 /* PeopleSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectViewModel.swift; sourceTree = "<group>"; };
 		ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDelegate.swift; sourceTree = "<group>"; };
 		ECA522E227F1F2FF0004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectionCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		ECA556A42802AB520090E7FC /* BirthDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDate.swift; sourceTree = "<group>"; };
 		ECA57C1527ED6CFC00002758 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
 		ECA57C1B27EED91000002758 /* CardCollectionViewBackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewBackCellViewModel.swift; sourceTree = "<group>"; };
 		ECA6562827EC9B7600B14966 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				ECA6562D27ECC39700B14966 /* Animal.swift */,
 				ECA6562F27ECC4FF00B14966 /* ThemeColor.swift */,
 				ECA6563327ECC6D300B14966 /* Person.swift */,
+				ECA556A42802AB520090E7FC /* BirthDate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				ECA6563027ECC4FF00B14966 /* ThemeColor.swift in Sources */,
 				ECBFC8CE27F0D0E500B9E917 /* MainListTableViewAddCell.swift in Sources */,
 				EC8C7AB027FF05890084492B /* DeviceInfo.swift in Sources */,
+				ECA556A52802AB520090E7FC /* BirthDate.swift in Sources */,
 				ECA522DC27F1E19C0004B8D2 /* PeopleSelectViewModel.swift in Sources */,
 				EC5E267C27D34F3A00C29631 /* SignChecker.swift in Sources */,
 				EC8C7AA827FC752E0084492B /* AddPersonViewController.swift in Sources */,

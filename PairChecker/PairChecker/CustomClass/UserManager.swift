@@ -16,11 +16,11 @@ class UserManager {
     @UserDefaultWrapper<Bool>(key: UserDefaultsKey.shouldShowOnboarding) var shouldShowOnboarding
     
     init() {
-        if getStoredPeople().count == 0 {
-            Animal.allCases.forEach { animal in
-                storePerson(person: Person(animal: animal, name: "이예슬", birthDate: "98.05.01", sign: .taurus, bloodType: .A, mbti: .ENFP))
-            }
-        }
+//        if getStoredPeople().count == 0 {
+//            Animal.allCases.forEach { animal in
+//                storePerson(person: Person(animal: animal, name: "이예슬", birthDate: BirthDate(month: 5, day: 1), sign: .taurus, bloodType: .A, mbti: .ENFP))
+//            }
+//        }
     }
     
     func getStoredPeople() -> [Person] {

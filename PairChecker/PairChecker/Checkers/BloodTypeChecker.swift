@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BloodType: Int, Codable {
+enum BloodType: Int, Codable, CaseIterable {
     case A = 0, B, AB, O
     
     var koreanName: String {

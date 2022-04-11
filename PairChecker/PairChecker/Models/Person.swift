@@ -10,7 +10,7 @@ import Foundation
 struct Person: Hashable, Codable {
     let animal: Animal
     let name: String
-    let birthDate: String?
+    let birthDate: BirthDate?
     let sign: Sign?
     let bloodType: BloodType?
     let mbti: MBTI?

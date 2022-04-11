@@ -55,7 +55,7 @@ public class SignChecker {
         ]
     }
     
-    func getSignFromDate(month: Int, day: Int) -> Sign {
+    func getSignFromDate(month: Int, day: Int) -> Sign? {
         switch month * 100 + day {
         case 321...419: return .aries
         case 420...520: return .taurus
@@ -68,7 +68,9 @@ public class SignChecker {
         case 1123...1224: return .sagittarius
         case 120...218: return .aquarius
         case 219...320: return .pisces
-        default: return .capricorn
+        case 1225...1231: return .capricorn
+        case 101...119: return .capricorn
+        default: return nil
         }
     }
     

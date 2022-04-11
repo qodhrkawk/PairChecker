@@ -54,7 +54,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         resultButton.backgroundColor = person.animal.themeColor.uicolor
         
         nameLabel.text = person.name
-        birthLabel.text = person.birthDate
+        birthLabel.text = person.birthDate?.stringFromBrithDate ?? ""
     }
     
     private func addContainViewGesture() {

@@ -19,7 +19,7 @@ class MainListTableViewCell: UITableViewCell {
             guard let person = person else { return }
             self.animalImageView.image = UIImage(named: person.animal.imageName)
             self.nameLabel.text = person.name
-            self.birthDateLabel.text = person.birthDate
+            self.birthDateLabel.text = person.birthDate?.stringFromBrithDate ?? ""
         }
     }
     

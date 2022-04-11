@@ -9,6 +9,29 @@ import Foundation
 
 enum MBTI: Int, CaseIterable, Codable {
     case ISTJ = 0, ISFJ, INFJ, INTJ, ISTP, ISFP, INFP, INTP, ESTP, ESFP, ENFP, ENTP, ESTJ, ESFJ, ENFJ, ENTJ
+    
+    var stringName: String {
+        switch self {
+        case .ISTJ: return "ISTJ"
+        case .ISFJ: return "ISFJ"
+        case .INFJ: return "INFJ"
+        case .INTJ: return "INTJ"
+        case .ISTP: return "ISTP"
+        case .ISFP: return "ISFP"
+        case .INFP: return "INFP"
+        case .INTP: return "INTP"
+        case .ESTP: return "ESTP"
+        case .ESFP: return "ESFP"
+        case .ENFP: return "ENFP"
+        case .ENTP: return "ENTP"
+        case .ESTJ: return "ESTJ"
+        case .ESFJ: return "ESFJ"
+        case .ENFJ: return "ENFJ"
+        case .ENTJ: return "ENTJ"
+        }
+        
+    }
+    
 }
 
 public class MBTIChecker {

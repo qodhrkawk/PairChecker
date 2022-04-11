@@ -28,13 +28,24 @@ class AddPersonViewController: UIViewController {
     
     @IBOutlet weak var finishButton: UIButton!
     
+    private var bloodTypeSubscription: AnyCancellable?
+    private var mbtiSubscription: AnyCancellable?
+    private var animalIndexSubscription: AnyCancellable?
+    private var signSubscription: AnyCancellable?
+    private var finishButtonEnableSubscription: AnyCancellable?
+    
     private var cancellables = Set<AnyCancellable>()
+    
+    private let viewModel = AddPersonViewModel()
+    
+    @Published private var animalButtonIndex: Int?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUIs()
         bindButtons()
-
+        bindViewModel()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,6 +104,13 @@ class AddPersonViewController: UIViewController {
         nameTextField.font = .systemFont(ofSize: 16, weight: .bold)
         nameTextField.textColor = .animalSkyblue
         nameTextField.delegate = self
+        nameTextField
+            .publisher(for: .editingChanged)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.updateName(name: self.nameTextField.text ?? "")
+            })
+            .store(in: &cancellables)
 
         
         monthTextField.backgroundColor = .mainBackground
@@ -107,9 +125,15 @@ class AddPersonViewController: UIViewController {
             .publisher(for: .editingChanged)
             .sink(receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                if self.monthTextField.text?.count == 2 && self.dayTextField.text == "" {
-                    self.dayTextField.becomeFirstResponder()
+                if self.monthTextField.text?.count == 2 {
+                    if self.dayTextField.text == "" {
+                        self.dayTextField.becomeFirstResponder()
+                    }
+                    else {
+                        self.view.endEditing(true)
+                    }
                 }
+                self.updateBirthDateIfNeeded()
             })
             .store(in: &cancellables)
         monthTextField.delegate = self
@@ -127,10 +151,10 @@ class AddPersonViewController: UIViewController {
             .publisher(for: .editingChanged)
             .sink(receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                if self.dayTextField.text?.count == 2{
+                if self.dayTextField.text?.count == 2 {
                     self.view.endEditing(true)
-                    self.calculateSignFromDate()
                 }
+                self.updateBirthDateIfNeeded()
             })
             .store(in: &cancellables)
         dayTextField.delegate = self
@@ -155,21 +179,165 @@ class AddPersonViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             })
             .store(in: &cancellables)
+        
+        for (index, button) in bloodTypeButtons.enumerated() {
+            button
+                .publisher(for: .touchUpInside)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.viewModel.updateBloodTypeInfo(buttonNum: index)
+                })
+                .store(in: &cancellables)
+        }
+        
+        for (index, button) in mbtiButtons.enumerated() {
+            button
+                .publisher(for: .touchUpInside)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.viewModel.updateMBTIBooleanInfos(buttonNum: index)
+                })
+                .store(in: &cancellables)
+        }
+        
+        for (index, button) in animalButtons.enumerated() {
+            button
+                .publisher(for: .touchUpInside)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.viewModel.updateAnimalInfo(buttonNum: index)
+                    self?.animalButtonIndex = index
+                })
+                .store(in: &cancellables)
+        }
+        
+        mbtiUnknownButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                self?.viewModel.updateMBTItoUnknwon()
+            })
+            .store(in: &cancellables)
+        
+        finishButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                self?.viewModel.registerPerson()
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .store(in: &cancellables)
     }
     
-    private func calculateSignFromDate() {
-        guard let monthString = self.monthTextField.text,
-              let dayString = self.dayTextField.text,
-              let month = Int(monthString),
-              let day = Int(dayString),
-              month > 0, month < 13, day > 0, day < 32
-        else { return }
-        let sign = SignChecker.shared.getSignFromDate(month: month, day: day)
+    private func bindViewModel() {
+        bloodTypeSubscription = viewModel.$bloodType
+            .sink(receiveValue: { [weak self] bloodType in
+                guard let self = self else { return }
+                guard let bloodType = bloodType
+                else {
+                    self.makeButtonSelectedFromArray(buttons: self.bloodTypeButtons, index: BloodType.allCases.count)
+                    return
+                }
+                for index in 0...BloodType.allCases.count {
+                    if index == bloodType.rawValue {
+                        self.makeButtonSelectedFromArray(buttons: self.bloodTypeButtons, index: index)
+                    }
+                }
+            })
         
-        signTextField.text = sign.koreanName
+        signSubscription = viewModel.$sign
+            .sink(receiveValue: { [weak self] sign in
+                guard let self = self else { return }
+                guard let sign = sign
+                else {
+                    if self.monthTextField.text != "" && self.dayTextField.text != ""{
+                        self.signTextField.text = "잘못된 정보"
+                    }
+                    return
+                }
+                self.signTextField.text = sign.koreanName
+            })
+        
+        mbtiSubscription = viewModel.$mbtiButtonBooleanInfos
+            .sink(receiveValue: { [weak self] booleanInfos in
+                guard let self = self else { return }
+                guard booleanInfos.count == 4
+                else {
+                    self.makeButtonSelected(button: self.mbtiUnknownButton)
+                    for button in self.mbtiButtons {
+                        self.makeButtonUnselected(button: button)
+                    }
+                    return
+                }
+                self.mbtiUnknownButton.setBorder(borderColor: .white, borderWidth: 0.0)
+                for (index, button) in self.mbtiButtons.enumerated() {
+                    if booleanInfos[index / 2] == (index % 2 == 0) {
+                        self.makeButtonSelected(button: button)
+                    }
+                    else {
+                        self.makeButtonUnselected(button: button)
+                    }
+                }
+            })
+        
+        animalIndexSubscription = self.$animalButtonIndex
+            .sink(receiveValue: { [weak self] index in
+                guard let self = self, let index = index else { return }
+                for idx in 0..<Animal.allCases.count {
+                    if index == idx {
+                        self.makeButtonSelectedFromArray(buttons: self.animalButtons, index: index)
+                    }
+                }
+            })
+        
+        finishButtonEnableSubscription = viewModel.$personCanbeMade
+            .sink(receiveValue: { [weak self] canbeMade in
+                guard let self = self else { return }
+                canbeMade ? self.makeFinishButtonEnabled() : self.makeFinishButtonDisabled()
+            })
+        
     }
-
-
+    
+    private func updateBirthDateIfNeeded() {
+        guard let month = monthTextField.text,
+              let day =  dayTextField.text,
+              month.count == 2, day.count == 2
+        else { return }
+        
+        viewModel.updateBirthDate(month: month, day: day)
+    }
+    
+    private func makeButtonSelected(button: UIButton) {
+        UIView.animate(withDuration: 0.25, animations: {
+            button.setBorder(borderColor: .white, borderWidth: 1.5)
+            button.setTitleColor(.animalSkyblue, for: .normal)
+        })
+    }
+    
+    private func makeButtonUnselected(button: UIButton) {
+        UIView.animate(withDuration: 0.25, animations: {
+            button.setBorder(borderColor: .white, borderWidth: 0.0)
+            button.setTitleColor(.white20, for: .normal)
+        })
+    }
+    
+    private func makeButtonSelectedFromArray(buttons: [UIButton], index: Int) {
+        for (idx, button) in buttons.enumerated() {
+            if index == idx {
+                makeButtonSelected(button: button)
+            }
+            else {
+                makeButtonUnselected(button: button)
+            }
+        }
+    }
+    
+    private func makeFinishButtonEnabled() {
+        finishButton.backgroundColor = .animalSkyblue
+        finishButton.setTitleColor(.black, for: .normal)
+        finishButton.isEnabled = true
+    }
+    
+    private func makeFinishButtonDisabled() {
+        finishButton.backgroundColor = .darkGrey
+        finishButton.setTitleColor(.white10, for: .normal)
+        finishButton.isEnabled = false
+    }
 }
 
 
