@@ -27,6 +27,8 @@ class PeopleListViewController: UIViewController {
     var viewModel = PeopleListViewModel()
     var cancellables = Set<AnyCancellable>()
     
+    private var personDetailViewController: PersonDetailViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUIs()
@@ -86,6 +88,7 @@ class PeopleListViewController: UIViewController {
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MainListTableViewCell", for: indexPath) as! MainListTableViewCell
                 cell.person = person
+                cell.delegate = self
                 return cell
             }
         })
@@ -94,7 +97,7 @@ class PeopleListViewController: UIViewController {
     private func updatePeople(people: [Person]) {
         var snapshot = Snapshot()
         snapshot.appendSections([.add, .person])
-        snapshot.appendItems([Person(animal: .bear, name: "nil", birthDate: nil, sign: nil, bloodType: nil, mbti: nil)], toSection: .add)
+        snapshot.appendItems([Person(animal: .bear, name: "nil", birthDate: BirthDate(month: 0, day: 0), sign: nil, bloodType: nil, mbti: nil)], toSection: .add)
         snapshot.appendItems(people, toSection: .person)
         guard let dataSource = self.dataSource else {
             return
@@ -103,7 +106,6 @@ class PeopleListViewController: UIViewController {
     }
     
 }
-
 
 extension PeopleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -119,6 +121,24 @@ extension PeopleListViewController: UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [deletion])
     }
+}
+
+extension PeopleListViewController: PeopleListViewDelegate {
+    
+    func personTapped(person: Person) {
+        guard let personDetailViewController = PersonDetailViewController.instantiateFromStoryboard(StoryboardName.personDetail)
+        else { return }
+        
+        personDetailViewController.modalPresentationStyle = .fullScreen
+        personDetailViewController.person = person
+        personDetailViewController.delegate = self
+        navigationController?.present(personDetailViewController, animated: true, completion: nil)
+    }
+    
+    func personRemoved() {
+        viewModel.reloadPeople()
+    }
+    
 }
 
 

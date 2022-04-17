@@ -39,7 +39,7 @@ class BackCardView: UIView {
             for (index, infoLabel) in infoLabels.enumerated() {
                 switch index {
                 case 0: infoLabel.text = person.name
-                case 1: infoLabel.text = person.birthDate?.stringFromBrithDate ?? ""
+                case 1: infoLabel.text = person.birthDate.stringFromBrithDate
                 case 2: infoLabel.text = person.sign?.koreanName ?? "-"
                 case 3: infoLabel.text = person.bloodType?.koreanName ?? "-"
                 default:

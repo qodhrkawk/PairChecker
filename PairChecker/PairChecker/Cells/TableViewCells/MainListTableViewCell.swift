@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class MainListTableViewCell: UITableViewCell {
     
@@ -14,18 +15,21 @@ class MainListTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthDateLabel: UILabel!
     
+    weak var delegate: PeopleListViewDelegate?
+    
     var person: Person? {
         didSet {
             guard let person = person else { return }
             self.animalImageView.image = UIImage(named: person.animal.imageName)
             self.nameLabel.text = person.name
-            self.birthDateLabel.text = person.birthDate?.stringFromBrithDate ?? ""
+            self.birthDateLabel.text = person.birthDate.stringFromBrithDate
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         prepareUIs()
+        setGesture()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,4 +52,14 @@ class MainListTableViewCell: UITableViewCell {
         birthDateLabel.font = .systemFont(ofSize: 14)
     }
     
+    private func setGesture() {
+        self.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(containViewTapped))
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func containViewTapped() {
+        guard let person = person else { return }
+        delegate?.personTapped(person: person)
+    }
 }

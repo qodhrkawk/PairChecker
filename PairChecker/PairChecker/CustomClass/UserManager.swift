@@ -16,11 +16,7 @@ class UserManager {
     @UserDefaultWrapper<Bool>(key: UserDefaultsKey.shouldShowOnboarding) var shouldShowOnboarding
     
     init() {
-//        if getStoredPeople().count == 0 {
-//            Animal.allCases.forEach { animal in
-//                storePerson(person: Person(animal: animal, name: "이예슬", birthDate: BirthDate(month: 5, day: 1), sign: .taurus, bloodType: .A, mbti: .ENFP))
-//            }
-//        }
+
     }
     
     func getStoredPeople() -> [Person] {
@@ -34,6 +30,26 @@ class UserManager {
     
     func updatePeople(people: [Person]) {
         self.people = people
+    }
+    
+    func updateSinglePerson(from: Person, to: Person) {
+        guard let people = people else { return }
+        var newPeople = people
+        
+        if let index = newPeople.firstIndex(of: from) {
+            newPeople[index] = to
+        }
+        print(from)
+        print(to)
+        print(newPeople)
+        updatePeople(people: newPeople)
+    }
+    
+    func deletePerson(person: Person) {
+        guard let people = people else { return }
+        var newPeople = people
+        newPeople.removeAll(where: { $0 == person })
+        updatePeople(people: newPeople)
     }
     
 }

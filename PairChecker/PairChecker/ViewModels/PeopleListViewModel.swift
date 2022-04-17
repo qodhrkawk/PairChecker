@@ -21,4 +21,8 @@ class PeopleListViewModel {
         UserManager.shared.updatePeople(people: people)
     }
     
+    func reloadPeople() {
+        people = UserManager.shared.getStoredPeople()
+    }
+    
 }

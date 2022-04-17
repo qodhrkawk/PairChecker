@@ -9,5 +9,6 @@ import Foundation
 
 protocol MainViewDelegate {
     func check(person: Person)
-    
+    func editPerson(person: Person)
+    func removePerson(person: Person)
 }

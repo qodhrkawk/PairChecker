@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 enum Animal: String, CaseIterable, Codable {
-    case fox, cat, pig, bear, dog, duck, tiger, rabbit, frog
+    case fox, cat, pig, bear, dog, duck, tiger, rabbit, frog, hamster
     
     var themeColor: ThemeColor {
         switch self {
         case .fox, .tiger: return .orange
         case .rabbit, .pig: return .pink
         case .dog, .frog: return .green
-        case .duck: return .yellow
+        case .duck, .hamster: return .yellow
         case .bear, .cat: return .skyblue
         }
     }

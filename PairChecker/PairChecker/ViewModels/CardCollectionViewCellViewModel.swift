@@ -10,6 +10,7 @@ import Combine
 
 class CardCollectionViewCellViewModel {
     @Published var person: Person
+    var front: Bool = true
     
     init(person: Person) {
         self.person = person

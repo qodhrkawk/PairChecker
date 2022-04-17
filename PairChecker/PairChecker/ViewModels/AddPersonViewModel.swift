@@ -9,18 +9,23 @@ import Combine
 
 
 class AddPersonViewModel {
-    
+        
     private var name: String?
     private var birthDate: BirthDate?
     private var mbti: MBTI?
     private var animal: Animal?
 
+    @Published var person: Person? {
+        didSet {
+            personDidSet()
+        }
+    }
     @Published var bloodType: BloodType?
     @Published var sign: Sign?
     @Published var mbtiButtonBooleanInfos: [Bool] = []
     @Published var personCanbeMade: Bool = false
     
-    private let animalButtonArray: [Animal] = [.rabbit, .fox, .frog, .pig, .tiger, .duck, .dog, .bear, .cat]
+    let animalButtonArray: [Animal] = [.rabbit, .fox, .frog, .pig, .tiger, .duck, .dog, .bear, .cat, .hamster]
     
     init() {
         setupInitialValues()
@@ -30,6 +35,30 @@ class AddPersonViewModel {
         bloodType = .A
         mbtiButtonBooleanInfos = [true, true, true, true]
         makeMBTIfromBooleanInfos()
+    }
+    
+    func personDidSet() {
+        guard let person = person else { return }
+        self.name = person.name
+        self.birthDate = person.birthDate
+        self.mbti = person.mbti
+        self.animal = person.animal
+        self.bloodType = person.bloodType
+        self.sign = person.sign
+        
+        if let mbti = person.mbti {
+            self.mbtiButtonBooleanInfos = [
+                mbti.stringName[0] == "E",
+                mbti.stringName[1] == "S",
+                mbti.stringName[2] == "F",
+                mbti.stringName[3] == "P",
+            ]
+        }
+        else {
+            self.mbtiButtonBooleanInfos = []
+        }
+        
+        checkIfPersonCanbeMade()
     }
     
     func updateName(name: String) {
@@ -89,14 +118,21 @@ class AddPersonViewModel {
         checkIfPersonCanbeMade()
     }
     
-    func registerPerson() {
+    func registerPerson() -> Person? {
         guard let animal = animal,
               let name = name,
               let birthDate = birthDate
-        else { return }
+        else { return nil }
 
         let person = Person(animal: animal, name: name, birthDate: birthDate, sign: sign, bloodType: bloodType, mbti: mbti)
-        UserManager.shared.storePerson(person: person)
+        
+        guard let originPerson = self.person else {
+            UserManager.shared.storePerson(person: person)
+            return nil
+        }
+        
+        UserManager.shared.updateSinglePerson(from: originPerson, to: person)
+        return person
     }
     
     private func checkIfPersonCanbeMade() {

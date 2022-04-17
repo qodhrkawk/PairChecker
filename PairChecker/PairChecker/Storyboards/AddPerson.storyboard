@@ -395,12 +395,13 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" image="imgcat"/>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xi-n2-ylj">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xi-n2-ylj">
                                                                 <rect key="frame" x="0.0" y="70" width="60" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="Gcm-IY-Fe9"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="imghamster"/>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -552,6 +553,7 @@
         <image name="imgduck" width="102" height="102"/>
         <image name="imgfox" width="102" height="102"/>
         <image name="imgfrog" width="102" height="102"/>
+        <image name="imghamster" width="102" height="102"/>
         <image name="imgpig" width="102" height="102"/>
         <image name="imgrabbit" width="102" height="102"/>
         <image name="imgtiger" width="102" height="102"/>

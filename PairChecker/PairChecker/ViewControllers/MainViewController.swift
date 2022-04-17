@@ -53,6 +53,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        viewModel.reloadPeople()
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             self?.cardCollectionView.alpha = 1
             self?.highlightCenterCell()
@@ -66,7 +67,6 @@ class MainViewController: UIViewController {
                 self?.highLightImageView.alpha = 1
             }
         },completion: { [weak self] _ in
-            self?.viewModel.reloadPeople()
             self?.highlightCenterCell()
         })
     }
@@ -249,5 +249,20 @@ extension MainViewController: MainViewDelegate {
         pairCheckNavigationController.modalPresentationStyle = .fullScreen
         pairCheckNavigationController.viewModel.addPerson(person: person)
         self.present(pairCheckNavigationController, animated: true, completion: nil)
+    }
+    
+    func editPerson(person: Person) {
+        guard let addPersonViewController = AddPersonViewController.instantiateFromStoryboard(StoryboardName.addPerson)
+        else { return }
+        addPersonViewController.modalPresentationStyle = .fullScreen
+        addPersonViewController.viewModel.person = person
+        
+        self.navigationController?.present(addPersonViewController, animated: true, completion: nil)
+    }
+    
+    func removePerson(person: Person) {
+        self.showPersonDeletePopup(person: person, deleteCompletion: { [weak self] in
+            self?.viewModel.reloadPeople()
+        })
     }
 }

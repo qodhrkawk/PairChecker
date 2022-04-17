@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "filename" : "imgSelectedLineYellow.png",
       "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "imgSelectedLineYellow.png"
     },
     {
       "idiom" : "universal",
@@ -12,8 +12,8 @@
     },
     {
       "filename" : "imgSelectedLineYellow@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {

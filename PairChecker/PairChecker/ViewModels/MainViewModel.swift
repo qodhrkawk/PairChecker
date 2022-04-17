@@ -33,8 +33,6 @@ class MainViewModel {
                 else { return }
                 self.publishColorWithPerson(person: self.people[index])
             })
-    
-        NotificationCenter.default.addObserver(self, selector: #selector(updateFrontInfo), name: .didTapCurrentIndex, object: nil)
     }
     
     func reloadPeople() {
@@ -56,14 +54,6 @@ class MainViewModel {
     
     func updateCurrentIndex(index: Int) {
         self.currentIndex = index
-    }
-    
-    @objc func updateFrontInfo() {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(0), execute: { [weak self] in
-            guard let self = self else{ return }
-            self.frontModifedIndex = self.currentIndex
-            self.people[self.currentIndex].front = !self.people[self.currentIndex].front
-        })
     }
     
     func updatedFrontInfo() {

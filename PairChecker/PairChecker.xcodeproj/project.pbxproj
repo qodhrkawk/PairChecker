@@ -35,6 +35,9 @@
 		EC8C7AAE27FEFF890084492B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7AAD27FEFF890084492B /* OnboardingViewController.swift */; };
 		EC8C7AB027FF05890084492B /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7AAF27FF05890084492B /* DeviceInfo.swift */; };
 		EC8C7AB227FF14A90084492B /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7AB127FF14A90084492B /* OnboardingViewModel.swift */; };
+		EC8E487F2804688F00CF0423 /* FloatButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8E487E2804688F00CF0423 /* FloatButtonView.swift */; };
+		EC8E48812804769600CF0423 /* PersonDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8E48802804769600CF0423 /* PersonDetail.storyboard */; };
+		EC8E4883280476AD00CF0423 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8E4882280476AD00CF0423 /* PersonDetailViewController.swift */; };
 		EC8F34FD27FB077400B11CCF /* PairCheckNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F34FC27FB077400B11CCF /* PairCheckNavigationController.swift */; };
 		EC8F34FF27FB0A0800B11CCF /* PairCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F34FE27FB0A0800B11CCF /* PairCheckViewModel.swift */; };
 		EC8F350327FB0E8800B11CCF /* PairComponentSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F350227FB0E8800B11CCF /* PairComponentSelectViewController.swift */; };
@@ -58,6 +61,8 @@
 		ECA6563027ECC4FF00B14966 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6562F27ECC4FF00B14966 /* ThemeColor.swift */; };
 		ECA6563227ECC68500B14966 /* CardCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6563127ECC68500B14966 /* CardCollectionViewCellViewModel.swift */; };
 		ECA6563427ECC6D300B14966 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6563327ECC6D300B14966 /* Person.swift */; };
+		ECA6799028083C0900BDCFD8 /* PeopleListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA6798F28083C0900BDCFD8 /* PeopleListViewDelegate.swift */; };
+		ECA679922808445600BDCFD8 /* AddPersonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA679912808445600BDCFD8 /* AddPersonDelegate.swift */; };
 		ECBFC8B227F0B4B200B9E917 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B127F0B4B200B9E917 /* UserManager.swift */; };
 		ECBFC8B427F0B5C100B9E917 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B327F0B5C100B9E917 /* UserDefaultKeys.swift */; };
 		ECBFC8B627F0B65200B9E917 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B527F0B65200B9E917 /* UserDefaultsWrapper.swift */; };
@@ -130,6 +135,9 @@
 		EC8C7AAD27FEFF890084492B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EC8C7AAF27FF05890084492B /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		EC8C7AB127FF14A90084492B /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		EC8E487E2804688F00CF0423 /* FloatButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatButtonView.swift; sourceTree = "<group>"; };
+		EC8E48802804769600CF0423 /* PersonDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonDetail.storyboard; sourceTree = "<group>"; };
+		EC8E4882280476AD00CF0423 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
 		EC8F34FC27FB077400B11CCF /* PairCheckNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCheckNavigationController.swift; sourceTree = "<group>"; };
 		EC8F34FE27FB0A0800B11CCF /* PairCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCheckViewModel.swift; sourceTree = "<group>"; };
 		EC8F350227FB0E8800B11CCF /* PairComponentSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairComponentSelectViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +160,8 @@
 		ECA6562F27ECC4FF00B14966 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		ECA6563127ECC68500B14966 /* CardCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		ECA6563327ECC6D300B14966 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		ECA6798F28083C0900BDCFD8 /* PeopleListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewDelegate.swift; sourceTree = "<group>"; };
+		ECA679912808445600BDCFD8 /* AddPersonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonDelegate.swift; sourceTree = "<group>"; };
 		ECBFC8B127F0B4B200B9E917 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		ECBFC8B327F0B5C100B9E917 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		ECBFC8B527F0B65200B9E917 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
@@ -271,6 +281,7 @@
 				EC8F350227FB0E8800B11CCF /* PairComponentSelectViewController.swift */,
 				EC8C7AA727FC752E0084492B /* AddPersonViewController.swift */,
 				EC8C7AAD27FEFF890084492B /* OnboardingViewController.swift */,
+				EC8E4882280476AD00CF0423 /* PersonDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +310,7 @@
 				EC8C7AA527FC750D0084492B /* AddPerson.storyboard */,
 				ECBFC8BF27F0C47700B9E917 /* StoryBoardNames.swift */,
 				EC8C7AAB27FEF7F30084492B /* Onboarding.storyboard */,
+				EC8E48802804769600CF0423 /* PersonDetail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -335,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				EC899A8627F6BAAD00F343EA /* BackCardView.swift */,
+				EC8E487E2804688F00CF0423 /* FloatButtonView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -352,6 +365,8 @@
 			children = (
 				ECA522DF27F1E4810004B8D2 /* MainViewDelegate.swift */,
 				EC8C7AA927FEC93C0084492B /* PairComponentTableViewCellDelegate.swift */,
+				ECA6798F28083C0900BDCFD8 /* PeopleListViewDelegate.swift */,
+				ECA679912808445600BDCFD8 /* AddPersonDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -591,6 +606,7 @@
 				ECBFC8CF27F0D0E500B9E917 /* MainListTableViewAddCell.xib in Resources */,
 				EC8C7AAC27FEF7F30084492B /* Onboarding.storyboard in Resources */,
 				EC5E268F27D3578700C29631 /* CardCollectionViewCell.xib in Resources */,
+				EC8E48812804769600CF0423 /* PersonDetail.storyboard in Resources */,
 				ECCB786F27B68C69001A0D36 /* LaunchScreen.storyboard in Resources */,
 				ECBFC8BA27F0C03300B9E917 /* PeopleList.storyboard in Resources */,
 				ECCB786C27B68C69001A0D36 /* Assets.xcassets in Resources */,
@@ -729,8 +745,10 @@
 				EC5E268527D3554D00C29631 /* MainViewController.swift in Sources */,
 				ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */,
 				ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */,
+				ECA679922808445600BDCFD8 /* AddPersonDelegate.swift in Sources */,
 				EC5E267727D34B9A00C29631 /* String+.swift in Sources */,
 				EC5E269227D3581500C29631 /* UICollectionView+.swift in Sources */,
+				ECA6799028083C0900BDCFD8 /* PeopleListViewDelegate.swift in Sources */,
 				ECCB789327B68CFA001A0D36 /* NameChecker.swift in Sources */,
 				EC8C7AAE27FEFF890084492B /* OnboardingViewController.swift in Sources */,
 				ECBFC8BE27F0C2E100B9E917 /* UIControl+.swift in Sources */,
@@ -748,11 +766,13 @@
 				ECA556A52802AB520090E7FC /* BirthDate.swift in Sources */,
 				ECA522DC27F1E19C0004B8D2 /* PeopleSelectViewModel.swift in Sources */,
 				EC5E267C27D34F3A00C29631 /* SignChecker.swift in Sources */,
+				EC8E487F2804688F00CF0423 /* FloatButtonView.swift in Sources */,
 				EC8C7AA827FC752E0084492B /* AddPersonViewController.swift in Sources */,
 				ECA6562E27ECC39700B14966 /* Animal.swift in Sources */,
 				ECBFC8BC27F0C04900B9E917 /* PeopleListViewController.swift in Sources */,
 				ECA6563227ECC68500B14966 /* CardCollectionViewCellViewModel.swift in Sources */,
 				EC8F350327FB0E8800B11CCF /* PairComponentSelectViewController.swift in Sources */,
+				EC8E4883280476AD00CF0423 /* PersonDetailViewController.swift in Sources */,
 				ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */,
 				ECA522D627F1DE3F0004B8D2 /* PersonSelectViewController.swift in Sources */,
 				EC5E269527D3583700C29631 /* UIView+.swift in Sources */,

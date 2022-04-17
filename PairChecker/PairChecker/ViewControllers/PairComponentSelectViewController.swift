@@ -17,12 +17,15 @@ class PairComponentSelectViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var checkImageView: UIImageView!
     @IBOutlet weak var pairComponentTableView: UITableView!
     @IBOutlet weak var selectButton: UIButton!
     
     private var mainAnimalSubscription: AnyCancellable?
     private var pairComponentModelSubscription: AnyCancellable?
+    private var pairComponentSelectedSubscription: AnyCancellable?
+    private var checkButtonImageSubscription: AnyCancellable?
     
     private var dataSource: DataSource?
     typealias DataSource = UITableViewDiffableDataSource<PairComponentSelection, PairCheckComponentModel>
@@ -32,7 +35,7 @@ class PairComponentSelectViewController: UIViewController {
     
     var viewModel: PairCheckViewModel? {
         didSet {
-            bindViewModel()
+//            bindViewModel()
         }
     }
     
@@ -41,9 +44,11 @@ class PairComponentSelectViewController: UIViewController {
         prepareUIs()
         prepareTableView()
         bindButtons()
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        bindViewModel()
         viewModel?.bindPairComponentViewController()
     }
 
@@ -90,6 +95,27 @@ class PairComponentSelectViewController: UIViewController {
                 self?.updateComponentModels(pairCheckComponentModels: models)
             })
         
+        pairComponentSelectedSubscription = viewModel.$pairCheckComponentSelected
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] selected in
+                guard let self = self else { return }
+                if selected {
+                    self.selectButton.backgroundColor = .animalGreen
+                    self.selectButton.setTitleColor(.black, for: .normal)
+                    self.selectButton.isEnabled = true
+                }
+                else {
+                    self.selectButton.backgroundColor = .darkGrey
+                    self.selectButton.setTitleColor(.white10, for: .normal)
+                    self.selectButton.isEnabled = false
+                }
+            })
+        
+        checkButtonImageSubscription = viewModel.$selectedIconImage
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] image in
+                self?.checkImageView.image = image
+            })
     }
     
     private func bindButtons() {
@@ -99,6 +125,22 @@ class PairComponentSelectViewController: UIViewController {
                 self?.navigationController?.popViewController(animated: true)
             })
             .store(in: &cancellables)
+        
+        checkButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] in
+                guard let self = self else { return }
+                self.viewModel?.selectAllComponents()
+                for index in 0..<PairCheckComponent.allCases.count {
+                    guard let cell = self.pairComponentTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? PairComponentTableViewCell
+                    else { continue }
+                    cell.componentModel?.selected = true
+                    cell.adaptToSelection()
+                }
+                
+            })
+            .store(in: &cancellables)
+        
     }
     
     

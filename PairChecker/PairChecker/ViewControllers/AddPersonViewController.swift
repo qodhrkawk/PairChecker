@@ -25,7 +25,6 @@ class AddPersonViewController: UIViewController {
     @IBOutlet weak var mbtiUnknownButton: UIButton!
     @IBOutlet var animalButtons: [UIButton]!
     
-    
     @IBOutlet weak var finishButton: UIButton!
     
     private var bloodTypeSubscription: AnyCancellable?
@@ -33,10 +32,12 @@ class AddPersonViewController: UIViewController {
     private var animalIndexSubscription: AnyCancellable?
     private var signSubscription: AnyCancellable?
     private var finishButtonEnableSubscription: AnyCancellable?
+    private var personSubscription: AnyCancellable?
     
     private var cancellables = Set<AnyCancellable>()
     
-    private let viewModel = AddPersonViewModel()
+    weak var addPersonDelegate: AddPersonDelegate?
+    let viewModel = AddPersonViewModel()
     
     @Published private var animalButtonIndex: Int?
     
@@ -46,6 +47,7 @@ class AddPersonViewController: UIViewController {
         prepareUIs()
         bindButtons()
         bindViewModel()
+        addScrollContainViewGesture()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -169,14 +171,23 @@ class AddPersonViewController: UIViewController {
         signTextField.font = .systemFont(ofSize: 16, weight: .bold)
         signTextField.textColor = .animalSkyblue
         signTextField.delegate = self
-
     }
     
     private func bindButtons() {
         xButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                self?.dismiss(animated: true, completion: nil)
+                self?.showPopupView(
+                    alerTitle: "등록을 멈추고 나갈까?",
+                    alertMessage: "작성중인 정보는 저장되지 않아.",
+                    leftTitle: "취소",
+                    rightTitle: "나가기",
+                    leftActionHandler: {
+                        
+                },
+                    rightActionHandler: {
+                        self?.dismiss(animated: true, completion: nil)
+                })
             })
             .store(in: &cancellables)
         
@@ -218,7 +229,9 @@ class AddPersonViewController: UIViewController {
         finishButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                self?.viewModel.registerPerson()
+                if let person = self?.viewModel.registerPerson() {
+                    self?.addPersonDelegate?.personRegistered(person: person)
+                }
                 self?.dismiss(animated: true, completion: nil)
             })
             .store(in: &cancellables)
@@ -238,6 +251,7 @@ class AddPersonViewController: UIViewController {
                         self.makeButtonSelectedFromArray(buttons: self.bloodTypeButtons, index: index)
                     }
                 }
+                self.bloodTypeButtons.last?.setTitleColor(.white, for: .normal)
             })
         
         signSubscription = viewModel.$sign
@@ -291,6 +305,41 @@ class AddPersonViewController: UIViewController {
                 canbeMade ? self.makeFinishButtonEnabled() : self.makeFinishButtonDisabled()
             })
         
+        personSubscription = viewModel.$person
+            .sink(receiveValue: { [weak self] person in
+                guard let self = self,
+                      let person = person
+                else { return }
+                self.nameTextField.text = person.name
+                var monthString = String(person.birthDate.month)
+                if person.birthDate.month / 10 == 0 {
+                    monthString = "0" + monthString
+                }
+                self.monthTextField.text = monthString
+                
+                var dayString = String(person.birthDate.day)
+                if person.birthDate.day / 10 == 0 {
+                    dayString = "0" + dayString
+                }
+                self.dayTextField.text = dayString
+                
+                for (index, animal) in self.viewModel.animalButtonArray.enumerated() {
+                    if animal == person.animal {
+                        self.makeButtonSelectedFromArray(buttons: self.animalButtons, index: index)
+                    }
+                }
+            })
+        
+    }
+    
+    private func addScrollContainViewGesture() {
+        scrollContainView.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(scrollContainViewTapped))
+        scrollContainView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func scrollContainViewTapped() {
+        self.view.endEditing(true)
     }
     
     private func updateBirthDateIfNeeded() {

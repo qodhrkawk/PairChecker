@@ -178,7 +178,7 @@
                                     <constraint firstAttribute="width" constant="40" id="xtL-cj-Xol"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="group63"/>
+                                <state key="normal" image="group66"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqY-29-3H8">
                                 <rect key="frame" x="16" y="148.5" width="42" height="21"/>
@@ -201,7 +201,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QpS-7N-9rA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QpS-7N-9rA">
                                 <rect key="frame" x="329.5" y="218" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="a7G-T4-ggx"/>
@@ -246,6 +246,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="TId-2X-9Hk" id="WNB-Wp-4iB"/>
+                        <outlet property="checkButton" destination="M44-TQ-Ioa" id="iw1-Px-HQI"/>
                         <outlet property="checkImageView" destination="QpS-7N-9rA" id="dDg-sE-SmQ"/>
                         <outlet property="pairComponentTableView" destination="VFT-e8-4bl" id="Zca-VW-vAi"/>
                         <outlet property="selectButton" destination="OaE-35-O1W" id="cJD-2y-aOP"/>
@@ -260,6 +261,7 @@
     </scenes>
     <resources>
         <image name="group63" width="24" height="24"/>
+        <image name="group66" width="24" height="24"/>
         <image name="imgSelectedProfile" width="80" height="60"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -38,6 +38,15 @@ enum PairCheckComponent: String, CaseIterable, Equatable {
         case .bloodType: return .animalPink
         }
     }
+    
+    var highlightImage: UIImage? {
+        switch self {
+        case .name: return UIImage(named: "imgSelectedLineBlue")
+        case .sign: return UIImage(named: "imgSelectedLineYellow")
+        case .mbti: return UIImage(named: "imgSelectedLineOrange")
+        case .bloodType: return UIImage(named: "imgSelectedLinePink")
+        }
+    }
 }
 
 struct PairCheckComponentModel: Hashable {
@@ -52,6 +61,8 @@ class PairCheckViewModel {
     @Published var mainAnimal: Animal?
     
     @Published var pairCheckComponentModelsPublisher: [PairCheckComponentModel] = []
+    @Published var pairCheckComponentSelected: Bool = false
+    @Published var selectedIconImage: UIImage? = UIImage(named: "icAllselectInactive")
     
     private var pairCheckComponentModels: [PairCheckComponentModel] = []
     
@@ -74,10 +85,40 @@ class PairCheckViewModel {
         pairCheckComponentModelsPublisher = pairCheckComponentModels
     }
     
-    private func prepareComponents() {
-        PairCheckComponent.allCases.forEach { component in
-            pairCheckComponentModels.append(PairCheckComponentModel(component: component))
+    func selectAllComponents() {
+        for index in 0..<pairCheckComponentModels.count {
+            if pairCheckComponentModels[index].available {
+                pairCheckComponentModels[index].selected = true
+            }
         }
+        checkIfPairCheckIsSelected()
+    }
+    
+    private func prepareComponents() {
+        guard people.count == 2 else { return }
+        PairCheckComponent.allCases.forEach { component in
+            switch component {
+            case .name:
+                pairCheckComponentModels.append(PairCheckComponentModel(component: component))
+            case .sign:
+                pairCheckComponentModels.append(PairCheckComponentModel(component: component))
+            case .mbti:
+                if people[0].mbti != nil && people[1].mbti != nil {
+                    pairCheckComponentModels.append(PairCheckComponentModel(component: component))
+                }
+                else {
+                    pairCheckComponentModels.append(PairCheckComponentModel(component: component, available: false))
+                }
+            case .bloodType:
+                if people[0].bloodType != nil && people[1].bloodType != nil {
+                    pairCheckComponentModels.append(PairCheckComponentModel(component: component))
+                }
+                else {
+                    pairCheckComponentModels.append(PairCheckComponentModel(component: component, available: false))
+                }
+            }
+        }
+        
     }
     
     private func adaptComponentModelsForSelectedPeople() {
@@ -103,6 +144,29 @@ class PairCheckViewModel {
         }
     }
     
+    private func checkIfAllComponentsSelected() {
+        for pairCheckComponentModel in pairCheckComponentModels {
+            guard pairCheckComponentModel.available else { continue }
+            if !pairCheckComponentModel.selected {
+                selectedIconImage = UIImage(named: "icAllselectInactive")
+                return
+            }
+        }
+        selectedIconImage = UIImage(named: "icAllselectActive")
+    }
+    
+    private func checkIfPairCheckIsSelected() {
+        checkIfAllComponentsSelected()
+        for pairCheckComponentModel in pairCheckComponentModels {
+            if pairCheckComponentModel.selected {
+                pairCheckComponentSelected = true
+                return
+            }
+        }
+        pairCheckComponentSelected = false
+        return
+    }
+    
 }
 
 extension PairCheckViewModel: PairComponentTableViewCellDelegate {
@@ -112,5 +176,7 @@ extension PairCheckViewModel: PairComponentTableViewCellDelegate {
                 pairCheckComponentModels[index].selected = !pairCheckComponentModels[index].selected
             }
         }
+
+        checkIfPairCheckIsSelected()
     }
 }
