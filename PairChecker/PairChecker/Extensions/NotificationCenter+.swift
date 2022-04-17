@@ -9,4 +9,5 @@ import Foundation
 
 extension Notification.Name {
     static let didTapCurrentIndex = NSNotification.Name("didTapCurrentIndex")
+    static let pairCheckNavigationControllerShouldDismiss = NSNotification.Name("pairCheckNavigationControllerShouldDismiss")
 }

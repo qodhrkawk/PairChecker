@@ -109,9 +109,16 @@ class PersonSelectViewController: UIViewController {
         selectButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                guard let pairComponentSelectViewController = PairComponentSelectViewController.instantiateFromStoryboard(StoryboardName.pairCheck) else { return }
-                pairComponentSelectViewController.viewModel = self?.viewModel
-                self?.navigationController?.pushViewController(pairComponentSelectViewController, animated: true)
+                guard
+                    let self = self,
+                    let centerCell = self.centerCell,
+                    let person = centerCell.person,
+                    let pairComponentSelectViewController = PairComponentSelectViewController.instantiateFromStoryboard(StoryboardName.pairCheck)
+                else { return }
+                self.viewModel?.addSubPerson(person: person)
+
+                pairComponentSelectViewController.viewModel = self.viewModel
+                self.navigationController?.pushViewController(pairComponentSelectViewController, animated: true)
             })
             .store(in: &cancellables)
     }

@@ -40,7 +40,7 @@ public class NameChecker {
         return calculateNamePair(name1: sliced[0], name2: sliced[1])
     }
     
-    func sliceHangeul(hangeul: String) -> [[String]] {
+    private func sliceHangeul(hangeul: String) -> [[String]] {
         var answer:[[String]] = []
         for scalar in hangeul.unicodeScalars {
             guard scalar.value >= 44032 && scalar.value <= 55203 else { continue }
@@ -55,7 +55,7 @@ public class NameChecker {
         return answer
     }
     
-    func setReverseStrokeDict() {
+    private func setReverseStrokeDict() {
         for (key, value) in strokeDict {
             for elem in value {
                 reverseStrokeDict[elem] = key
@@ -63,7 +63,7 @@ public class NameChecker {
         }
     }
 
-    func calculateNamePair(name1: [[String]], name2: [[String]]) -> Int {
+    private func calculateNamePair(name1: [[String]], name2: [[String]]) -> Int {
     
         var (name1Value, name2Value) = ([Int](repeating: 0, count: name1.count), [Int](repeating: 0, count: name2.count))
         for iter in 0..<name1.count {
@@ -81,7 +81,7 @@ public class NameChecker {
         return calculateNameJum(name1: name1Value, name2: name2Value)
     }
 
-    func calculateNameJum(name1: [Int], name2: [Int]) -> Int {
+    private func calculateNameJum(name1: [Int], name2: [Int]) -> Int {
         let nameString1 = name1.reduce("",{String($0) + String($1)})
         let nameString2 = name2.reduce("",{String($0) + String($1)})
         

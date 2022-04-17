@@ -72,13 +72,16 @@ class AddPersonViewController: UIViewController {
             bloodTypeButton.backgroundColor = .charcoalGrey
             bloodTypeButton.setTitleColor(.white, for: .normal)
             bloodTypeButton.makeRounded(cornerRadius: 14)
+            bloodTypeButton.titleLabel?.font = UIFont(name: "GmarketSansBold", size: 14)
         }
+        
+        bloodTypeButtons.last?.titleLabel?.font = .systemFont(ofSize: 15)
         
         for mbtiButton in mbtiButtons {
             mbtiButton.backgroundColor = .charcoalGrey
             mbtiButton.setTitleColor(.white, for: .normal)
             mbtiButton.makeRounded(cornerRadius: 14)
-
+            mbtiButton.titleLabel?.font = UIFont(name: "GmarketSansBold", size: 14)
         }
         
         mbtiUnknownButton.backgroundColor = .charcoalGrey

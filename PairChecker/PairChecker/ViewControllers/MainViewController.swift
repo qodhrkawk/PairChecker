@@ -247,7 +247,7 @@ extension MainViewController: MainViewDelegate {
         guard let pairCheckNavigationController = PairCheckNavigationController.instantiateFromStoryboard(StoryboardName.pairCheck) else { return }
         
         pairCheckNavigationController.modalPresentationStyle = .fullScreen
-        pairCheckNavigationController.viewModel.addPerson(person: person)
+        pairCheckNavigationController.viewModel.addMainPerson(person: person)
         self.present(pairCheckNavigationController, animated: true, completion: nil)
     }
     

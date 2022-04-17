@@ -14,17 +14,5 @@ struct Person: Hashable, Codable, Equatable {
     let sign: Sign?
     let bloodType: BloodType?
     let mbti: MBTI?
-    
-//    var front: Bool = true
+    let createdAt: Date
 }
-
-//extension Person: Equatable {
-//    static func ==(lhs: Person, rhs: Person) -> Bool{
-//        return lhs.animal == rhs.animal &&
-//        lhs.name == rhs.name &&
-//        lhs.birthDate == rhs.birthDate &&
-//        lhs.sign == rhs.sign &&
-//        lhs.bloodType == rhs.bloodType &&
-//        lhs.mbti == rhs.mbti
-//    }
-//}

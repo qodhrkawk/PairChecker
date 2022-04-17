@@ -12,7 +12,10 @@ class PairCheckNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(navigationControllerShouldDismiss), name: .pairCheckNavigationControllerShouldDismiss, object: nil)
     }
     
+    @objc func navigationControllerShouldDismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

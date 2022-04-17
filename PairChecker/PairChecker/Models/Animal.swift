@@ -24,5 +24,9 @@ enum Animal: String, CaseIterable, Codable {
     var imageName: String {
         "img" + self.rawValue
     }
+    
+    var stickerImage: UIImage? {
+        UIImage(named: "imgSticker" + self.rawValue)
+    }
 }
 

@@ -198,9 +198,8 @@ public class MBTIChecker {
         }
     }
     
-    func calculate(value1: String, value2: String) -> Int {
-        
-        return 0
+    func calculate(value1: MBTI, value2: MBTI) -> Int {
+        return scoreArray[value1.rawValue][value2.rawValue]
     }
     
     

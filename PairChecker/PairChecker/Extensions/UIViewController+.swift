@@ -53,6 +53,8 @@ extension UIViewController {
         alertController.addAction(leftAction)
         alertController.addAction(rightAction)
         
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
         self.present(alertController, animated: true, completion: nil)
     }
         
@@ -66,6 +68,8 @@ extension UIViewController {
         deleteAlert.addAction(deleteAlertDeleteAction)
         deleteAlert.addAction(deleteAlertCancelAction)
         
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
         self.present(deleteAlert, animated: true, completion: nil)
     }
 }

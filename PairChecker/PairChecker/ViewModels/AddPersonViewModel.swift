@@ -6,7 +6,7 @@
 //
 
 import Combine
-
+import Foundation
 
 class AddPersonViewModel {
         
@@ -124,7 +124,7 @@ class AddPersonViewModel {
               let birthDate = birthDate
         else { return nil }
 
-        let person = Person(animal: animal, name: name, birthDate: birthDate, sign: sign, bloodType: bloodType, mbti: mbti)
+        let person = Person(animal: animal, name: name, birthDate: birthDate, sign: sign, bloodType: bloodType, mbti: mbti, createdAt: self.person?.createdAt ?? Date())
         
         guard let originPerson = self.person else {
             UserManager.shared.storePerson(person: person)

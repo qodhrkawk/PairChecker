@@ -97,7 +97,7 @@ class PeopleListViewController: UIViewController {
     private func updatePeople(people: [Person]) {
         var snapshot = Snapshot()
         snapshot.appendSections([.add, .person])
-        snapshot.appendItems([Person(animal: .bear, name: "nil", birthDate: BirthDate(month: 0, day: 0), sign: nil, bloodType: nil, mbti: nil)], toSection: .add)
+        snapshot.appendItems([Person(animal: .bear, name: "nil", birthDate: BirthDate(month: 0, day: 0), sign: nil, bloodType: nil, mbti: nil, createdAt: Date())], toSection: .add)
         snapshot.appendItems(people, toSection: .person)
         guard let dataSource = self.dataSource else {
             return

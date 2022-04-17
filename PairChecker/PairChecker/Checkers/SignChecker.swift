@@ -28,11 +28,6 @@ public enum Sign: Int, CaseIterable, Codable {
     }
 }
 
-struct ComputableSign {
-    var sign: Sign
-    var gender: Gender
-}
-
 public class SignChecker {
     
     static let shared = SignChecker()
@@ -74,13 +69,9 @@ public class SignChecker {
         }
     }
     
-    func calculate(value1: ComputableSign, value2: ComputableSign) -> Int {
-        guard value1.gender == value2.gender else {
-            return scoreArray[value1.sign.rawValue][value2.sign.rawValue]
-        }
-        
-        let sum = (scoreArray[value1.sign.rawValue][value2.sign.rawValue] +
-                   scoreArray[value2.sign.rawValue][value1.sign.rawValue])
+    func calculate(value1: Sign, value2: Sign) -> Int {
+        let sum = (scoreArray[value1.rawValue][value2.rawValue] +
+                   scoreArray[value2.rawValue][value1.rawValue])
         return sum / 2
     }
     

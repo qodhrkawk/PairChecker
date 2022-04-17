@@ -48,8 +48,8 @@ class PairComponentSelectViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        bindViewModel()
-        viewModel?.bindPairComponentViewController()
+//        bindViewModel()
+//        viewModel?.bindPairComponentViewController()
     }
 
     func prepareUIs() {
@@ -141,6 +141,18 @@ class PairComponentSelectViewController: UIViewController {
             })
             .store(in: &cancellables)
         
+        selectButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] in
+                guard let self = self,
+                      let resultViewController = ResultViewController.instantiateFromStoryboard(StoryboardName.result)
+                else { return }
+                resultViewController.modalPresentationStyle = .fullScreen
+                resultViewController.viewModel = self.viewModel
+                self.viewModel?.moveToResultView()
+                self.navigationController?.present(resultViewController, animated: true, completion: nil)
+            })
+            .store(in: &cancellables)
     }
     
     
@@ -159,7 +171,7 @@ class PairComponentSelectViewController: UIViewController {
         snapshot.appendItems(pairCheckComponentModels, toSection: .main)
         
         guard let dataSource = self.dataSource else { return }
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 
 }
