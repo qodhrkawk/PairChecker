@@ -39,9 +39,7 @@ class UserManager {
         if let index = newPeople.firstIndex(of: from) {
             newPeople[index] = to
         }
-        print(from)
-        print(to)
-        print(newPeople)
+        
         updatePeople(people: newPeople)
     }
     

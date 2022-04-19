@@ -59,6 +59,7 @@ class ResultViewController: UIViewController {
                 return cell
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ResultDetailTableViewCell", for: indexPath) as! ResultDetailTableViewCell
+                cell.viewModel = self?.viewModel
                 return cell
             }
         })
@@ -81,18 +82,6 @@ extension ResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableView.frame.height
     }
-    
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y > self.lastContentOffset && cellIndex != 1 {
-//            self.resultTableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .bottom, animated: true)
-//            self.cellIndex = 1
-//        }
-//        else if cellIndex != 0 {
-//            self.resultTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-//            self.cellIndex = 0
-//        }
-//        lastContentOffset = scrollView.contentOffset.y
-//    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y < 0.0 {

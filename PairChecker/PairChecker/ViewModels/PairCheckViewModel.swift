@@ -68,6 +68,8 @@ class PairCheckViewModel {
     @Published var averageScore: Int = 0
     @Published var resultText: String = ""
     
+    @Published var secondResultText: String = ""
+    
     private var pairCheckComponentModels: [PairCheckComponentModel] = []
     
     init() {
@@ -116,14 +118,14 @@ class PairCheckViewModel {
             case .sign:
                 pairCheckComponentModels.append(PairCheckComponentModel(component: component))
             case .mbti:
-                if people[0].mbti != nil && people[1].mbti != nil {
+                if selectedPeople[0].mbti != nil && selectedPeople[1].mbti != nil {
                     pairCheckComponentModels.append(PairCheckComponentModel(component: component))
                 }
                 else {
                     pairCheckComponentModels.append(PairCheckComponentModel(component: component, available: false))
                 }
             case .bloodType:
-                if people[0].bloodType != nil && people[1].bloodType != nil {
+                if selectedPeople[0].bloodType != nil && selectedPeople[1].bloodType != nil {
                     pairCheckComponentModels.append(PairCheckComponentModel(component: component))
                 }
                 else {
@@ -189,6 +191,7 @@ class PairCheckViewModel {
         pairCheckResult = PairChecker.shared.calculatePair(mainPerson: selectedPeople[0], subPerson: selectedPeople[1], checkList: checkList)
         averageScore = pairCheckResult.compactMap { $0 }.reduce(0) { $0 + $1 } / pairCheckResult.compactMap { $0 }.count
         publishResultText(averageScore: averageScore)
+        publishSecondResultText(scoreArray: self.pairCheckResult)
     }
     
     
@@ -210,11 +213,65 @@ class PairCheckViewModel {
             resultText = "유사과학까지 인정해버린 둘!\n이정도면 베스트 찰떡궁합!"
         case 90...100:
             resultText = "혹시 둘이 전생에 부부였어...?\n최고로 완벽한 찰떡궁합이야!"
-            
         default:
             resultText = "궁...궁합은 재미로 보는거야!\n유사과학 아웃! 밴! 차단!"
         }
+    }
+    
+    private func publishSecondResultText(scoreArray: [Int?]) {
+        let unwrappedScoreArray = scoreArray.compactMap({ $0 })
+        guard unwrappedScoreArray.count > 0
+        else {
+            secondResultText =  ""
+            return
+        }
         
+        if unwrappedScoreArray.count == 1 {
+            secondResultText = """
+            ( ) 궁합이 가장 재미난건 나도 인정!👍🏻
+            근데 다른 궁합도 궁금하지 않니?ㅎㅎ
+            다양한 친구들의 프로필도 모으고, 궁합점을 시도해봐!
+            혼자 하는것보다 여럿이 해야 재밌다구~🙂
+            아, 높은 점수와 최고점은 인증 필수인거 알지?!~
+            """
+        }
+        
+        let maximumScore = unwrappedScoreArray.max()
+        
+        for (index, score) in scoreArray.enumerated() {
+            if score == maximumScore {
+                switch index {
+                case 0:
+                    secondResultText = """
+                    둘은 이름점에서 가장 높은 점수를 받았네.
+                    이름점은 상대적으로 높은 점수를 얻기 어려운데...😯
+                    원래 평생 불릴 이름이 가장 중요한거 알지?😆
+                    이 관계를 오래 유지하고 싶다면 개명은 신중히
+                    생각해보는 걸 추천해!😉
+                    """
+                case 1:
+                    secondResultText = """
+                    둘은 별자리에서 가장 높은 점수를 받았네.
+                    별자리는 예로부터 서양에서 사람의 성격과 기질을 따온걸로 알려졌대. 둘의 성격은 잘 맞는 편인가봐! 😆
+                    아, 별자리는 태어난 날을 기준으로 하기 때문에 이 궁합은 영원할거야. 로맨틱하지 않아?😍
+                    """
+                case 2:
+                    secondResultText = """
+                    둘은 MBTI에서 가장 높은 점수를 받았네.
+                    다른것보다 MBTI는 과학에 좀 더 가까운거 알지?ㅎ
+                    보통 MBTI는 서로가 온전히 닮았다기보단 상호보완적일수록 높은 점수를 얻어. 고로 둘은 서로에게 꼭 맞는 퍼즐같은 존재! 앞으로도 오래오래 행복하길☺️
+                    """
+                case 3:
+                    secondResultText = """
+                    둘은 혈액형에서 가장 높은 점수를 받았네.
+                    10년전만 해도 궁합계의 탑이었던 혈액형!!!😯
+                    인기있었던데는 그만한 이유가 있지. 피가 인증한 사이는 원래 다른것보다 더욱 진실되고 진하다구😎❤️
+                    둘은 앞으로도 찐-하게 함께할 수 있을거야!
+                    """
+                default: break
+                }
+            }
+        }
     }
     
 }
