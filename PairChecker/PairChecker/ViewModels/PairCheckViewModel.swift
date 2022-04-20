@@ -68,6 +68,7 @@ class PairCheckViewModel {
     @Published var averageScore: Int = 0
     @Published var resultText: String = ""
     
+    @Published var graphElements: [ResultGraphElement] = []
     @Published var secondResultText: String = ""
     
     private var pairCheckComponentModels: [PairCheckComponentModel] = []
@@ -192,8 +193,25 @@ class PairCheckViewModel {
         averageScore = pairCheckResult.compactMap { $0 }.reduce(0) { $0 + $1 } / pairCheckResult.compactMap { $0 }.count
         publishResultText(averageScore: averageScore)
         publishSecondResultText(scoreArray: self.pairCheckResult)
+        publishGraphElements()
     }
     
+    private func publishGraphElements() {
+        guard pairCheckResult.count == 4 else { return }
+        
+        let colors: [UIColor] = [.animalSkyblue, .golden, .animalOrange, .animalPink]
+        let componentNames = ["이름점", "별자리", "MBTI", "혈액형"]
+            
+        var graphElements: [ResultGraphElement] = []
+        
+        for index in 0...3 {
+            graphElements.append(ResultGraphElement(componentName: componentNames[index], score: pairCheckResult[index], color: colors[index]))
+        }
+        
+        graphElements.sort { return $0.score ?? 0 > $1.score ?? 0 }
+        
+        self.graphElements = graphElements
+    }
     
     private func publishResultText(averageScore: Int) {
         switch averageScore {

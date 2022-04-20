@@ -38,21 +38,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ax7-mP-0IH">
-                        <rect key="frame" x="35" y="162" width="309" height="301"/>
+                    <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ax7-mP-0IH">
+                        <rect key="frame" x="35" y="178" width="309" height="301"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="301" id="20V-Xx-ifw"/>
                         </constraints>
                     </tableView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="코멘트(근거없음주의)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKb-YQ-IU7">
-                        <rect key="frame" x="35" y="463" width="144.5" height="21"/>
+                        <rect key="frame" x="35" y="479" width="144.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MId-JD-YGe">
-                        <rect key="frame" x="36" y="494" width="272" height="199"/>
+                        <rect key="frame" x="36" y="510" width="272" height="183"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -63,8 +63,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="56" id="jf2-VJ-g34"/>
                         </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -81,7 +81,7 @@
                     <constraint firstItem="Snk-wr-tuy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Rnk-6h-2Pb"/>
                     <constraint firstItem="MId-JD-YGe" firstAttribute="top" secondItem="MKb-YQ-IU7" secondAttribute="bottom" constant="10" id="TIY-R8-JrE"/>
                     <constraint firstItem="MKb-YQ-IU7" firstAttribute="top" secondItem="Ax7-mP-0IH" secondAttribute="bottom" id="Uug-Pa-Bfu"/>
-                    <constraint firstItem="Ax7-mP-0IH" firstAttribute="top" secondItem="FR4-ys-5hM" secondAttribute="bottom" id="YXX-MJ-vIj"/>
+                    <constraint firstItem="Ax7-mP-0IH" firstAttribute="top" secondItem="FR4-ys-5hM" secondAttribute="bottom" constant="16" id="YXX-MJ-vIj"/>
                     <constraint firstAttribute="trailing" secondItem="Snk-wr-tuy" secondAttribute="trailing" id="Z7h-Tm-Gk0"/>
                     <constraint firstAttribute="bottom" secondItem="s2e-7d-OtW" secondAttribute="bottom" constant="40" id="dDW-4d-xdd"/>
                     <constraint firstItem="O6a-rb-EfX" firstAttribute="top" secondItem="xYr-in-DBs" secondAttribute="bottom" constant="6" id="g0g-E9-oHE"/>

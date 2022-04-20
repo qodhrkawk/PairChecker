@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+enum ResultDetailSection: Hashable {
+    case main
+}
+
 class ResultDetailTableViewCell: UITableViewCell {
     
     @IBOutlet var titleLabels: [UILabel]!
@@ -17,6 +21,12 @@ class ResultDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var finishButton: UIButton!
     
+    typealias DataSource = UITableViewDiffableDataSource<ResultDetailSection, ResultGraphElement>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<ResultDetailSection, ResultGraphElement>
+    
+    private var dataSource: DataSource?
+    weak var delegate: ResultViewDelegate?
+    
     var viewModel: PairCheckViewModel? {
         didSet {
             bindViewModel()
@@ -24,7 +34,7 @@ class ResultDetailTableViewCell: UITableViewCell {
     }
     
     private var totalScoreSubscription: AnyCancellable?
-    private var scoreArraySubscription: AnyCancellable?
+    private var graphElementsSubscription: AnyCancellable?
     private var commentTextSubscription: AnyCancellable?
     
     private var cancellables = Set<AnyCancellable>()
@@ -32,6 +42,7 @@ class ResultDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         prepareUIs()
+        bindButton()
     }
 
     private func prepareUIs() {
@@ -53,6 +64,8 @@ class ResultDetailTableViewCell: UITableViewCell {
         finishButton.backgroundColor = .animalGreen
         finishButton.setTitleColor(.black, for: .normal)
         finishButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        
+        prepareGraphTableView()
     }
     
     private func bindViewModel() {
@@ -61,6 +74,11 @@ class ResultDetailTableViewCell: UITableViewCell {
         totalScoreSubscription = viewModel.$averageScore
             .sink(receiveValue: { [weak self] score in
                 self?.scoreLabel.text = String(score)
+            })
+        
+        graphElementsSubscription = viewModel.$graphElements
+            .sink(receiveValue: { [weak self] graphElements in
+                self?.applyTableView(graphElements: graphElements)
             })
         
         
@@ -77,6 +95,47 @@ class ResultDetailTableViewCell: UITableViewCell {
         
     }
     
+    private func prepareGraphTableView() {
+        setupDataSource()
+        
+        graphTableView.registerCell(cell: ResultGraphTableViewCell.self)
+                
+        graphTableView.delegate = self
+    }
     
+    private func setupDataSource() {
+        self.dataSource = UITableViewDiffableDataSource(tableView: graphTableView, cellProvider: { (tableView, indexPath, graphElement) -> UITableViewCell? in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ResultGraphTableViewCell", for: indexPath) as! ResultGraphTableViewCell
+
+            cell.setCell(graphElement: graphElement)
+            return cell
+            
+        })
+    }
     
+    private func applyTableView(graphElements: [ResultGraphElement]) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(graphElements, toSection: .main)
+        guard let dataSource = self.dataSource else {
+            return
+        }
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    private func bindButton() {
+        finishButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                self?.delegate?.dismissView()
+            })
+            .store(in: &cancellables)
+    }
+}
+
+
+extension ResultDetailTableViewCell: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        66
+    }
 }

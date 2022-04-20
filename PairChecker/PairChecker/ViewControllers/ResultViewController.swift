@@ -21,7 +21,6 @@ class ResultViewController: UIViewController {
     
     private var dataSource: DataSource?
     
-    private var lastContentOffset: CGFloat = 0
     private var cellIndex: Int = 0
     
     var viewModel: PairCheckViewModel?
@@ -59,6 +58,7 @@ class ResultViewController: UIViewController {
                 return cell
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ResultDetailTableViewCell", for: indexPath) as! ResultDetailTableViewCell
+                cell.delegate = self
                 cell.viewModel = self?.viewModel
                 return cell
             }
