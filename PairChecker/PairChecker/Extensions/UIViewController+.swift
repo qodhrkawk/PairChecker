@@ -72,4 +72,17 @@ extension UIViewController {
         generator.impactOccurred()
         self.present(deleteAlert, animated: true, completion: nil)
     }
+    
+    func showAlertView(title: String, subTitle: String, alertTitle: String, actionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: title, message: subTitle, preferredStyle: .alert)
+        let action = UIAlertAction(title: alertTitle, style: .default, handler: { action in
+            actionHandler()
+        })
+        
+        alertController.addAction(action)
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

@@ -7,7 +7,7 @@ target 'PairChecker' do
 
   # Pods for PairChecker
   pod 'SnapKit', '~> 5.0.0'
-
+  pod 'lottie-ios'
 
   target 'PairCheckerTests' do
     inherit! :search_paths

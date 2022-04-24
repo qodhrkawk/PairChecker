@@ -35,6 +35,11 @@ class CardCollectionViewCell: UICollectionViewCell {
         addContainViewGesture()
         bindResultButton()
     }
+    
+    override func prepareForReuse() {
+        floatButtonView.removeFromSuperview()
+        removeBackCardView()
+    }
 
     private func prepareUIs() {
         self.makeRounded(cornerRadius: 35)

@@ -90,6 +90,7 @@
 		ECBFC8CB27F0CFE900B9E917 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8CA27F0CFE900B9E917 /* UITableView+.swift */; };
 		ECBFC8CE27F0D0E500B9E917 /* MainListTableViewAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8CC27F0D0E500B9E917 /* MainListTableViewAddCell.swift */; };
 		ECBFC8CF27F0D0E500B9E917 /* MainListTableViewAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBFC8CD27F0D0E500B9E917 /* MainListTableViewAddCell.xib */; };
+		ECC0E909281262CD0000E081 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = ECC0E908281262CD0000E081 /* loading.json */; };
 		ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786227B68C66001A0D36 /* AppDelegate.swift */; };
 		ECCB786527B68C66001A0D36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786427B68C66001A0D36 /* SceneDelegate.swift */; };
 		ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB786627B68C66001A0D36 /* ViewController.swift */; };
@@ -101,6 +102,10 @@
 		ECCB788627B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB788527B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift */; };
 		ECCB789327B68CFA001A0D36 /* NameChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB789227B68CFA001A0D36 /* NameChecker.swift */; };
 		ECCB789427B68CFA001A0D36 /* NameChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCB789227B68CFA001A0D36 /* NameChecker.swift */; };
+		ECDB1ED42813D41100474662 /* CalculateAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB1ED32813D41100474662 /* CalculateAnimationView.swift */; };
+		ECDB1ED72813E1AC00474662 /* EmptyCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB1ED52813E1AC00474662 /* EmptyCardCollectionViewCell.swift */; };
+		ECDB1ED82813E1AC00474662 /* EmptyCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECDB1ED62813E1AC00474662 /* EmptyCardCollectionViewCell.xib */; };
+		ECDB1EDA2813E81500474662 /* PersonSelectEmtpyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB1ED92813E81500474662 /* PersonSelectEmtpyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +207,7 @@
 		ECBFC8CA27F0CFE900B9E917 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		ECBFC8CC27F0D0E500B9E917 /* MainListTableViewAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListTableViewAddCell.swift; sourceTree = "<group>"; };
 		ECBFC8CD27F0D0E500B9E917 /* MainListTableViewAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainListTableViewAddCell.xib; sourceTree = "<group>"; };
+		ECC0E908281262CD0000E081 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		ECCB785F27B68C66001A0D36 /* PairChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECCB786227B68C66001A0D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECCB786427B68C66001A0D36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +222,10 @@
 		ECCB788327B68C69001A0D36 /* PairCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCheckerUITests.swift; sourceTree = "<group>"; };
 		ECCB788527B68C69001A0D36 /* PairCheckerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairCheckerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ECCB789227B68CFA001A0D36 /* NameChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameChecker.swift; sourceTree = "<group>"; };
+		ECDB1ED32813D41100474662 /* CalculateAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateAnimationView.swift; sourceTree = "<group>"; };
+		ECDB1ED52813E1AC00474662 /* EmptyCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECDB1ED62813E1AC00474662 /* EmptyCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		ECDB1ED92813E81500474662 /* PersonSelectEmtpyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSelectEmtpyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +369,7 @@
 				ECA522E127F1F2D80004B8D2 /* CollectionViewFlowLayouts */,
 				ECA522D727F1E0180004B8D2 /* PeopleSelectCollectionViewCell.swift */,
 				EC5E268C27D3578700C29631 /* CardCollectionViewCell.swift */,
+				ECDB1ED52813E1AC00474662 /* EmptyCardCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -377,6 +388,8 @@
 			children = (
 				EC899A8627F6BAAD00F343EA /* BackCardView.swift */,
 				EC8E487E2804688F00CF0423 /* FloatButtonView.swift */,
+				ECDB1ED32813D41100474662 /* CalculateAnimationView.swift */,
+				ECDB1ED92813E81500474662 /* PersonSelectEmtpyView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -458,6 +471,7 @@
 			children = (
 				EC5E268D27D3578700C29631 /* CardCollectionViewCell.xib */,
 				ECA522D827F1E0180004B8D2 /* PeopleSelectCollectionViewCell.xib */,
+				ECDB1ED62813E1AC00474662 /* EmptyCardCollectionViewCell.xib */,
 			);
 			path = CollectionVIewCell;
 			sourceTree = "<group>";
@@ -473,6 +487,22 @@
 				ECB83B7D280EF446006A2A32 /* ResultGraphTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		ECC0E906281262AF0000E081 /* AdditionalResources */ = {
+			isa = PBXGroup;
+			children = (
+				ECC0E907281262BD0000E081 /* LottieAnimation */,
+			);
+			path = AdditionalResources;
+			sourceTree = "<group>";
+		};
+		ECC0E907281262BD0000E081 /* LottieAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				ECC0E908281262CD0000E081 /* loading.json */,
+			);
+			path = LottieAnimation;
 			sourceTree = "<group>";
 		};
 		ECCB785627B68C66001A0D36 = {
@@ -500,6 +530,7 @@
 		ECCB786127B68C66001A0D36 /* PairChecker */ = {
 			isa = PBXGroup;
 			children = (
+				ECC0E906281262AF0000E081 /* AdditionalResources */,
 				ECA3E669280C1BCC00C16D0D /* CustomFonts */,
 				EC899A8527F6BA9F00F343EA /* CustomViews */,
 				ECA522DD27F1E4550004B8D2 /* Protocols */,
@@ -648,11 +679,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC0E909281262CD0000E081 /* loading.json in Resources */,
 				ECA522D427F1DE290004B8D2 /* PairCheck.storyboard in Resources */,
 				ECBFC8C927F0CAD000B9E917 /* MainListTableViewCell.xib in Resources */,
 				ECBFC8CF27F0D0E500B9E917 /* MainListTableViewAddCell.xib in Resources */,
 				ECA3E668280C0CAC00C16D0D /* ResultDetailTableViewCell.xib in Resources */,
 				ECA3E66F280C1BEA00C16D0D /* GmarketSansBold.otf in Resources */,
+				ECDB1ED82813E1AC00474662 /* EmptyCardCollectionViewCell.xib in Resources */,
 				EC8C7AAC27FEF7F30084492B /* Onboarding.storyboard in Resources */,
 				EC5E268F27D3578700C29631 /* CardCollectionViewCell.xib in Resources */,
 				EC8E48812804769600CF0423 /* PersonDetail.storyboard in Resources */,
@@ -798,6 +831,7 @@
 				ECA522E327F1F3000004B8D2 /* PeopleSelectionCollectionViewFlowLayout.swift in Sources */,
 				EC5E268527D3554D00C29631 /* MainViewController.swift in Sources */,
 				ECCB786727B68C66001A0D36 /* ViewController.swift in Sources */,
+				ECDB1ED72813E1AC00474662 /* EmptyCardCollectionViewCell.swift in Sources */,
 				ECCB786327B68C66001A0D36 /* AppDelegate.swift in Sources */,
 				ECA679922808445600BDCFD8 /* AddPersonDelegate.swift in Sources */,
 				EC5E267727D34B9A00C29631 /* String+.swift in Sources */,
@@ -811,6 +845,7 @@
 				ECA6562C27ECBE0700B14966 /* MainText.swift in Sources */,
 				ECBFC8C827F0CAD000B9E917 /* MainListTableViewCell.swift in Sources */,
 				EC8C7AB227FF14A90084492B /* OnboardingViewModel.swift in Sources */,
+				ECDB1ED42813D41100474662 /* CalculateAnimationView.swift in Sources */,
 				ECBFC8B427F0B5C100B9E917 /* UserDefaultKeys.swift in Sources */,
 				EC8FB2B92801BC0C0073DD5F /* AddPersonViewModel.swift in Sources */,
 				EC8AAA5027D640BE0022CDA7 /* BloodTypeChecker.swift in Sources */,
@@ -854,6 +889,7 @@
 				EC899A8727F6BAAD00F343EA /* BackCardView.swift in Sources */,
 				ECA6562927EC9B7600B14966 /* UIColor+.swift in Sources */,
 				ECA3E660280C0A3200C16D0D /* ResultViewController.swift in Sources */,
+				ECDB1EDA2813E81500474662 /* PersonSelectEmtpyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

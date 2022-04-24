@@ -15,4 +15,8 @@ struct Person: Hashable, Codable, Equatable {
     let bloodType: BloodType?
     let mbti: MBTI?
     let createdAt: Date
+    
+    static var dummyPersonForSection: Person {
+        return Person(animal: .bear, name: "", birthDate: BirthDate(month: 1, day: 1), sign: nil, bloodType: nil, mbti: nil, createdAt: Date())
+    }
 }

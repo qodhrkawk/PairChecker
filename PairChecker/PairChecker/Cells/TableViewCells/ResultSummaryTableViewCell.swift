@@ -25,6 +25,8 @@ class ResultSummaryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var resultExplainLabel: UILabel!
     
+    @IBOutlet weak var resultSummaryContainView: UIView!
+    @IBOutlet weak var resultBackgroundImageView: UIImageView!
     @IBOutlet weak var resultStarImageView: UIImageView!
     @IBOutlet weak var resultArrowImageView: UIImageView!
     @IBOutlet weak var resultCommentImageVIew: UIImageView!
@@ -99,6 +101,7 @@ class ResultSummaryTableViewCell: UITableViewCell {
             }
         }
         
+        resultSummaryContainView.backgroundColor = .clear
         resultExplainLabel.text = "유사과학까지 인정해버린 둘!\n이정도면 베스트 찰떡궁합!"
         resultExplainLabel.font = .systemFont(ofSize: 16, weight: .bold)
     }
@@ -161,5 +164,13 @@ class ResultSummaryTableViewCell: UITableViewCell {
                 self?.delegate?.dismissView()
             })
             .store(in: &cancellables)
+    }
+    
+    func startAnimation() {
+        resultSummaryContainView.transform = CGAffineTransform(translationX: 0, y: DeviceInfo.screenHeight * 0.6)
+        UIView.animate(withDuration: 0.5, delay: 0, animations: { [weak self] in
+            self?.resultSummaryContainView.transform = .identity
+        })
+        
     }
 }

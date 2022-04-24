@@ -71,5 +71,10 @@ extension UIColor {
     @nonobjc class var veryLightPink: UIColor {
       return UIColor(white: 214.0 / 255.0, alpha: 1.0)
     }
-
+    @nonobjc class var textblack50: UIColor {
+        return UIColor(red: 34.0 / 255.0, green: 34.0 / 255.0, blue: 37.0 / 255.0, alpha: 0.5)
+     }
+    @nonobjc class var black70: UIColor {
+      return UIColor(white: 0.0, alpha: 0.7)
+    }
 }

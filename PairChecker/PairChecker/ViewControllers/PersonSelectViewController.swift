@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SnapKit
 
 enum PersonSelectSection: Hashable {
     case person
@@ -22,6 +23,8 @@ class PersonSelectViewController: UIViewController {
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var selectionImage: UIImageView!
+    
+    private var emptyView = PersonSelectEmtpyView()
     
     typealias DataSource = UICollectionViewDiffableDataSource<PersonSelectSection, Person>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PersonSelectSection, Person>
@@ -44,6 +47,10 @@ class PersonSelectViewController: UIViewController {
         prepareCollectionView()
         bindViewModel()
         bindButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel?.reloadPeople()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -152,6 +159,7 @@ class PersonSelectViewController: UIViewController {
     }
     
     private func updatePeople(people: [Person]) {
+        people.count == 0 ? showEmptyView() : hideEmptyView()
         var snapshot = Snapshot()
         snapshot.appendSections([.person])
         snapshot.appendItems(people)
@@ -174,6 +182,30 @@ class PersonSelectViewController: UIViewController {
         self.centerIndex = indexPath.item
         self.centerCell = self.peopleCollectionView.cellForItem(at: indexPath) as? PeopleSelectCollectionViewCell
         self.centerCell?.transformToLarge()
+    }
+    
+    private func showEmptyView() {
+        selectionImage.alpha = 0
+        
+        view.addSubview(emptyView)
+        emptyView.snp.remakeConstraints { make in
+            make.height.equalTo(140)
+            make.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        emptyView.setButtonAction { [weak self] in
+            guard let addPersonViewController = AddPersonViewController.instantiateFromStoryboard(StoryboardName.addPerson)
+            else { return }
+            
+            addPersonViewController.modalPresentationStyle = .fullScreen
+            self?.navigationController?.present(addPersonViewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func hideEmptyView() {
+        selectionImage.alpha = 1
+        emptyView.removeFromSuperview()
     }
 }
 

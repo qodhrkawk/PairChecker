@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SnapKit
 
 enum ResultSection: Hashable {
     case summary
@@ -28,6 +29,13 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUIs()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        view.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            self?.view.alpha = 1
+        })
     }
     
     private func prepareUIs() {
@@ -55,6 +63,7 @@ class ResultViewController: UIViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ResultSummaryTableViewCell", for: indexPath) as! ResultSummaryTableViewCell
                 cell.delegate = self
                 cell.viewModel = self?.viewModel
+                cell.startAnimation()
                 return cell
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ResultDetailTableViewCell", for: indexPath) as! ResultDetailTableViewCell
@@ -89,6 +98,22 @@ extension ResultViewController: UITableViewDelegate {
                 cell.frame.origin.y = scrollView.contentOffset.y
                 let originalHeight: CGFloat = DeviceInfo.screenHeight
                 cell.frame.size.height = originalHeight + scrollView.contentOffset.y * (-1.0)
+            }
+        }
+
+        if scrollView.contentOffset.y > DeviceInfo.screenHeight * 0.7 {
+            if cellIndex == 0 {
+                cellIndex = 1
+                for cell in resultTableView.visibleCells {
+                    if let detailCell = cell as? ResultDetailTableViewCell {
+                        detailCell.animateGraphTableView()
+                    }
+                }
+            }
+        }
+        else {
+            if cellIndex == 1 {
+                cellIndex = 0
             }
         }
     }

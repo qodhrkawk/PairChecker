@@ -10,4 +10,5 @@ import Foundation
 protocol PeopleListViewDelegate: AnyObject {
     func personTapped(person: Person)
     func personRemoved()
+    func addCellTapped()
 }

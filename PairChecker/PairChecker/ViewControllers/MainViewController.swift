@@ -10,6 +10,7 @@ import Combine
 
 enum MainCardSection: Hashable {
     case main
+    case empty
 }
 
 class MainViewController: UIViewController {
@@ -119,6 +120,7 @@ class MainViewController: UIViewController {
     
     private func setupCollectionView() {
         cardCollectionView.registerCell(cell: CardCollectionViewCell.self)
+        cardCollectionView.registerCell(cell: EmptyCardCollectionViewCell.self)
         cardCollectionView.backgroundColor = .mainBackground
         
         cardCollectionView.decelerationRate = .fast
@@ -172,20 +174,30 @@ class MainViewController: UIViewController {
     private func setupDataSource() {
         self.dataSource = UICollectionViewDiffableDataSource(collectionView: cardCollectionView, cellProvider: { [weak self] (collectionView, indexPath, person) -> UICollectionViewCell? in
             guard let self = self else { return UICollectionViewCell() }
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-            cell.setViewModel(viewModel: CardCollectionViewCellViewModel(person: person))
-            cell.mainViewDelegate = self
-            return cell
+            switch indexPath.section {
+            case 0:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
+                cell.setViewModel(viewModel: CardCollectionViewCellViewModel(person: person))
+                cell.mainViewDelegate = self
+                return cell
+            default:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCardCollectionViewCell", for: indexPath) as! EmptyCardCollectionViewCell
+                return cell
+            }
         })
     }
     
     private func updatePeople(people: [Person]) {
         var snapshot = Snapshot()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(people)
-        guard let dataSource = self.dataSource else {
+        snapshot.appendSections([.main,.empty])
+        guard people.count != 0 else {
+            snapshot.appendItems([Person.dummyPersonForSection], toSection: .empty)
+            guard let dataSource = self.dataSource else { return }
+            dataSource.apply(snapshot, animatingDifferences: true)
             return
         }
+        snapshot.appendItems(people, toSection: .main)
+        guard let dataSource = self.dataSource else { return }
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     

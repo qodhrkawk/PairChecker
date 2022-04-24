@@ -131,6 +131,13 @@ class ResultDetailTableViewCell: UITableViewCell {
             })
             .store(in: &cancellables)
     }
+    
+    func animateGraphTableView() {
+        graphTableView.visibleCells.forEach { cell in
+            guard let graphCell = cell as? ResultGraphTableViewCell else { return }
+            graphCell.barAnimate()
+        }
+    }
 }
 
 

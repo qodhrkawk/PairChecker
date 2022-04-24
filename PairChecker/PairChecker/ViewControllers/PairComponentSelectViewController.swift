@@ -33,6 +33,9 @@ class PairComponentSelectViewController: UIViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
+    let animationView = CalculateAnimationView()
+    var animationTimer: Timer?
+    
     var viewModel: PairCheckViewModel? {
         didSet {
 //            bindViewModel()
@@ -144,13 +147,22 @@ class PairComponentSelectViewController: UIViewController {
         selectButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] in
-                guard let self = self,
-                      let resultViewController = ResultViewController.instantiateFromStoryboard(StoryboardName.result)
-                else { return }
-                resultViewController.modalPresentationStyle = .fullScreen
-                resultViewController.viewModel = self.viewModel
-                self.viewModel?.moveToResultView()
-                self.navigationController?.present(resultViewController, animated: true, completion: nil)
+                guard let self = self else { return }
+                self.view.addSubview(self.animationView)
+                
+                self.animationView.snp.makeConstraints { make in
+                    make.edges.equalToSuperview()
+                }
+                
+                self.animationTimer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false, block: { [weak self] timer in
+                    guard let self = self,
+                          let resultViewController = ResultViewController.instantiateFromStoryboard(StoryboardName.result)
+                    else { return }
+                    resultViewController.modalPresentationStyle = .fullScreen
+                    resultViewController.viewModel = self.viewModel
+                    self.viewModel?.moveToResultView()
+                    self.navigationController?.present(resultViewController, animated: false, completion: nil)
+                })
             })
             .store(in: &cancellables)
     }

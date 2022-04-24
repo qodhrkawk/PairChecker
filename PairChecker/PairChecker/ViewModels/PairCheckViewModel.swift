@@ -72,9 +72,16 @@ class PairCheckViewModel {
     @Published var secondResultText: String = ""
     
     private var pairCheckComponentModels: [PairCheckComponentModel] = []
-    
+        
     init() {
         
+    }
+    
+    func reloadPeople() {
+        self.people = UserManager.shared.getStoredPeople()
+        if selectedPeople.count != 0 {
+            people.removeAll(where: { $0 == selectedPeople[0] })
+        }
     }
     
     func addMainPerson(person: Person) {
@@ -200,12 +207,11 @@ class PairCheckViewModel {
         guard pairCheckResult.count == 4 else { return }
         
         let colors: [UIColor] = [.animalSkyblue, .golden, .animalOrange, .animalPink]
-        let componentNames = ["이름점", "별자리", "MBTI", "혈액형"]
             
         var graphElements: [ResultGraphElement] = []
         
         for index in 0...3 {
-            graphElements.append(ResultGraphElement(componentName: componentNames[index], score: pairCheckResult[index], color: colors[index]))
+            graphElements.append(ResultGraphElement(componentName: PairCheckComponent.allCases[index].title, score: pairCheckResult[index], color: colors[index]))
         }
         
         graphElements.sort { return $0.score ?? 0 > $1.score ?? 0 }
@@ -243,15 +249,17 @@ class PairCheckViewModel {
             secondResultText =  ""
             return
         }
-        
+                
         if unwrappedScoreArray.count == 1 {
+            guard let index = scoreArray.firstIndex(of: unwrappedScoreArray[0]) else { return }
             secondResultText = """
-            ( ) 궁합이 가장 재미난건 나도 인정!👍🏻
+            \(PairCheckComponent.allCases[index].title) 궁합이 가장 재미난건 나도 인정!👍🏻
             근데 다른 궁합도 궁금하지 않니?ㅎㅎ
             다양한 친구들의 프로필도 모으고, 궁합점을 시도해봐!
             혼자 하는것보다 여럿이 해야 재밌다구~🙂
             아, 높은 점수와 최고점은 인증 필수인거 알지?!~
             """
+            return
         }
         
         let maximumScore = unwrappedScoreArray.max()

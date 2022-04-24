@@ -17,6 +17,7 @@ class PeopleListViewController: UIViewController {
     
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var peopleTableView: UITableView!
+    @IBOutlet weak var emptyImageView: UIImageView!
     
     typealias DataSource = UITableViewDiffableDataSource<MainListSection, Person>
     typealias Snapshot = NSDiffableDataSourceSnapshot<MainListSection, Person>
@@ -41,11 +42,13 @@ class PeopleListViewController: UIViewController {
             self?.peopleTableView.alpha = 1
             self?.cardButton.alpha = 1
         })
+        viewModel.reloadPeople()
     }
     
     private func prepareUIs() {
         self.view.backgroundColor = .mainBackground
         prepareListTableView()
+        emptyImageView.alpha = 0
         
     }
     
@@ -84,6 +87,7 @@ class PeopleListViewController: UIViewController {
             switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MainListTableViewAddCell", for: indexPath) as! MainListTableViewAddCell
+                cell.delegate = self
                 return cell
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MainListTableViewCell", for: indexPath) as! MainListTableViewCell
@@ -95,14 +99,18 @@ class PeopleListViewController: UIViewController {
     }
     
     private func updatePeople(people: [Person]) {
+        if people.count == 0 {
+            emptyImageView.alpha = 1
+        }
+        
         var snapshot = Snapshot()
         snapshot.appendSections([.add, .person])
-        snapshot.appendItems([Person(animal: .bear, name: "nil", birthDate: BirthDate(month: 0, day: 0), sign: nil, bloodType: nil, mbti: nil, createdAt: Date())], toSection: .add)
+        snapshot.appendItems([Person.dummyPersonForSection], toSection: .add)
         snapshot.appendItems(people, toSection: .person)
         guard let dataSource = self.dataSource else {
             return
         }
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
 }
@@ -137,6 +145,14 @@ extension PeopleListViewController: PeopleListViewDelegate {
     
     func personRemoved() {
         viewModel.reloadPeople()
+    }
+    
+    func addCellTapped() {
+        guard let addPersonViewController = AddPersonViewController.instantiateFromStoryboard(StoryboardName.addPerson)
+        else { return }
+        
+        addPersonViewController.modalPresentationStyle = .fullScreen
+        navigationController?.present(addPersonViewController, animated: true, completion: nil)
     }
     
 }

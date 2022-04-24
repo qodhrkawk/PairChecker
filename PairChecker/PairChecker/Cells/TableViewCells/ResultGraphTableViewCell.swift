@@ -43,7 +43,7 @@ class ResultGraphTableViewCell: UITableViewCell {
         titleLabel.font = .systemFont(ofSize: 14, weight: .bold)
         scoreLabel.font = .systemFont(ofSize: 14, weight: .bold)
         
-        progressBar.backgroundColor = .paleLilac
+        progressBar.trackTintColor = .paleLilac
         progressBar.makeRounded(cornerRadius: 9)
         
         bestImageView.alpha = 0
@@ -52,6 +52,7 @@ class ResultGraphTableViewCell: UITableViewCell {
     private func setNilProgressBar() {
         progressBar.progress = 0.5
         progressBar.progressTintColor = .veryLightPink
+        titleLabel.textColor = .textblack50
     }
     
     func setCell(graphElement: ResultGraphElement) {
@@ -68,6 +69,7 @@ class ResultGraphTableViewCell: UITableViewCell {
     
     func barAnimate() {
         progressBar.setProgress(0, animated: false)
+        bestImageView.alpha = 0
         UIView.animate(withDuration: 1.0, animations: { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -85,7 +87,7 @@ class ResultGraphTableViewCell: UITableViewCell {
             if let graphElement = self.graphElement,
                graphElement.score == 100 {
                 DispatchQueue.main.async {
-                    UIView.animate(withDuration: 1.0, delay: 1.0, animations: { [weak self] in
+                    UIView.animate(withDuration: 0.3, delay: 1.0, animations: { [weak self] in
                         guard let self = self else { return }
                         self.bestImageView.alpha = 1
                     })

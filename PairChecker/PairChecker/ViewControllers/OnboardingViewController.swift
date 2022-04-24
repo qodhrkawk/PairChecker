@@ -98,8 +98,12 @@ class OnboardingViewController: UIViewController {
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                UserManager.shared.shouldShowOnboarding = false
-                self.dismiss(animated: true, completion: nil)
+                
+                self.showAlertView(title: "사용자 개인정보는\n저장되지 않으니 안심하세요!", subTitle: "자세한 내용은 메인메뉴에서 확인 가능해요.", alertTitle: "확인", actionHandler: {
+                    UserManager.shared.shouldShowOnboarding = false
+                    self.dismiss(animated: true, completion: nil)
+                })
+                
             })
             .store(in: &cancellables)
     }
