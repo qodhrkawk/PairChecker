@@ -18,6 +18,7 @@ class PeopleListViewController: UIViewController {
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var peopleTableView: UITableView!
     @IBOutlet weak var emptyImageView: UIImageView!
+    @IBOutlet weak var moreButton: UIButton!
     
     typealias DataSource = UITableViewDiffableDataSource<MainListSection, Person>
     typealias Snapshot = NSDiffableDataSourceSnapshot<MainListSection, Person>
@@ -34,7 +35,7 @@ class PeopleListViewController: UIViewController {
         super.viewDidLoad()
         prepareUIs()
         bindViewModel()
-        bindButton()
+        bindButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +53,7 @@ class PeopleListViewController: UIViewController {
         
     }
     
-    private func bindButton() {
+    private func bindButtons() {
         cardButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { _ in
@@ -62,6 +63,16 @@ class PeopleListViewController: UIViewController {
                 }, completion: { [weak self] finished in
                     self?.navigationController?.popViewController(animated: false)
                 })
+            })
+            .store(in: &cancellables)
+        moreButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let moreViewController = MoreViewController.instantiateFromStoryboard(StoryboardName.more)
+                else { return }
+                moreViewController.modalPresentationStyle = .fullScreen
+                
+                self?.navigationController?.present(moreViewController, animated: true, completion: nil)
             })
             .store(in: &cancellables)
     }

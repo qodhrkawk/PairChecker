@@ -104,13 +104,26 @@ class PairCheckViewModel {
         pairCheckComponentModelsPublisher = pairCheckComponentModels
     }
     
-    func selectAllComponents() {
+    func selectAllComponents() -> Bool {
+        guard pairCheckComponentModels.filter({ $0.selected == true }).count !=
+                pairCheckComponentModels.filter({ $0.available == true }).count
+        else {
+            for index in 0..<pairCheckComponentModels.count {
+                if pairCheckComponentModels[index].available {
+                    pairCheckComponentModels[index].selected = false
+                }
+            }
+            checkIfPairCheckIsSelected()
+            return false
+        }
+                
         for index in 0..<pairCheckComponentModels.count {
             if pairCheckComponentModels[index].available {
                 pairCheckComponentModels[index].selected = true
             }
         }
         checkIfPairCheckIsSelected()
+        return true
     }
     
     func moveToResultView() {

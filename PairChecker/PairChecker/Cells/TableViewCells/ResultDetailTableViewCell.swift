@@ -84,13 +84,7 @@ class ResultDetailTableViewCell: UITableViewCell {
         
         commentTextSubscription = viewModel.$secondResultText
             .sink(receiveValue: { [weak self] text in
-                let style = NSMutableParagraphStyle()
-                let font = UIFont.systemFont(ofSize: 14)
-                style.lineSpacing = 5
-                let attributes = [NSAttributedString.Key.paragraphStyle: style,
-                                  NSAttributedString.Key.font: font
-                ]
-                self?.commentTextView.attributedText = NSAttributedString(string: text, attributes: attributes)
+                self?.commentTextView.setTextWithLineSpacing(text: text, spacing: 5, font: .systemFont(ofSize: 14))
             })
         
     }

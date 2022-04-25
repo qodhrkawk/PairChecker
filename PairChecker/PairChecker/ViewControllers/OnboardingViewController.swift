@@ -62,12 +62,7 @@ class OnboardingViewController: UIViewController {
             label.font = .systemFont(ofSize: 26, weight: .bold)
             label.textColor = .white
             
-            let attributedString = NSMutableAttributedString(string:  labelTexts[index])
-            let paragraphStyle = NSMutableParagraphStyle()
-            
-            paragraphStyle.lineSpacing = 5
-            attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
-            label.attributedText = attributedString
+            label.setTextWithLineSpacing(text: labelTexts[index], spacing: 5)
         }
         
         secondPhaseContainView.backgroundColor = .mainBackground
@@ -101,7 +96,14 @@ class OnboardingViewController: UIViewController {
                 
                 self.showAlertView(title: "사용자 개인정보는\n저장되지 않으니 안심하세요!", subTitle: "자세한 내용은 메인메뉴에서 확인 가능해요.", alertTitle: "확인", actionHandler: {
                     UserManager.shared.shouldShowOnboarding = false
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: {
+                        guard let addPersonViewController = AddPersonViewController.instantiateFromStoryboard(StoryboardName.addPerson),
+                              let rootViewController = UIViewController.getVisibleController()
+                        else { return }
+                        addPersonViewController.modalPresentationStyle = .fullScreen
+  
+                        rootViewController.present(addPersonViewController, animated: true, completion: nil)
+                    })
                 })
                 
             })
@@ -117,7 +119,6 @@ class OnboardingViewController: UIViewController {
     }
     
     private func adaptPhase(phase: Int) {
-
         for (index, label) in labels.enumerated() {
             if index == phase {
                 UIView.animate(withDuration: 0.5, animations: {
@@ -164,7 +165,6 @@ class OnboardingViewController: UIViewController {
                 self.flipImageViews[index].alpha = 0
             }
         },completion: { [weak self] _ in
-//            guard let self = self
             self?.startFlip(index: index)
         })
     }

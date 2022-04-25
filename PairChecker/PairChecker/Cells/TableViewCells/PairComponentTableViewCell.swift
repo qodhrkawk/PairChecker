@@ -66,16 +66,7 @@ class PairComponentTableViewCell: UITableViewCell {
         
         unavailableImageView.alpha = 0
     }
-    
-//    func adapToAvailability() {
-//        guard let componentModel = componentModel else { return }
-//
-//        guard componentModel.available == false else { return }
-//        containView.backgroundColor = .darkGrey
-//        unavailableImageView.alpha = 1
-//        containView.isUserInteractionEnabled = false
-//    }
-    
+        
     func adaptToSelection() {
         guard let componentModel = componentModel else { return }
 

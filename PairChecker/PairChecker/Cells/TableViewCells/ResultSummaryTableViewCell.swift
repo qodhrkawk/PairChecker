@@ -25,6 +25,7 @@ class ResultSummaryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var resultExplainLabel: UILabel!
     
+    @IBOutlet weak var resultTitleLabel: UILabel!
     @IBOutlet weak var resultSummaryContainView: UIView!
     @IBOutlet weak var resultBackgroundImageView: UIImageView!
     @IBOutlet weak var resultStarImageView: UIImageView!
@@ -100,7 +101,7 @@ class ResultSummaryTableViewCell: UITableViewCell {
                 break
             }
         }
-        
+        resultTitleLabel.font = UIFont(name: "GmarketSansBold", size: 16)
         resultSummaryContainView.backgroundColor = .clear
         resultExplainLabel.text = "유사과학까지 인정해버린 둘!\n이정도면 베스트 찰떡궁합!"
         resultExplainLabel.font = .systemFont(ofSize: 16, weight: .bold)

@@ -20,12 +20,16 @@ class AddPersonViewController: UIViewController {
     @IBOutlet weak var dayTextField: UITextField!
     @IBOutlet weak var signTextField: UITextField!
     
+    @IBOutlet var textFields: [UITextField]!
+    
+    
     @IBOutlet var bloodTypeButtons: [UIButton]!
     @IBOutlet var mbtiButtons: [UIButton]!
     @IBOutlet weak var mbtiUnknownButton: UIButton!
     @IBOutlet var animalButtons: [UIButton]!
     
     @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet var lineViews: [UIView]!
     
     private var bloodTypeSubscription: AnyCancellable?
     private var mbtiSubscription: AnyCancellable?
@@ -397,10 +401,37 @@ extension AddPersonViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
+        textField.textColor = .white
+        for (index, existTextField) in textFields.enumerated() {
+            if existTextField == textField {
+                adaptLineViews(withHighLighting: index)
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.textColor = .animalSkyblue
+        adaptLineViews(withHighLighting: -1)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        return true
+    }
+    
+    private func adaptLineViews(withHighLighting highlightIndex: Int) {
+        for (index, lineView) in lineViews.enumerated() {
+            if index == highlightIndex {
+                UIView.animate(withDuration: 0.3, animations: {
+                    lineView.backgroundColor = .animalSkyblue
+                })
+            }
+            else {
+                UIView.animate(withDuration: 0.3, animations: {
+                    lineView.backgroundColor = .white10
+                })
+            }
+        }
     }
     
 }

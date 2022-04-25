@@ -17,23 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqJ-i7-aZd">
-                                <rect key="frame" x="314" y="0.0" width="100" height="80"/>
+                                <rect key="frame" x="314" y="0.0" width="100" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="4gI-qQ-PmF"/>
-                                    <constraint firstAttribute="height" constant="80" id="eMA-nw-tcW"/>
+                                    <constraint firstAttribute="height" constant="85" id="eMA-nw-tcW"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMainCard" translatesAutoresizingMaskIntoConstraints="NO" id="gY6-i2-05N">
-                                <rect key="frame" x="328" y="55" width="16" height="16"/>
+                                <rect key="frame" x="328" y="65" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="p9h-yQ-FKK"/>
                                     <constraint firstAttribute="height" constant="16" id="rdO-4w-YEE"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카드 보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xM-QV-7Y6">
-                                <rect key="frame" x="346" y="54.5" width="52" height="17"/>
+                                <rect key="frame" x="346" y="64.5" width="52" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -49,11 +49,30 @@
                                     <constraint firstAttribute="height" constant="71" id="hY6-mn-tgx"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-gJ-J0o">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0E7-5o-feX"/>
+                                    <constraint firstAttribute="width" constant="80" id="4eJ-jt-Mzm"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnMenu" translatesAutoresizingMaskIntoConstraints="NO" id="gLI-BH-HUh">
+                                <rect key="frame" x="16" y="60" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="hha-TF-ies"/>
+                                    <constraint firstAttribute="height" constant="24" id="ueh-vt-8XH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="g9c-gJ-J0o" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="2M0-20-QKC"/>
+                            <constraint firstItem="g9c-gJ-J0o" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Bv1-2P-Av8"/>
+                            <constraint firstItem="gLI-BH-HUh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="DeR-eu-GYS"/>
                             <constraint firstItem="dwl-xi-gWF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HuZ-Gp-5sa"/>
+                            <constraint firstItem="gLI-BH-HUh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="HzU-XN-Otk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hqJ-i7-aZd" secondAttribute="trailing" id="InY-1A-gvJ"/>
                             <constraint firstItem="1xM-QV-7Y6" firstAttribute="leading" secondItem="gY6-i2-05N" secondAttribute="trailing" constant="2" id="TN5-uT-xcS"/>
                             <constraint firstItem="lfa-1D-j32" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="ZrU-qh-cc2"/>
@@ -63,13 +82,14 @@
                             <constraint firstItem="1xM-QV-7Y6" firstAttribute="centerY" secondItem="gY6-i2-05N" secondAttribute="centerY" id="ucj-UY-uYe"/>
                             <constraint firstItem="dwl-xi-gWF" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="94" id="vcD-7h-RbO"/>
                             <constraint firstItem="hqJ-i7-aZd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wkE-AA-bD3"/>
-                            <constraint firstItem="gY6-i2-05N" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="55" id="yfB-FU-dET"/>
+                            <constraint firstItem="gY6-i2-05N" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="65" id="yfB-FU-dET"/>
                             <constraint firstItem="lfa-1D-j32" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="zmo-k8-tHC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cardButton" destination="hqJ-i7-aZd" id="EfM-FH-ehu"/>
                         <outlet property="emptyImageView" destination="lfa-1D-j32" id="suN-7h-2ce"/>
+                        <outlet property="moreButton" destination="g9c-gJ-J0o" id="Tun-0K-Kdh"/>
                         <outlet property="peopleTableView" destination="dwl-xi-gWF" id="7fR-1g-iZs"/>
                     </connections>
                 </viewController>
@@ -79,6 +99,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnMenu" width="24" height="24"/>
         <image name="icMainCard" width="16" height="16"/>
         <image name="imgMainEmptyview" width="102" height="71"/>
         <systemColor name="systemBackgroundColor">

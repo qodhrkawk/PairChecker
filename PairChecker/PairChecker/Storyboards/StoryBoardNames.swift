@@ -15,4 +15,5 @@ struct StoryboardName {
     static let addPerson = "AddPerson"
     static let personDetail = "PersonDetail"
     static let result = "Result"
+    static let more = "More"
 }

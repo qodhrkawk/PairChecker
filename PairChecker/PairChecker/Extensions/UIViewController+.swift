@@ -5,8 +5,8 @@
 //  Created by Yunjae Kim on 2022/03/28.
 //
 
-import Foundation
 import UIKit
+import SnapKit
 
 extension UIViewController {
     
@@ -84,5 +84,22 @@ extension UIViewController {
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showToast(text: String) {
+        
+        guard let toastView: ToastView = ToastView.fromNib() else { return }
+        
+        toastView.setTitle(text: text)
+        
+        self.view.addSubview(toastView)
+        toastView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(68)
+            make.trailing.equalToSuperview().offset(-68)
+            make.bottom.equalToSuperview().offset(-66)
+            make.height.equalTo(36)
+        }
+        
+        toastView.show()
     }
 }

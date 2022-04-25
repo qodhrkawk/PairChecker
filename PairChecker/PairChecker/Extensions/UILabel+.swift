@@ -1,0 +1,21 @@
+//
+//  UILabel+.swift
+//  PairChecker
+//
+//  Created by Yunjae Kim on 2022/04/25.
+//
+
+import UIKit
+
+extension UILabel {
+    func setTextWithLineSpacing(text: String, spacing: CGFloat) {
+        let attributedString = NSMutableAttributedString(string: text)
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        paragraphStyle.lineSpacing = spacing
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        self.attributedText = attributedString
+    }
+    
+}
+

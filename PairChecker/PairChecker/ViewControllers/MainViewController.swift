@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var circleImageView: UIImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
     
     @IBOutlet var yDiffConstraints: [NSLayoutConstraint]!
     
@@ -55,6 +56,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.reloadPeople()
+        viewModel.makeRandomMainText()
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             self?.cardCollectionView.alpha = 1
             self?.highlightCenterCell()
@@ -116,6 +118,17 @@ class MainViewController: UIViewController {
                 self?.navigationController?.present(addPersonViewController, animated: true, completion: nil)
             })
             .store(in: &cancellables)
+        
+        moreButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                guard let moreViewController = MoreViewController.instantiateFromStoryboard(StoryboardName.more)
+                else { return }
+                moreViewController.modalPresentationStyle = .fullScreen
+                
+                self?.navigationController?.present(moreViewController, animated: true, completion: nil)
+            })
+            .store(in: &cancellables)
     }
     
     private func setupCollectionView() {
@@ -144,7 +157,7 @@ class MainViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] mainText in
                 guard let self = self else { return }
-                self.mainTextLabel.text = mainText.text
+                self.mainTextLabel.setTextWithLineSpacing(text: mainText.text, spacing: 4)
                 if mainText == .heart {
                     self.circleImageView.alpha = 1
                     self.highLightImageView.alpha = 0

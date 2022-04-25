@@ -33,6 +33,10 @@ class PersonDetailViewController: UIViewController {
         bindButtons()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        hideFloatButtonView()
+    }
+    
     private func prepareUIs() {
         view.backgroundColor = .mainBackground
         
@@ -82,17 +86,24 @@ class PersonDetailViewController: UIViewController {
             })
             .store(in: &cancellables)
         
+        pairButton
+            .publisher(for: .touchUpInside)
+            .sink(receiveValue: { [weak self] _ in
+                self?.pairCheck()
+            })
+            .store(in: &cancellables)
+        
     }
     
     private func prepareFloatButtonView() {
         let editClosure: () -> Void = { [weak self] in
             guard let self = self, let person = self.person else { return }
-            self.floatButtonView.removeFromSuperview()
+            self.hideFloatButtonView()
             self.showEditViewController()
         }
         let removeClosure: () -> Void = { [weak self] in
             guard let self = self, let person = self.person else { return }
-            self.floatButtonView.removeFromSuperview()
+            self.hideFloatButtonView()
             self.showPersonDeletePopup(person: person, deleteCompletion: { [weak self] in
                 self?.delegate?.personRemoved()
                 self?.dismiss(animated: true, completion: nil)
@@ -121,6 +132,10 @@ class PersonDetailViewController: UIViewController {
         })
     }
     
+    private func hideFloatButtonView() {
+        self.floatButtonView.removeFromSuperview()
+    }
+    
     private func showEditViewController() {
         guard let addPersonViewController = AddPersonViewController.instantiateFromStoryboard(StoryboardName.addPerson)
         else { return }
@@ -129,6 +144,16 @@ class PersonDetailViewController: UIViewController {
         addPersonViewController.addPersonDelegate = self
         
         self.present(addPersonViewController, animated: true, completion: nil)
+    }
+    
+    private func pairCheck() {
+        guard let pairCheckNavigationController = PairCheckNavigationController.instantiateFromStoryboard(StoryboardName.pairCheck),
+              let person = self.person
+        else { return }
+
+        pairCheckNavigationController.modalPresentationStyle = .fullScreen
+        pairCheckNavigationController.viewModel.addMainPerson(person: person)
+        self.present(pairCheckNavigationController, animated: true, completion: nil)
     }
 
 }
@@ -139,3 +164,5 @@ extension PersonDetailViewController: AddPersonDelegate {
         self.adaptPerson(person: person)
     }
 }
+
+

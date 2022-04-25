@@ -133,7 +133,18 @@ class PairComponentSelectViewController: UIViewController {
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] in
                 guard let self = self else { return }
-                self.viewModel?.selectAllComponents()
+                guard let isSelected = self.viewModel?.selectAllComponents(),
+                    isSelected == true
+                else {
+                    for index in 0..<PairCheckComponent.allCases.count {
+                        guard let cell = self.pairComponentTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? PairComponentTableViewCell
+                        else { continue }
+                        cell.componentModel?.selected = false
+                        cell.adaptToSelection()
+                    }
+                    
+                    return
+                }
                 for index in 0..<PairCheckComponent.allCases.count {
                     guard let cell = self.pairComponentTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? PairComponentTableViewCell
                     else { continue }
