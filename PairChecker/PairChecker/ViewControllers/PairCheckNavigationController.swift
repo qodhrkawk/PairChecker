@@ -17,6 +17,6 @@ class PairCheckNavigationController: UINavigationController {
     }
     
     @objc func navigationControllerShouldDismiss() {
-        self.dismiss(animated: true, completion: nil)
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
