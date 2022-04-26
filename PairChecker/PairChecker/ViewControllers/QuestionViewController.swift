@@ -15,8 +15,12 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var copyImageView: UIImageView!
+    @IBOutlet weak var teamImageView: UIImageView!
     
     private var cancellables = Set<AnyCancellable>()
+    
+    @IBOutlet var heightConstraints: [NSLayoutConstraint]!
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +39,28 @@ class QuestionViewController: UIViewController {
         let underlineAttributedString = NSAttributedString(string: "theteamkarry@gmail.com", attributes: underlineAttribute)
         emailLabel.attributedText = underlineAttributedString
         emailLabel.sizeToFit()
+        
+        if DeviceInfo.screenHeightRatio < 1 {
+            teamImageView.image = UIImage(named: "imgTeamSe")
+        }
+        
+        print("YJKIM")
+        print(DeviceInfo.screenHeightRatio)
+        
+        ydiffConstraints.forEach {
+            $0.constant *= DeviceInfo.screenHeightRatio
+        }
+        heightConstraints.forEach {
+            print($0.constant * DeviceInfo.screenHeightRatio)
+            $0.constant *= DeviceInfo.screenHeightRatio
+        }
     }
     
     private func bindButtons() {
         backButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                self?.dismiss(animated: true)
+                self?.navigationController?.popViewController(animated: true)
             })
             .store(in: &cancellables)
         

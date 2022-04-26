@@ -22,9 +22,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var listButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
-    
-    @IBOutlet var yDiffConstraints: [NSLayoutConstraint]!
-    
+        
     let colors = [UIColor.red, UIColor.green, UIColor.blue]
     
     private let viewModel = MainViewModel()
@@ -43,6 +41,10 @@ class MainViewController: UIViewController {
     var currentIndex: CGFloat = 0.0
     
     private var centerCell: CardCollectionViewCell?
+    
+    @IBOutlet var heightConstraints: [NSLayoutConstraint]!
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
+    @IBOutlet var titleLabelConstraints: [NSLayoutConstraint]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +89,20 @@ class MainViewController: UIViewController {
         mainTextLabel.textColor = .white
         
         addButton.setImage(UIImage(named: "btnMainNew"), for: .normal)
+        
+        for ydiffConstraint in ydiffConstraints {
+            ydiffConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
+        
+        for heightConstraint in heightConstraints {
+            heightConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
+        
+        let titleLabelConstraintAddition = 100 * (DeviceInfo.screenHeightRatio - 1)
+        
+        for titleLabelConstraint in titleLabelConstraints {
+            titleLabelConstraint.constant += titleLabelConstraintAddition
+        }
     }
     
     private func bindButton() {
@@ -122,11 +138,10 @@ class MainViewController: UIViewController {
         moreButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                guard let moreViewController = MoreViewController.instantiateFromStoryboard(StoryboardName.more)
-                else { return }
-                moreViewController.modalPresentationStyle = .fullScreen
+                guard let moreNavigationController = MoreNavigationController.instantiateFromStoryboard(StoryboardName.more) else { return }
                 
-                self?.navigationController?.present(moreViewController, animated: true, completion: nil)
+                moreNavigationController.modalPresentationStyle = .fullScreen
+                self?.present(moreNavigationController, animated: true, completion: nil)
             })
             .store(in: &cancellables)
     }
@@ -140,7 +155,7 @@ class MainViewController: UIViewController {
         cardCollectionView.isPagingEnabled = false
         
         let cellWidth: CGFloat = UIScreen.main.bounds.width - 111
-        let cellHeight: CGFloat = cardCollectionView.frame.height
+        let cellHeight: CGFloat = cardCollectionView.frame.height * DeviceInfo.screenHeightRatio
         
         let layout = cardCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)

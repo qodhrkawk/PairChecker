@@ -18,6 +18,10 @@ class CardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var resultButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
+    @IBOutlet var heightConstraints: [NSLayoutConstraint]!
+    
+    
     private var viewModel: CardCollectionViewCellViewModel?
     
     private var personSubscription: AnyCancellable?
@@ -42,18 +46,26 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
 
     private func prepareUIs() {
-        self.makeRounded(cornerRadius: 35)
-        self.containView.makeRounded(cornerRadius: 35)
+        self.makeRounded(cornerRadius: 35 * DeviceInfo.screenHeightRatio)
+        self.containView.makeRounded(cornerRadius: 35 * DeviceInfo.screenHeightRatio)
         
-        circleView.makeRounded(cornerRadius: 80)
+        circleView.makeRounded(cornerRadius: 80 * DeviceInfo.screenHeightRatio)
         circleView.backgroundColor = .circleGray
         
-        nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        nameLabel.font = UIFont.systemFont(ofSize: 26 * DeviceInfo.screenHeightRatio, weight: .bold)
         
         resultButton.setTitleColor(.black, for: .normal)
         resultButton.setTitle("궁합보기", for: .normal)
-        resultButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        resultButton.titleLabel?.font = UIFont.systemFont(ofSize: 16 * DeviceInfo.screenHeightRatio, weight: .bold)
         resultButton.makeRounded(cornerRadius: 14)
+        
+        for ydiffConstraint in ydiffConstraints {
+            ydiffConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
+        
+        for heightConstraint in heightConstraints {
+            heightConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
         
         let editClosure: () -> Void = { [weak self] in
             guard let self = self, let person = self.viewModel?.person else { return }
@@ -149,7 +161,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         backCardView.person = self.viewModel?.person
         self.containView.addSubview(backCardView)
         backCardView.snp.remakeConstraints { make in
-            make.top.equalToSuperview().offset(58)
+            make.top.equalToSuperview().offset(58 * DeviceInfo.screenHeightRatio)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(resultButton.snp.top)
         }

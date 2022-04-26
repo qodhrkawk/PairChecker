@@ -31,6 +31,10 @@ class AddPersonViewController: UIViewController {
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet var lineViews: [UIView]!
     
+    @IBOutlet var buttonWidthConstraints: [NSLayoutConstraint]!
+    @IBOutlet var stackViewHeightConstraints: [NSLayoutConstraint]!
+    
+    
     private var bloodTypeSubscription: AnyCancellable?
     private var mbtiSubscription: AnyCancellable?
     private var animalIndexSubscription: AnyCancellable?
@@ -52,6 +56,12 @@ class AddPersonViewController: UIViewController {
         bindButtons()
         bindViewModel()
         addScrollContainViewGesture()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if viewModel.person == nil {
+            nameTextField.becomeFirstResponder()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -178,6 +188,16 @@ class AddPersonViewController: UIViewController {
         signTextField.font = .systemFont(ofSize: 16, weight: .bold)
         signTextField.textColor = .animalSkyblue
         signTextField.delegate = self
+        
+        if DeviceInfo.screenWidthRatio > 1 {
+            buttonWidthConstraints.forEach {
+                $0.constant *= DeviceInfo.screenWidthRatio
+            }
+            stackViewHeightConstraints.forEach {
+                $0.constant *= DeviceInfo.screenWidthRatio
+            }
+        }
+        
     }
     
     private func bindButtons() {
@@ -285,6 +305,7 @@ class AddPersonViewController: UIViewController {
                     }
                     return
                 }
+                self.makeButtonUnselected(button: self.mbtiUnknownButton)
                 self.mbtiUnknownButton.setBorder(borderColor: .white, borderWidth: 0.0)
                 for (index, button) in self.mbtiButtons.enumerated() {
                     if booleanInfos[index / 2] == (index % 2 == 0) {
@@ -412,6 +433,19 @@ extension AddPersonViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.textColor = .animalSkyblue
         adaptLineViews(withHighLighting: -1)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard textField == self.nameTextField else { return true }
+        if NameChecker.shared.chosung.contains(string) || NameChecker.shared.jungsung.contains(string) || NameChecker.shared.jongsung.contains(string) || string.isEmpty {
+            return true
+        }
+        
+        self.view.endEditing(true)
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        self.showToast(text: "이름은 한글만 입력 가능해!")
+        return false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -16,8 +16,8 @@ class EmptyCardCollectionViewCell: UICollectionViewCell {
     }
     
     private func prepareUIs() {
-        self.makeRounded(cornerRadius: 35)
-        containView.makeRounded(cornerRadius: 35)
+        self.makeRounded(cornerRadius: 35 * DeviceInfo.screenHeightRatio)
+        containView.makeRounded(cornerRadius: 35 * DeviceInfo.screenHeightRatio )
         
         containView.backgroundColor = .white10
     }

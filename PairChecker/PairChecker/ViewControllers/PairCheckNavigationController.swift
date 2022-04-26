@@ -13,6 +13,7 @@ class PairCheckNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(navigationControllerShouldDismiss), name: .pairCheckNavigationControllerShouldDismiss, object: nil)
+        self.interactivePopGestureRecognizer?.delegate = nil
     }
     
     @objc func navigationControllerShouldDismiss() {

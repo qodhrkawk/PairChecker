@@ -87,6 +87,7 @@
 		ECA679922808445600BDCFD8 /* AddPersonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA679912808445600BDCFD8 /* AddPersonDelegate.swift */; };
 		ECB83B7E280EF446006A2A32 /* ResultGraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB83B7C280EF446006A2A32 /* ResultGraphTableViewCell.swift */; };
 		ECB83B7F280EF446006A2A32 /* ResultGraphTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECB83B7D280EF446006A2A32 /* ResultGraphTableViewCell.xib */; };
+		ECBFAB15281681F00095DE8C /* MoreNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFAB14281681F00095DE8C /* MoreNavigationController.swift */; };
 		ECBFC8B227F0B4B200B9E917 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B127F0B4B200B9E917 /* UserManager.swift */; };
 		ECBFC8B427F0B5C100B9E917 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B327F0B5C100B9E917 /* UserDefaultKeys.swift */; };
 		ECBFC8B627F0B65200B9E917 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC8B527F0B65200B9E917 /* UserDefaultsWrapper.swift */; };
@@ -217,6 +218,7 @@
 		ECA679912808445600BDCFD8 /* AddPersonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonDelegate.swift; sourceTree = "<group>"; };
 		ECB83B7C280EF446006A2A32 /* ResultGraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultGraphTableViewCell.swift; sourceTree = "<group>"; };
 		ECB83B7D280EF446006A2A32 /* ResultGraphTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultGraphTableViewCell.xib; sourceTree = "<group>"; };
+		ECBFAB14281681F00095DE8C /* MoreNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreNavigationController.swift; sourceTree = "<group>"; };
 		ECBFC8B127F0B4B200B9E917 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		ECBFC8B327F0B5C100B9E917 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		ECBFC8B527F0B65200B9E917 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				ECA126F628158B7A00045CB1 /* AppIntroduceViewController.swift */,
 				ECA126F828158B8A00045CB1 /* QuestionViewController.swift */,
 				ECA126FA28158B9700045CB1 /* NoticeViewController.swift */,
+				ECBFAB14281681F00095DE8C /* MoreNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -896,6 +899,7 @@
 				ECBFC8BE27F0C2E100B9E917 /* UIControl+.swift in Sources */,
 				ECBFC8C427F0C8E600B9E917 /* PeopleListViewModel.swift in Sources */,
 				ECBFC8B227F0B4B200B9E917 /* UserManager.swift in Sources */,
+				ECBFAB15281681F00095DE8C /* MoreNavigationController.swift in Sources */,
 				ECA6562C27ECBE0700B14966 /* MainText.swift in Sources */,
 				ECBFC8C827F0CAD000B9E917 /* MainListTableViewCell.swift in Sources */,
 				EC8C7AB227FF14A90084492B /* OnboardingViewModel.swift in Sources */,
@@ -1065,7 +1069,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1120,7 +1124,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1151,7 +1155,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.003;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = YunjaeKim.PairChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1181,7 +1185,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.003;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = YunjaeKim.PairChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

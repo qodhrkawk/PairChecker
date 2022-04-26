@@ -18,6 +18,8 @@ class PersonDetailViewController: UIViewController {
     @IBOutlet var contentLabels: [UILabel]!
     @IBOutlet weak var pairButton: UIButton!
 
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
+    
     private var floatButtonView = FloatButtonView()
     
     weak var delegate: PeopleListViewDelegate?
@@ -60,6 +62,10 @@ class PersonDetailViewController: UIViewController {
         
         guard let person = person else { return }
         adaptPerson(person: person)
+        
+        ydiffConstraints.forEach {
+            $0.constant *= DeviceInfo.screenHeightRatio * DeviceInfo.screenHeightRatio
+        }
     }
     
     private func adaptPerson(person: Person) {

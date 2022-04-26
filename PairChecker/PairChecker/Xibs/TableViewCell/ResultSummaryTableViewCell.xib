@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -161,7 +162,7 @@
                         <state key="normal" image="group63"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuO-ZE-yry">
-                        <rect key="frame" x="36" y="118" width="61.5" height="31.5"/>
+                        <rect key="frame" x="16" y="118" width="61.5" height="31.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -263,15 +264,15 @@
                     <constraint firstItem="LmB-qc-5DM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="54" id="EXs-o2-w8y"/>
                     <constraint firstAttribute="bottom" secondItem="5Fq-dH-P57" secondAttribute="bottom" id="Fn0-B6-LOK"/>
                     <constraint firstItem="kGA-Lw-K4j" firstAttribute="top" secondItem="iuO-ZE-yry" secondAttribute="bottom" constant="22" id="G46-7S-B7Q"/>
+                    <constraint firstItem="kGA-Lw-K4j" firstAttribute="leading" secondItem="OYY-n5-r2R" secondAttribute="trailing" constant="-8" id="InF-OZ-joH"/>
                     <constraint firstItem="iuO-ZE-yry" firstAttribute="top" secondItem="LmB-qc-5DM" secondAttribute="bottom" constant="40" id="OLY-X3-6Un"/>
                     <constraint firstItem="VtJ-7E-t9c" firstAttribute="centerY" secondItem="kGA-Lw-K4j" secondAttribute="centerY" id="QG1-Ig-UBc"/>
                     <constraint firstItem="LmB-qc-5DM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Szu-pM-65Q"/>
                     <constraint firstItem="OYY-n5-r2R" firstAttribute="bottom" secondItem="kGA-Lw-K4j" secondAttribute="bottom" constant="-42" id="b5L-P7-L3b"/>
-                    <constraint firstItem="iuO-ZE-yry" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="eHr-oS-Tze"/>
+                    <constraint firstItem="iuO-ZE-yry" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eHr-oS-Tze"/>
                     <constraint firstAttribute="bottom" secondItem="fE1-Xa-x5x" secondAttribute="bottom" constant="31" id="gig-Lj-0gU"/>
                     <constraint firstItem="kGA-Lw-K4j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="gkL-pe-6Wf"/>
                     <constraint firstItem="Ze8-D8-qRX" firstAttribute="top" secondItem="kGA-Lw-K4j" secondAttribute="bottom" constant="11" id="glN-C5-Tbi"/>
-                    <constraint firstItem="OYY-n5-r2R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="h0T-zA-CIr"/>
                     <constraint firstAttribute="trailing" secondItem="5Fq-dH-P57" secondAttribute="trailing" id="mBp-2s-66L"/>
                     <constraint firstItem="hpx-UM-CNE" firstAttribute="centerX" secondItem="VtJ-7E-t9c" secondAttribute="centerX" id="mvI-J1-xeG"/>
                     <constraint firstAttribute="trailing" secondItem="VtJ-7E-t9c" secondAttribute="trailing" constant="50" id="n1m-Lk-acV"/>
@@ -307,6 +308,10 @@
                 <outletCollection property="resultScoreLabels" destination="RFR-1b-EwO" collectionClass="NSMutableArray" id="kad-cD-Nbz"/>
                 <outletCollection property="resultScoreLabels" destination="2OG-XB-C1R" collectionClass="NSMutableArray" id="mF7-am-dzX"/>
                 <outletCollection property="resultScoreLabels" destination="QLz-hf-zZP" collectionClass="NSMutableArray" id="AZP-h6-G3A"/>
+                <outletCollection property="heightConstraints" destination="q9P-gO-MTI" collectionClass="NSMutableArray" id="Djy-4Q-Gey"/>
+                <outletCollection property="ydiffConstraints" destination="OLY-X3-6Un" collectionClass="NSMutableArray" id="uGE-C7-GuT"/>
+                <outletCollection property="ydiffConstraints" destination="S1P-ht-YqV" collectionClass="NSMutableArray" id="c4X-OC-ixs"/>
+                <outletCollection property="ydiffConstraints" destination="ve5-uW-9MJ" collectionClass="NSMutableArray" id="Tq6-N0-1dX"/>
             </connections>
             <point key="canvasLocation" x="123.18840579710145" y="378.01339285714283"/>
         </tableViewCell>

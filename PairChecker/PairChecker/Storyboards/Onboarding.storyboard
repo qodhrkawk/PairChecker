@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +29,7 @@
                                                     <constraint firstAttribute="height" constant="86" id="gBf-Tg-DnN"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgOnbBg" translatesAutoresizingMaskIntoConstraints="NO" id="JOn-B3-eXE">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgOnbBg" translatesAutoresizingMaskIntoConstraints="NO" id="JOn-B3-eXE">
                                                 <rect key="frame" x="0.0" y="102" width="414" height="609"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="609" id="zUR-HS-OAK"/>
@@ -224,7 +225,7 @@ Cg
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mV6-WD-ca2">
-                                                        <rect key="frame" x="16" y="653.5" width="382" height="56"/>
+                                                        <rect key="frame" x="16" y="716" width="382" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="fSx-W7-pzW"/>
                                                         </constraints>
@@ -281,14 +282,21 @@ Cg
                                                     <constraint firstItem="lXJ-yB-3re" firstAttribute="leading" secondItem="ZVJ-bQ-10N" secondAttribute="trailing" constant="6" id="Sad-OZ-1vC"/>
                                                     <constraint firstAttribute="trailing" secondItem="mV6-WD-ca2" secondAttribute="trailing" constant="16" id="Sxr-CP-Xc2"/>
                                                     <constraint firstItem="MmQ-YG-JmL" firstAttribute="top" secondItem="HNL-t1-lYc" secondAttribute="bottom" constant="20" id="TSt-Sf-ABe"/>
-                                                    <constraint firstItem="mV6-WD-ca2" firstAttribute="top" secondItem="MmQ-YG-JmL" secondAttribute="bottom" constant="197" id="aip-FB-cwp"/>
                                                     <constraint firstItem="5hi-Fh-bQH" firstAttribute="top" secondItem="7B5-GT-ZMf" secondAttribute="top" constant="152" id="fev-B6-DiM"/>
                                                     <constraint firstItem="2yN-3H-EoH" firstAttribute="bottom" secondItem="5hi-Fh-bQH" secondAttribute="bottom" id="i8C-xz-l2J"/>
                                                     <constraint firstItem="HNL-t1-lYc" firstAttribute="top" secondItem="ZVJ-bQ-10N" secondAttribute="bottom" constant="20" id="jgx-TL-8Q0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="mV6-WD-ca2" secondAttribute="bottom" constant="80" id="rzm-nj-Dw7"/>
                                                     <constraint firstAttribute="height" constant="852" id="xfK-Ds-okv"/>
                                                     <constraint firstItem="ZVJ-bQ-10N" firstAttribute="top" secondItem="5hi-Fh-bQH" secondAttribute="bottom" constant="20" id="xlt-VQ-NoH"/>
                                                 </constraints>
                                             </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgOnbText" translatesAutoresizingMaskIntoConstraints="NO" id="JjP-62-wax">
+                                                <rect key="frame" x="5" y="138" width="281" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="281" id="7no-He-tJx"/>
+                                                    <constraint firstAttribute="height" constant="128" id="9EO-5A-NAY"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -298,8 +306,10 @@ Cg
                                             <constraint firstAttribute="trailing" secondItem="JOn-B3-eXE" secondAttribute="trailing" id="ARw-fe-FBc"/>
                                             <constraint firstItem="JOn-B3-eXE" firstAttribute="leading" secondItem="dl7-gB-4k9" secondAttribute="leading" id="Ojn-HW-mvS"/>
                                             <constraint firstItem="2cV-9C-ikI" firstAttribute="top" secondItem="dl7-gB-4k9" secondAttribute="top" id="PEi-dG-4I6"/>
+                                            <constraint firstItem="JjP-62-wax" firstAttribute="leading" secondItem="dl7-gB-4k9" secondAttribute="leading" constant="5" id="WQ4-yj-bVH"/>
                                             <constraint firstAttribute="trailing" secondItem="7B5-GT-ZMf" secondAttribute="trailing" id="jPo-zj-BeB"/>
                                             <constraint firstAttribute="trailing" secondItem="U0x-v2-1XE" secondAttribute="trailing" constant="16" id="jvv-4A-iWD"/>
+                                            <constraint firstItem="JjP-62-wax" firstAttribute="top" secondItem="2cV-9C-ikI" secondAttribute="bottom" constant="52" id="lrq-ip-iCz"/>
                                             <constraint firstItem="7B5-GT-ZMf" firstAttribute="leading" secondItem="dl7-gB-4k9" secondAttribute="leading" id="mR9-7h-itO"/>
                                             <constraint firstItem="U0x-v2-1XE" firstAttribute="leading" secondItem="dl7-gB-4k9" secondAttribute="leading" constant="16" id="rBi-yb-ldh"/>
                                             <constraint firstItem="JOn-B3-eXE" firstAttribute="top" secondItem="2cV-9C-ikI" secondAttribute="bottom" constant="16" id="t9j-zC-Q4n"/>
@@ -335,14 +345,10 @@ Cg
                         <outlet property="scrollView" destination="Tqe-VQ-Sum" id="Dhk-M7-GfS"/>
                         <outlet property="secondPhaseContainView" destination="7B5-GT-ZMf" id="bGT-19-FdG"/>
                         <outlet property="startButton" destination="mV6-WD-ca2" id="dMv-jU-7sD"/>
-                        <outletCollection property="heightConstraints" destination="gBf-Tg-DnN" collectionClass="NSMutableArray" id="NiS-PU-wU1"/>
-                        <outletCollection property="heightConstraints" destination="zUR-HS-OAK" collectionClass="NSMutableArray" id="wY3-5s-eAq"/>
-                        <outletCollection property="heightConstraints" destination="vLb-UC-DHA" collectionClass="NSMutableArray" id="cZA-os-Ucr"/>
                         <outletCollection property="ydiffContstraints" destination="t9j-zC-Q4n" collectionClass="NSMutableArray" id="6Cj-hE-gb8"/>
                         <outletCollection property="ydiffContstraints" destination="1Wc-Lb-xQx" collectionClass="NSMutableArray" id="nPm-eO-jvk"/>
                         <outletCollection property="ydiffContstraints" destination="8rc-eQ-D7J" collectionClass="NSMutableArray" id="zCd-Pp-uTk"/>
                         <outletCollection property="heightConstraints" destination="T17-HI-EiJ" collectionClass="NSMutableArray" id="7G5-8k-AuQ"/>
-                        <outletCollection property="heightConstraints" destination="xfK-Ds-okv" collectionClass="NSMutableArray" id="ebO-kP-5Ai"/>
                         <outletCollection property="labels" destination="5hi-Fh-bQH" collectionClass="NSMutableArray" id="Em3-Se-deV"/>
                         <outletCollection property="labels" destination="ZVJ-bQ-10N" collectionClass="NSMutableArray" id="lsZ-DO-M0r"/>
                         <outletCollection property="labels" destination="HNL-t1-lYc" collectionClass="NSMutableArray" id="pV1-3a-ftJ"/>
@@ -353,11 +359,15 @@ Cg
                         <outletCollection property="flipImageViews" destination="lXJ-yB-3re" collectionClass="NSMutableArray" id="yvR-6R-4F8"/>
                         <outletCollection property="flipImageViews" destination="CTU-WE-hnp" collectionClass="NSMutableArray" id="CXc-oh-qoP"/>
                         <outletCollection property="flipImageViews" destination="38q-Yx-VD9" collectionClass="NSMutableArray" id="E7o-Am-IRK"/>
+                        <outletCollection property="heightConstraints" destination="gBf-Tg-DnN" collectionClass="NSMutableArray" id="VPY-JL-RCf"/>
+                        <outletCollection property="heightConstraints" destination="rwr-US-Grn" collectionClass="NSMutableArray" id="EMe-pG-DGD"/>
+                        <outletCollection property="ydiffContstraints" destination="xfK-Ds-okv" collectionClass="NSMutableArray" id="fAY-AP-DMs"/>
+                        <outletCollection property="heightConstraints" destination="zUR-HS-OAK" collectionClass="NSMutableArray" id="2Ph-Ow-REK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
+            <point key="canvasLocation" x="-125" y="-617"/>
         </scene>
     </scenes>
     <resources>
@@ -365,6 +375,7 @@ Cg
         <image name="imgOnbBg" width="375" height="609"/>
         <image name="imgOnbCutting" width="375" height="159"/>
         <image name="imgOnbNote" width="375" height="86"/>
+        <image name="imgOnbText" width="281" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

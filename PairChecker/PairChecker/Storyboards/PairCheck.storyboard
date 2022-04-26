@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GP0-tr-wq0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -61,8 +62,8 @@
                                     <constraint firstAttribute="width" constant="40" id="RIV-Fz-Agy"/>
                                     <constraint firstAttribute="height" constant="40" id="uCi-Hj-qbi"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group63" translatesAutoresizingMaskIntoConstraints="NO" id="BUh-2C-eXl">
                                 <rect key="frame" x="16" y="54" width="24" height="24"/>
@@ -151,6 +152,7 @@
                         <outlet property="subTitleLabel" destination="laK-zX-sEg" id="iTJ-qS-xVV"/>
                         <outlet property="titleLabel" destination="bDY-Lx-TIS" id="Iya-ml-QkZ"/>
                         <outlet property="xButton" destination="q2U-kg-Wne" id="SrW-lk-xbc"/>
+                        <outletCollection property="ydiffConstraints" destination="W1T-h3-Rt1" collectionClass="NSMutableArray" id="TCw-XA-K5N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -192,8 +194,7 @@
                                     <constraint firstAttribute="height" constant="30" id="igo-94-WI3"/>
                                     <constraint firstAttribute="width" constant="80" id="u5N-c5-u2d"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2An-Lt-AUL">
                                 <rect key="frame" x="349.5" y="217.5" width="48.5" height="17"/>
@@ -252,6 +253,7 @@
                         <outlet property="selectButton" destination="OaE-35-O1W" id="cJD-2y-aOP"/>
                         <outlet property="subTitleLabel" destination="BqY-29-3H8" id="dRa-5n-2Lr"/>
                         <outlet property="titleLabel" destination="YwU-g5-2cX" id="303-mc-xtw"/>
+                        <outletCollection property="ydiffConstraints" destination="Tlm-89-LMh" collectionClass="NSMutableArray" id="030-KL-LZs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrZ-4A-cjA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

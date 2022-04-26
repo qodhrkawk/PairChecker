@@ -32,6 +32,9 @@ class ResultSummaryTableViewCell: UITableViewCell {
     @IBOutlet weak var resultArrowImageView: UIImageView!
     @IBOutlet weak var resultCommentImageVIew: UIImageView!
     
+    @IBOutlet var heightConstraints: [NSLayoutConstraint]!
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
+    
     weak var delegate: ResultViewDelegate?
     
     private var cancellables = Set<AnyCancellable>()
@@ -43,14 +46,13 @@ class ResultSummaryTableViewCell: UITableViewCell {
         
     var viewModel: PairCheckViewModel? {
         didSet {
-            self.bindViewModel()
+            bindViewModel()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         prepareUIs()
-        bindViewModel()
         bindButton()
     }
 
@@ -103,16 +105,27 @@ class ResultSummaryTableViewCell: UITableViewCell {
         }
         resultTitleLabel.font = UIFont(name: "GmarketSansBold", size: 16)
         resultSummaryContainView.backgroundColor = .clear
-        resultExplainLabel.text = "유사과학까지 인정해버린 둘!\n이정도면 베스트 찰떡궁합!"
-        resultExplainLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        for ydiffConstraint in ydiffConstraints {
+            ydiffConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
+        
+        if DeviceInfo.screenHeightRatio < 1 {
+            for heightConstraint in heightConstraints {
+                heightConstraint.constant *= DeviceInfo.screenHeightRatio *  DeviceInfo.screenHeightRatio
+            }
+        }
+        else {
+            for heightConstraint in heightConstraints {
+                heightConstraint.constant *= DeviceInfo.screenHeightRatio
+            }
+        }
     }
     
     private func bindViewModel() {
         guard let viewModel = viewModel else { return }
         peopleSubscription = viewModel.$selectedPeople
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] people in
-                print(people)
-                print(people.count)
                 guard let self = self,
                       people.count == 2
                 else { return }
@@ -120,12 +133,15 @@ class ResultSummaryTableViewCell: UITableViewCell {
                 for (index, person) in people.enumerated() {
                     self.nameLabels[index].text = person.name
                     self.animalImageViews[index].image = person.animal.stickerImage
-                    
                 }
-                self.resultStarImageView.tintColor = people[0].animal.themeColor.uicolor
-                self.resultArrowImageView.tintColor = people[1].animal.themeColor.uicolor
-                self.highlightImageView.tintColor = people[0].animal.themeColor.uicolor
-                self.resultCommentImageVIew.tintColor = people[0].animal.themeColor.uicolor
+                
+                let mainColor = people[0].animal.themeColor.uicolor == .animalYellow ? .golden : people[0].animal.themeColor.uicolor
+                let subColor = people[1].animal.themeColor.uicolor == .animalYellow ? .golden : people[1].animal.themeColor.uicolor
+                
+                self.resultStarImageView.tintColor = mainColor
+                self.resultArrowImageView.tintColor = subColor
+                self.highlightImageView.tintColor = mainColor
+                self.resultCommentImageVIew.tintColor = mainColor
             })
         
         resultSubscription = viewModel.$pairCheckResult
@@ -154,7 +170,7 @@ class ResultSummaryTableViewCell: UITableViewCell {
         
         resultTextSubscription = viewModel.$resultText
             .sink(receiveValue: { [weak self] text in
-                self?.resultExplainLabel.text = text
+                self?.resultExplainLabel.setTextWithLineSpacing(text: text, spacing: 8, font: .systemFont(ofSize: 16, weight: .bold))
             })
     }
     

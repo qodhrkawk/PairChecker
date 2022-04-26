@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,7 +28,7 @@
                                         <rect key="frame" x="34" y="34" width="92" height="92"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="92" id="5Fg-JP-dVp"/>
-                                            <constraint firstAttribute="width" constant="92" id="PN4-HC-6NM"/>
+                                            <constraint firstAttribute="width" secondItem="BgH-EJ-k4B" secondAttribute="height" multiplier="1:1" id="iKG-y1-vPS"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -35,7 +36,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="PiE-Ob-FaK"/>
                                     <constraint firstItem="BgH-EJ-k4B" firstAttribute="centerX" secondItem="yXp-qk-bBn" secondAttribute="centerX" id="Vmw-Bc-aVb"/>
-                                    <constraint firstAttribute="width" constant="160" id="baY-k7-lwu"/>
+                                    <constraint firstAttribute="width" secondItem="yXp-qk-bBn" secondAttribute="height" multiplier="1:1" id="qco-Aj-bXD"/>
                                     <constraint firstItem="BgH-EJ-k4B" firstAttribute="centerY" secondItem="yXp-qk-bBn" secondAttribute="centerY" id="sqs-MK-fYF"/>
                                 </constraints>
                             </view>
@@ -67,8 +68,8 @@
                                     <constraint firstAttribute="width" constant="32" id="b76-As-cMK"/>
                                 </constraints>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="btnMainMore"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="btnMainMore"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,6 +107,12 @@
                 <outlet property="moreButton" destination="iUy-wa-Xxs" id="dZD-zL-I8t"/>
                 <outlet property="nameLabel" destination="5Lv-70-z5u" id="bHU-kE-HeC"/>
                 <outlet property="resultButton" destination="Olq-mG-bfp" id="MAQ-ww-eyo"/>
+                <outletCollection property="ydiffConstraints" destination="r4q-i9-BNf" collectionClass="NSMutableArray" id="88E-Oc-iNI"/>
+                <outletCollection property="ydiffConstraints" destination="sCY-OC-EKb" collectionClass="NSMutableArray" id="mBo-rx-A9k"/>
+                <outletCollection property="ydiffConstraints" destination="7Ar-k9-SMm" collectionClass="NSMutableArray" id="I37-3Z-4aZ"/>
+                <outletCollection property="ydiffConstraints" destination="ouR-9E-FwK" collectionClass="NSMutableArray" id="mp6-Aw-gDB"/>
+                <outletCollection property="heightConstraints" destination="PiE-Ob-FaK" collectionClass="NSMutableArray" id="Oak-fE-BxB"/>
+                <outletCollection property="heightConstraints" destination="5Fg-JP-dVp" collectionClass="NSMutableArray" id="Cvd-Zc-tWF"/>
             </connections>
             <point key="canvasLocation" x="45.652173913043484" y="162.72321428571428"/>
         </collectionViewCell>

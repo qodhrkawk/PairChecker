@@ -24,6 +24,7 @@ class PersonSelectViewController: UIViewController {
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var selectionImage: UIImageView!
     
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
     private var emptyView = PersonSelectEmtpyView()
     
     typealias DataSource = UICollectionViewDiffableDataSource<PersonSelectSection, Person>
@@ -51,6 +52,7 @@ class PersonSelectViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel?.reloadPeople()
+        viewModel?.popSubPersonIfNeeded()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +79,10 @@ class PersonSelectViewController: UIViewController {
         selectButton.setTitleColor(.black, for: .normal)
         selectButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         selectionImage.image = UIImage(named: "imgSelectedProfile")?.withRenderingMode(.alwaysTemplate)
+        
+        for ydiffConstraint in ydiffConstraints {
+            ydiffConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
     }
     
     private func bindViewModel() {

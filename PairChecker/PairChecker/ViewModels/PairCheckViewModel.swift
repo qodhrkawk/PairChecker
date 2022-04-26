@@ -56,7 +56,12 @@ struct PairCheckComponentModel: Hashable {
 }
 
 class PairCheckViewModel {
-    @Published var selectedPeople: [Person] = []
+    @Published var selectedPeople: [Person] = [] {
+        didSet {
+            print("YJKIM")
+            print(selectedPeople)
+        }
+    }
     @Published var people: [Person] = UserManager.shared.getStoredPeople()
     @Published var mainAnimal: Animal?
     
@@ -78,10 +83,11 @@ class PairCheckViewModel {
     }
     
     func reloadPeople() {
-        self.people = UserManager.shared.getStoredPeople()
+        var people = UserManager.shared.getStoredPeople()
         if selectedPeople.count != 0 {
             people.removeAll(where: { $0 == selectedPeople[0] })
         }
+        self.people = people
     }
     
     func addMainPerson(person: Person) {
@@ -92,6 +98,19 @@ class PairCheckViewModel {
     
     func addSubPerson(person: Person) {
         selectedPeople.append(person)
+    }
+    
+    func popSubPersonIfNeeded() {
+        if selectedPeople.count == 2 {
+            selectedPeople.removeLast()
+        }
+    }
+    
+    func resetPairComponents() {
+        pairCheckComponentModels = []
+        publishPairCheckComponentModel()
+        pairCheckComponentSelected = false
+        selectedIconImage = UIImage(named: "icAllselectInactive")
     }
     
     func bindPairComponentViewController() {
@@ -132,6 +151,7 @@ class PairCheckViewModel {
     
     private func prepareComponents() {
         guard selectedPeople.count == 2 else { return }
+        pairCheckComponentModels = []
         PairCheckComponent.allCases.forEach { component in
             switch component {
             case .name:

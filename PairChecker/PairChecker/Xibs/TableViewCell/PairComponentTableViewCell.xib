@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,26 +22,31 @@
                         <rect key="frame" x="16" y="6" width="496" height="133"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ac5-DR-0Ki">
-                                <rect key="frame" x="14" y="14" width="80" height="36"/>
+                                <rect key="frame" x="14" y="37.5" width="80" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="e9H-gS-PP9"/>
                                     <constraint firstAttribute="height" constant="36" id="xWj-ZJ-fwN"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-KL-tiZ">
-                                <rect key="frame" x="23" y="22" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTB-HO-Vbi">
-                                <rect key="frame" x="23" y="47" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="O2t-AX-Zxa">
+                                <rect key="frame" x="23" y="44" width="41.5" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt1-KL-tiZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTB-HO-Vbi">
+                                        <rect key="frame" x="0.0" y="24.5" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLineWhite" translatesAutoresizingMaskIntoConstraints="NO" id="vVU-Yg-Ic0">
-                                <rect key="frame" x="19" y="26" width="65" height="16"/>
+                                <rect key="frame" x="19" y="50.5" width="65" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="aN8-Gg-YZp"/>
                                     <constraint firstAttribute="width" constant="65" id="tLP-h0-le1"/>
@@ -49,14 +55,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ac5-DR-0Ki" firstAttribute="top" secondItem="66K-5d-nfC" secondAttribute="top" constant="14" id="A1p-Qa-p6B"/>
-                            <constraint firstItem="mt1-KL-tiZ" firstAttribute="top" secondItem="66K-5d-nfC" secondAttribute="top" constant="22" id="G6J-v5-WgR"/>
-                            <constraint firstItem="dTB-HO-Vbi" firstAttribute="top" secondItem="mt1-KL-tiZ" secondAttribute="bottom" constant="4" id="Mqh-jK-tEV"/>
+                            <constraint firstItem="Ac5-DR-0Ki" firstAttribute="centerY" secondItem="66K-5d-nfC" secondAttribute="centerY" constant="-11" id="42M-PG-RXe"/>
+                            <constraint firstItem="vVU-Yg-Ic0" firstAttribute="centerY" secondItem="66K-5d-nfC" secondAttribute="centerY" constant="-8" id="6ah-rB-tGV"/>
+                            <constraint firstItem="O2t-AX-Zxa" firstAttribute="centerY" secondItem="66K-5d-nfC" secondAttribute="centerY" id="QBj-jM-gex"/>
                             <constraint firstItem="vVU-Yg-Ic0" firstAttribute="leading" secondItem="66K-5d-nfC" secondAttribute="leading" constant="19" id="SGU-5m-jZr"/>
                             <constraint firstItem="Ac5-DR-0Ki" firstAttribute="leading" secondItem="66K-5d-nfC" secondAttribute="leading" constant="14" id="VVg-CB-8sj"/>
-                            <constraint firstItem="mt1-KL-tiZ" firstAttribute="leading" secondItem="66K-5d-nfC" secondAttribute="leading" constant="23" id="eyw-Fr-Koh"/>
-                            <constraint firstItem="dTB-HO-Vbi" firstAttribute="leading" secondItem="66K-5d-nfC" secondAttribute="leading" constant="23" id="q0n-gC-VBk"/>
-                            <constraint firstItem="vVU-Yg-Ic0" firstAttribute="top" secondItem="66K-5d-nfC" secondAttribute="top" constant="26" id="ujA-mw-g3T"/>
+                            <constraint firstItem="O2t-AX-Zxa" firstAttribute="leading" secondItem="66K-5d-nfC" secondAttribute="leading" constant="23" id="kBT-if-NCv"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -72,7 +76,7 @@
                 <outlet property="containView" destination="66K-5d-nfC" id="h6j-4f-G7z"/>
                 <outlet property="highlightImageView" destination="Ac5-DR-0Ki" id="r7U-MW-CS0"/>
                 <outlet property="highlightLeadingConstraint" destination="VVg-CB-8sj" id="RV6-Sb-fMQ"/>
-                <outlet property="highlightTopConstraint" destination="A1p-Qa-p6B" id="NCO-wu-Ym7"/>
+                <outlet property="highlightTopConstraint" destination="42M-PG-RXe" id="Smb-o0-eoi"/>
                 <outlet property="subTitleLabel" destination="dTB-HO-Vbi" id="y3M-uj-IZZ"/>
                 <outlet property="titleLabel" destination="mt1-KL-tiZ" id="bTM-PI-0RD"/>
                 <outlet property="unavailableImageView" destination="vVU-Yg-Ic0" id="JH4-oG-Mjb"/>

@@ -19,7 +19,7 @@ class PairComponentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var highlightTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var highlightLeadingConstraint: NSLayoutConstraint!
-    
+        
     var componentModel: PairCheckComponentModel? {
         didSet {
             guard let model = componentModel else { return }
@@ -28,7 +28,7 @@ class PairComponentTableViewCell: UITableViewCell {
             highlightImageView.image = model.component.highlightImage
             
             if model.component == .name || model.component == .mbti {
-                highlightTopConstraint.constant = 17
+                highlightTopConstraint.constant = -7
                 highlightLeadingConstraint.constant = 18
             }
             
@@ -65,6 +65,10 @@ class PairComponentTableViewCell: UITableViewCell {
         subTitleLabel.alpha = 0.4
         
         unavailableImageView.alpha = 0
+        
+//        for ydiffConstraint in ydiffConstraints {
+//            ydiffConstraint.constant *= DeviceInfo.screenHeightRatio
+//        }
     }
         
     func adaptToSelection() {

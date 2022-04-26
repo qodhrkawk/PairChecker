@@ -32,7 +32,7 @@ struct BirthDate: Codable, Hashable {
         guard month > 0, month < 13,
               let maximumDay = Self.monthToDate[month]
         else { return false }
-        if maximumDay < day || day < 0 {
+        if maximumDay < day || day <= 0 {
             return false
         }
         return true

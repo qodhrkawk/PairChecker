@@ -24,6 +24,8 @@ class OnboardingViewController: UIViewController {
     
     @IBOutlet var labels: [UILabel]!
     
+    
+    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
     @IBOutlet var heightConstraints: [NSLayoutConstraint]!
     @IBOutlet var ydiffContstraints: [NSLayoutConstraint]!
     

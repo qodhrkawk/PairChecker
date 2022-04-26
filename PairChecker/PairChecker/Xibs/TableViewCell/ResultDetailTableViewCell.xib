@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -101,6 +102,10 @@
                 <outletCollection property="titleLabels" destination="xYr-in-DBs" collectionClass="NSMutableArray" id="a0T-R1-gSx"/>
                 <outletCollection property="titleLabels" destination="FR4-ys-5hM" collectionClass="NSMutableArray" id="H4W-RD-Xc1"/>
                 <outletCollection property="titleLabels" destination="MKb-YQ-IU7" collectionClass="NSMutableArray" id="Cda-dZ-ono"/>
+                <outletCollection property="ydiffConstraints" destination="dDW-4d-xdd" collectionClass="NSMutableArray" id="iCD-DZ-dfu"/>
+                <outletCollection property="ydiffConstraints" destination="9z3-do-yR8" collectionClass="NSMutableArray" id="mDA-gh-fEh"/>
+                <outletCollection property="ydiffConstraints" destination="Az2-vL-jhB" collectionClass="NSMutableArray" id="z6J-Mj-iBQ"/>
+                <outletCollection property="heightConstraints" destination="20V-Xx-ifw" collectionClass="NSMutableArray" id="TSN-01-mhu"/>
             </connections>
             <point key="canvasLocation" x="155.07246376811597" y="327.12053571428572"/>
         </tableViewCell>

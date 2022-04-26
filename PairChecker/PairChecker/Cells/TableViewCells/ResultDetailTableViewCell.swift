@@ -21,6 +21,9 @@ class ResultDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var finishButton: UIButton!
     
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
+    @IBOutlet var heightConstraints: [NSLayoutConstraint]!
+    
     typealias DataSource = UITableViewDiffableDataSource<ResultDetailSection, ResultGraphElement>
     typealias Snapshot = NSDiffableDataSourceSnapshot<ResultDetailSection, ResultGraphElement>
     
@@ -66,6 +69,15 @@ class ResultDetailTableViewCell: UITableViewCell {
         finishButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         
         prepareGraphTableView()
+        
+        for ydiffConstraint in ydiffConstraints {
+            ydiffConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
+        
+        for heightConstraint in heightConstraints {
+            heightConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
+        
     }
     
     private func bindViewModel() {
@@ -137,6 +149,6 @@ class ResultDetailTableViewCell: UITableViewCell {
 
 extension ResultDetailTableViewCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        66
+        66 * DeviceInfo.screenHeightRatio
     }
 }

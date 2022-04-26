@@ -46,6 +46,7 @@ class MoreViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MoreTableViewCell", for: indexPath) as! MoreTableViewCell
             cell.setCell(item: moreItem)
             cell.delegate = self
+            cell.separatorInset = .zero
             return cell
         })
     }
@@ -98,6 +99,6 @@ extension MoreViewController: MoreViewDelegate {
         else { return }
         viewController.modalPresentationStyle = .fullScreen
         
-        self.present(viewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

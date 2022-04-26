@@ -17,5 +17,18 @@ extension UILabel {
         self.attributedText = attributedString
     }
     
+    func setTextWithLineSpacing(text: String, spacing: CGFloat, font: UIFont) {
+        let attributedString = NSMutableAttributedString(string: text)
+        let paragraphStyle = NSMutableParagraphStyle()
+        
+        paragraphStyle.lineSpacing = spacing
+        let attributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                          NSAttributedString.Key.font: font
+        ]
+        
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        self.attributedText = NSAttributedString(string: text, attributes: attributes)
+    }
+    
 }
 

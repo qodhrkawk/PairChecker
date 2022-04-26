@@ -22,6 +22,8 @@ class PairComponentSelectViewController: UIViewController {
     @IBOutlet weak var pairComponentTableView: UITableView!
     @IBOutlet weak var selectButton: UIButton!
     
+
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
     private var mainAnimalSubscription: AnyCancellable?
     private var pairComponentModelSubscription: AnyCancellable?
     private var pairComponentSelectedSubscription: AnyCancellable?
@@ -36,11 +38,7 @@ class PairComponentSelectViewController: UIViewController {
     let animationView = CalculateAnimationView()
     var animationTimer: Timer?
     
-    var viewModel: PairCheckViewModel? {
-        didSet {
-//            bindViewModel()
-        }
-    }
+    var viewModel: PairCheckViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +48,10 @@ class PairComponentSelectViewController: UIViewController {
         bindViewModel()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        bindViewModel()
-//        viewModel?.bindPairComponentViewController()
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel?.resetPairComponents()
     }
-
+    
     func prepareUIs() {
         view.backgroundColor = .mainBackground
         
@@ -72,6 +69,10 @@ class PairComponentSelectViewController: UIViewController {
         selectButton.setTitleColor(.black, for: .normal)
         selectButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         selectButton.backgroundColor = .animalGreen
+        
+        for ydiffConstraint in ydiffConstraints {
+            ydiffConstraint.constant *= DeviceInfo.screenHeightRatio
+        }
     }
     
     func prepareTableView() {
@@ -201,6 +202,6 @@ class PairComponentSelectViewController: UIViewController {
 
 extension PairComponentSelectViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        100 * DeviceInfo.screenHeightRatio
     }
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -47,12 +48,6 @@
                                     <constraint firstAttribute="width" constant="85" id="n27-BU-iFg"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLr-0d-G2j">
-                                <rect key="frame" x="16" y="118" width="41.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-sp-wBO">
                                 <rect key="frame" x="110" y="143" width="60" height="45"/>
                                 <constraints>
@@ -60,14 +55,20 @@
                                     <constraint firstAttribute="height" constant="45" id="7pj-kp-abX"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLr-0d-G2j">
+                                <rect key="frame" x="16" y="118" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpX-Ba-d53">
                                 <rect key="frame" x="175" y="770" width="64" height="64"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="HpX-Ba-d53" secondAttribute="height" multiplier="1:1" id="E1B-gX-PDV"/>
                                     <constraint firstAttribute="height" constant="64" id="PRe-Vq-ker"/>
-                                    <constraint firstAttribute="width" constant="64" id="zJt-se-2oZ"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjq-iX-LnX">
                                 <rect key="frame" x="314" y="0.0" width="100" height="90"/>
@@ -75,8 +76,7 @@
                                     <constraint firstAttribute="width" constant="100" id="KED-as-vCU"/>
                                     <constraint firstAttribute="height" constant="90" id="xwb-TV-vDf"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMainList" translatesAutoresizingMaskIntoConstraints="NO" id="FQ8-6e-7Tw">
                                 <rect key="frame" x="315.5" y="65" width="16" height="16"/>
@@ -142,7 +142,13 @@
                         <outlet property="listButton" destination="Fjq-iX-LnX" id="ejs-Sj-bcw"/>
                         <outlet property="mainTextLabel" destination="iLr-0d-G2j" id="7Xr-Qk-HdD"/>
                         <outlet property="moreButton" destination="myX-gS-SQP" id="wBm-gM-QoU"/>
-                        <outletCollection property="yDiffConstraints" destination="jtW-2M-oth" collectionClass="NSMutableArray" id="FUQ-gH-IQ7"/>
+                        <outletCollection property="ydiffConstraints" destination="jtW-2M-oth" collectionClass="NSMutableArray" id="q2d-9J-DCB"/>
+                        <outletCollection property="ydiffConstraints" destination="ukR-nL-UsN" collectionClass="NSMutableArray" id="CNX-rg-jd0"/>
+                        <outletCollection property="heightConstraints" destination="PRe-Vq-ker" collectionClass="NSMutableArray" id="Tta-vs-VoJ"/>
+                        <outletCollection property="heightConstraints" destination="jnm-nM-WSx" collectionClass="NSMutableArray" id="F7m-8r-UYC"/>
+                        <outletCollection property="titleLabelConstraints" destination="fZR-De-0EA" collectionClass="NSMutableArray" id="5Aa-aP-Ttx"/>
+                        <outletCollection property="titleLabelConstraints" destination="cup-5K-hkg" collectionClass="NSMutableArray" id="wlh-BB-obC"/>
+                        <outletCollection property="titleLabelConstraints" destination="jan-Dh-voz" collectionClass="NSMutableArray" id="vzO-Yk-Dzx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

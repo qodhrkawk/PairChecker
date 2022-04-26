@@ -85,7 +85,7 @@ class ResultGraphTableViewCell: UITableViewCell {
         },completion: { [weak self] finished in
             guard let self = self else { return }
             if let graphElement = self.graphElement,
-               graphElement.score == 100 {
+               graphElement.score == 100 || (graphElement.componentName == "혈액형" && graphElement.score == 90) {
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.3, delay: 1.0, animations: { [weak self] in
                         guard let self = self else { return }

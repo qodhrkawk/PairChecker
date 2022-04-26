@@ -44,7 +44,6 @@ class MoreViewModel {
     
     func getViewController(of name: String) -> UIViewController? {
         for viewController in viewControllerItems {
-            print(String(describing: viewController))
             if String(describing: viewController).contains(name) {
                 return viewController
             }

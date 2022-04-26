@@ -11,6 +11,8 @@ import Combine
 class AppIntroduceViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var introduceTextView: UITextView!
+
+    @IBOutlet var ydiffConstraints: [NSLayoutConstraint]!
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -42,13 +44,17 @@ class AppIntroduceViewController: UIViewController {
         즐거운 기억을 만들어 보자!
         """
         introduceTextView.setTextWithLineSpacing(text: text, spacing: 13, font: .systemFont(ofSize: 18, weight: .bold))
+        
+        ydiffConstraints.forEach {
+            $0.constant *= DeviceInfo.screenHeightRatio
+        }
     }
     
     private func bindButton() {
         backButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                self?.dismiss(animated: true)
+                self?.navigationController?.popViewController(animated: true)
             })
             .store(in: &cancellables)
     }

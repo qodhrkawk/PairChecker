@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 class NoticeViewController: UIViewController {
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollContainView: UIView!
     @IBOutlet weak var backButton: UIButton!
     
@@ -20,6 +21,10 @@ class NoticeViewController: UIViewController {
         bindButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+    }
+    
     private func prepareUIs() {
         view.backgroundColor = .paleGrey
         scrollContainView.backgroundColor = .paleGrey
@@ -29,7 +34,7 @@ class NoticeViewController: UIViewController {
         backButton
             .publisher(for: .touchUpInside)
             .sink(receiveValue: { [weak self] _ in
-                self?.dismiss(animated: true)
+                self?.navigationController?.popViewController(animated: true)
             })
             .store(in: &cancellables)
     }

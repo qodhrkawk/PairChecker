@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FPb-EG-7Y2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--More Navigation Controller-->
+        <scene sceneID="NEb-JS-K3Q">
+            <objects>
+                <navigationController storyboardIdentifier="MoreNavigationController" navigationBarHidden="YES" id="FPb-EG-7Y2" customClass="MoreNavigationController" customModule="PairChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OrP-BF-gXL">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="WMa-zI-0cQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K4F-6g-kMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-949" y="82"/>
+        </scene>
         <!--More View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -57,6 +73,7 @@
                             <constraint firstItem="z9V-jo-QBN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="xFi-EL-yVs"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="M5W-IL-mmN"/>
                     <connections>
                         <outlet property="moreTableView" destination="z9V-jo-QBN" id="gta-bw-NSr"/>
                         <outlet property="xButton" destination="bq6-Fu-vX3" id="xph-5J-c5F"/>
@@ -129,6 +146,7 @@
                     <connections>
                         <outlet property="backButton" destination="EeL-J3-Z18" id="uYN-JI-zJk"/>
                         <outlet property="introduceTextView" destination="lFh-2q-W2n" id="Rba-g1-g70"/>
+                        <outletCollection property="ydiffConstraints" destination="aPQ-xi-k75" collectionClass="NSMutableArray" id="zoQ-lD-LjF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHg-YA-oUx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,8 +167,7 @@
                                     <constraint firstAttribute="width" constant="100" id="6mH-9s-8ps"/>
                                     <constraint firstAttribute="height" constant="80" id="OD3-ak-AHu"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group66" translatesAutoresizingMaskIntoConstraints="NO" id="GjB-th-VS3">
                                 <rect key="frame" x="16" y="60" width="24" height="24"/>
@@ -166,7 +183,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-x1-wie">
-                                <rect key="frame" x="0.0" y="631" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="709" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tp8-ZH-sbj"/>
                                 </constraints>
@@ -179,18 +196,18 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m77-6u-MGe">
-                                <rect key="frame" x="173" y="614" width="68.5" height="17"/>
+                                <rect key="frame" x="173" y="692" width="68.5" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="fUR-Em-mAf">
-                                <rect key="frame" x="176" y="639" width="62" height="22"/>
+                                <rect key="frame" x="176" y="717" width="62" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-FN-hMS">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="22"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnCopy" translatesAutoresizingMaskIntoConstraints="NO" id="kZg-91-xfI">
@@ -217,10 +234,10 @@
                             <constraint firstItem="o4p-sU-sOh" firstAttribute="top" secondItem="EEh-z0-b9L" secondAttribute="top" id="PRy-EA-VFT"/>
                             <constraint firstItem="7dn-vx-nhX" firstAttribute="top" secondItem="o4p-sU-sOh" secondAttribute="bottom" id="QqI-jY-haC"/>
                             <constraint firstItem="o4p-sU-sOh" firstAttribute="leading" secondItem="TLm-aW-EtS" secondAttribute="leading" id="fNq-ee-Om7"/>
+                            <constraint firstAttribute="bottom" secondItem="fUR-Em-mAf" secondAttribute="bottom" constant="157" id="gbD-Ot-lyd"/>
                             <constraint firstItem="1dq-x1-wie" firstAttribute="top" secondItem="m77-6u-MGe" secondAttribute="bottom" id="goM-Wl-K87"/>
                             <constraint firstItem="ZrU-nh-UEg" firstAttribute="centerX" secondItem="TLm-aW-EtS" secondAttribute="centerX" id="kmo-c0-IBx"/>
                             <constraint firstItem="fUR-Em-mAf" firstAttribute="top" secondItem="m77-6u-MGe" secondAttribute="bottom" constant="8" id="qUy-XY-VLJ"/>
-                            <constraint firstItem="m77-6u-MGe" firstAttribute="top" secondItem="7dn-vx-nhX" secondAttribute="bottom" constant="80" id="vw9-Sk-coc"/>
                             <constraint firstItem="GjB-th-VS3" firstAttribute="top" secondItem="EEh-z0-b9L" secondAttribute="top" constant="60" id="whS-VZ-PmR"/>
                             <constraint firstItem="fUR-Em-mAf" firstAttribute="centerX" secondItem="TLm-aW-EtS" secondAttribute="centerX" id="yPL-Qq-LHG"/>
                             <constraint firstItem="7dn-vx-nhX" firstAttribute="leading" secondItem="TLm-aW-EtS" secondAttribute="leading" id="zyq-fc-wX5"/>
@@ -232,6 +249,9 @@
                         <outlet property="copyButton" destination="1dq-x1-wie" id="02p-U3-KvJ"/>
                         <outlet property="copyImageView" destination="kZg-91-xfI" id="W0k-1Z-nQ9"/>
                         <outlet property="emailLabel" destination="s0q-FN-hMS" id="31B-mL-jiM"/>
+                        <outlet property="teamImageView" destination="7dn-vx-nhX" id="OkD-NR-mhB"/>
+                        <outletCollection property="ydiffConstraints" destination="gbD-Ot-lyd" collectionClass="NSMutableArray" id="AbS-9U-SzG"/>
+                        <outletCollection property="heightConstraints" destination="XFc-0H-u7G" collectionClass="NSMutableArray" id="rXL-g7-o3V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ns1-LV-i1C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -331,6 +351,7 @@
                     <connections>
                         <outlet property="backButton" destination="oxj-nA-zjX" id="Ss4-Pw-goz"/>
                         <outlet property="scrollContainView" destination="uGN-aK-Ckk" id="hGF-Fr-1tA"/>
+                        <outlet property="scrollView" destination="kQr-zd-sEz" id="5nM-Bz-Tir"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Oj-Gx-pCP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

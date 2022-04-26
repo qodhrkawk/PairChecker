@@ -12,7 +12,6 @@ extension UITextView {
         let attributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
         
-        let font = UIFont.systemFont(ofSize: 18, weight: .bold)
         paragraphStyle.lineSpacing = spacing
         let attributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle,
                           NSAttributedString.Key.font: font
