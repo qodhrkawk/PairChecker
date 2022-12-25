@@ -192,6 +192,7 @@ class PersonSelectViewController: UIViewController {
     
     private func showEmptyView() {
         selectionImage.alpha = 0
+        selectButton.alpha = 0
         
         view.addSubview(emptyView)
         emptyView.snp.remakeConstraints { make in
@@ -211,6 +212,7 @@ class PersonSelectViewController: UIViewController {
     
     private func hideEmptyView() {
         selectionImage.alpha = 1
+        selectButton.alpha = 1
         emptyView.removeFromSuperview()
     }
 }

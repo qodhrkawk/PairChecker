@@ -156,6 +156,10 @@ class CardCollectionViewCell: UICollectionViewCell {
             self?.floatButtonView.transform = .identity
         })
     }
+    
+    func hideMoreButton() {
+        floatButtonView.removeFromSuperview()
+    }
 
     private func addBackCardView() {
         backCardView.person = self.viewModel?.person

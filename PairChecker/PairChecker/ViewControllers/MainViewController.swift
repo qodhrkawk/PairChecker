@@ -59,6 +59,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         viewModel.reloadPeople()
         viewModel.makeRandomMainText()
+        centerCell?.hideMoreButton()
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             self?.cardCollectionView.alpha = 1
             self?.highlightCenterCell()
@@ -80,6 +81,10 @@ class MainViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: { [weak self] in
             self?.highlightCenterCell()
         })
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        centerCell?.hideMoreButton()
     }
     
     private func prepareUIs() {

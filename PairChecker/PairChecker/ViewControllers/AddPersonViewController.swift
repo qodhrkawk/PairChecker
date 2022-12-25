@@ -273,12 +273,11 @@ class AddPersonViewController: UIViewController {
                     self.makeButtonSelectedFromArray(buttons: self.bloodTypeButtons, index: BloodType.allCases.count)
                     return
                 }
-                for index in 0...BloodType.allCases.count {
+                for index in 0..<BloodType.allCases.count {
                     if index == bloodType.rawValue {
                         self.makeButtonSelectedFromArray(buttons: self.bloodTypeButtons, index: index)
                     }
                 }
-                self.bloodTypeButtons.last?.setTitleColor(.white, for: .normal)
             })
         
         signSubscription = viewModel.$sign
