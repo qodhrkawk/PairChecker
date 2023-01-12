@@ -144,13 +144,27 @@ class AddPersonViewController: UIViewController {
             .publisher(for: .editingChanged)
             .sink(receiveValue: { [weak self] _ in
                 guard let self = self else { return }
-                if self.monthTextField.text?.count == 2 {
+                if self.monthTextField.text?.count == 2 ||
+                    (self.monthTextField.text?.count == 1
+                     && self.monthTextField.text != "1"
+                     && self.monthTextField.text != "0") {
                     if self.dayTextField.text == "" {
                         self.dayTextField.becomeFirstResponder()
                     }
                     else {
                         self.view.endEditing(true)
                     }
+                }
+                self.updateBirthDateIfNeeded()
+            })
+            .store(in: &cancellables)
+        
+        monthTextField
+            .publisher(for: .editingDidEnd)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                if self.monthTextField.text?.count == 1 {
+                    self.monthTextField.text = "0" + (self.monthTextField.text ?? "")
                 }
                 self.updateBirthDateIfNeeded()
             })
@@ -176,6 +190,18 @@ class AddPersonViewController: UIViewController {
                 self.updateBirthDateIfNeeded()
             })
             .store(in: &cancellables)
+        
+        dayTextField
+            .publisher(for: .editingDidEnd)
+            .sink(receiveValue: { [weak self] _ in
+                guard let self = self else { return }
+                if self.dayTextField.text?.count == 1 {
+                    self.dayTextField.text = "0" + (self.dayTextField.text ?? "")
+                }
+                self.updateBirthDateIfNeeded()
+            })
+            .store(in: &cancellables)
+
         dayTextField.delegate = self
 
         
