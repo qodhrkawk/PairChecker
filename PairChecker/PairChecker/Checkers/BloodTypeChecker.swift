@@ -8,14 +8,14 @@
 import Foundation
 
 enum BloodType: Int, Codable, CaseIterable {
-    case A = 0, B, AB, O
+    case A = 0, B, O, AB
     
     var koreanName: String {
         switch self {
         case .A: return "A형"
         case .B: return "B형"
-        case .AB: return "AB형"
         case .O: return "O형"
+        case .AB: return "AB형"
         }
     }
 }
